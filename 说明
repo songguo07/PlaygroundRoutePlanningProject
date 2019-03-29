@@ -1,0 +1,11 @@
+一、src/main/java中各个包的含义
+	1.backstage：后台
+		admin:管理员
+		ser:客服人员
+	2.forestage：前台
+		user：用户
+		department：娱乐设施
+	3.common：所有公用的工具之类的
+	
+	
+二、数据库使用MySql，数据库名为playground_route_planning，用户名和密码为root
