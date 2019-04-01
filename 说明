@@ -2,6 +2,7 @@
 	1.backstage：后台
 		admin:管理员
 		ser:客服人员
+		department：娱乐设施
 	2.forestage：前台
 		user：用户
 		department：娱乐设施
