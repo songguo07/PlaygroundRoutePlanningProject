@@ -29,21 +29,10 @@
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${pageContext.request.contextPath}/static/03/assets/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/static/03/assets/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/static/03/assets/ico/apple-touch-icon-57-precomposed.png">
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/03/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/03/assets/js/jquery.validate.js"></script>
+
 
 </head>
-<script type="text/javascript">
 
-	$.extend($.fn.validatebox.defaults.rules,{
-		equalTo:{
-			validator:function(value,param){
-				return $(param[0]).val()==value;
-			},message:'两次密码输入不匹配哈哈哈哈'
-		}
-	});
-
-</script>
 <body>
 
 <!-- Content -->
@@ -86,22 +75,22 @@
 			
 			<div class="modal-body">
 				
-				<form role="form" action="" method="post" class="registration-form">
+				<form role="form" action="${pageContext.request.contextPath}/DoRegist" method="post" class="registration-form" id="myForm">
 					<div class="form-group">
-						<label class="sr-only" for="form-first-name">First name</label>
-						<input type="text" name="userTelNo" placeholder="请输入手机号" class="form-first-name form-control" id="form-first-name">
+						<label class="sr-only" for="form-first-name">手机号</label>
+						<input type="text" name="userTelNo" placeholder="请输入手机号" class="form-first-name form-control" id="tel_no">
 					</div>
 					<div class="form-group">
-						<label class="sr-only" for="form-last-name">Last name</label>
-						<input type="text" name="userNickname" placeholder="请输入昵称" class="form-last-name form-control" id="form-last-name">
+						<label class="sr-only" for="form-last-name">昵称</label>
+						<input type="text" name="userNickname" placeholder="请输入昵称" class="form-last-name form-control" id="nickname">
 					</div>
 					<div class="form-group">
-						<label class="sr-only" for="form-email">Email</label>
-						<input type="text" name="userPassword" placeholder="请输入密码" class="form-email form-control" id="password">
+						<label class="sr-only" for="form-email">密码</label>
+						<input type="password" name="userPassword" placeholder="请输入密码" class="form-email form-control" id="userPassword">
 					</div>
 					<div class="form-group">
-						<label class="sr-only" for="form-email">Email</label>
-						<input type="text" name="againUserPassword" placeholder="请再次输入密码" class="form-email form-control" id="repassword" validType="equalTo['#password']" invalidMessage="两次密码输入不匹配">
+						<label class="sr-only" for="form-email">再次密码</label>
+						<input type="password" name="againUserPassword" placeholder="请再次输入密码" class="form-email form-control" id="againUserPassword" >
 					</div>
 					
 					<button type="submit" class="btn">提交!</button>
@@ -119,10 +108,33 @@
 <script src="${pageContext.request.contextPath}/static/03/assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/03/assets/js/jquery.backstretch.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/03/assets/js/scripts.js"></script>
+<script src="${pageContext.request.contextPath}/static/03/js/jquery.validate.js"></script>
 
 <!--[if lt IE 10]>
 	<script src="assets/js/placeholder.js"></script>
+		$("#password").click(function(){
+			alert("aaaaaaaaa");
+		});
 <![endif]-->
+<script type="text/javascript">
+	$(function(){
+	
+		$( "#myForm" ).validate({
+			  rules: {
+			    userPassword: "required",
+			    againUserPassword: {
+			      equalTo: "#userPassword"
+			    }
+			  },
+			  //重设提示信息
+			    messages:{
+			    	userPassword: "请输入密码",
+			    	againUserPassword: "密码输入不一致"
+			    }
+			});
+	})
 
+
+</script>
 </body>
 </html>

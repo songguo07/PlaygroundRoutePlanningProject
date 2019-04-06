@@ -45,7 +45,7 @@
 	<!-- //title -->
 	<!-- content -->
 	<div class="sub-main-w3">
-		<form action="#" method="post">
+		<form action="${pageContext.request.contextPath}/DoLogin" method="post">
 			<h2>现在登录
 				<i class="fas fa-level-down-alt"></i>
 			</h2>
@@ -54,14 +54,14 @@
 					<i class="fas fa-user"></i>
 					手机号
 				</label>
-				<input placeholder="请输入手机号" name="Name" type="text" required="">
+				<input placeholder="请输入手机号" name="userTelno" type="text" required="">
 			</div>
 			<div class="form-style-agile">
 				<label>
 					<i class="fas fa-unlock-alt"></i>
 					密码
 				</label>
-				<input placeholder="请输入密码" name="Password" type="password" required="">
+				<input placeholder="请输入密码" name="userPassword" type="password" required="">
 			</div>
 			<!-- checkbox -->
 			<div class="wthree-text">
