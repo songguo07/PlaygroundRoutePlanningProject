@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <html lang="zxx">
+<script src="${pageContext.request.contextPath}/static/03/assets/js/jquery-1.11.1.min.js"></script>
 
 <head>
 	<title>登录</title>
@@ -18,6 +19,19 @@
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
+		$(function(){
+			$("#getCheckNumber").click(function(){
+				var value = $("#userTelno").val();
+				$.ajax({
+					url:"http://localhost:8080/playgroundRoutePlanning/AliCheckNumberServlet",
+					cache:false,
+					data:"userTelno="+value,
+					success:function(result){
+						$("#reallyCheckNumber").val(result);
+					}
+				});
+			});
+		});
 	</script>
 	<!-- Meta tag Keywords -->
 	<!-- css files -->
@@ -54,14 +68,24 @@
 					<i class="fas fa-user"></i>
 					手机号
 				</label>
-				<input placeholder="请输入手机号" name="userTelno" type="text" required="">
+				<input placeholder="请输入手机号" name="userTelno" type="text" required="" id="userTelno" required="true">
 			</div>
 			<div class="form-style-agile">
 				<label>
 					<i class="fas fa-unlock-alt"></i>
 					密码
 				</label>
-				<input placeholder="请输入密码" name="userPassword" type="password" required="">
+				<input placeholder="请输入密码" name="userPassword" type="password" required="true">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-unlock-alt"></i>
+					验证码
+				</label>
+				<input placeholder="请输入验证码" name="checkNumber" type="text" required="true">
+				<input  name="reallyCheckNumber" type="hidden" required="true" id="reallyCheckNumber">
+				<cite><input type="button" id="getCheckNumber" class="loginbtn" value="点击获取验证码" />
+				</cite>
 			</div>
 			<!-- checkbox -->
 			<div class="wthree-text">
