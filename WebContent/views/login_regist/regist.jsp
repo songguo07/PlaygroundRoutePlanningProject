@@ -105,7 +105,7 @@
 
 <!-- Javascript -->
 <script src="${pageContext.request.contextPath}/static/03/assets/js/jquery-1.11.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/03/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/03/assets/js/jquery.backstretch.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/03/assets/js/scripts.js"></script>
 <script src="${pageContext.request.contextPath}/static/03/js/jquery.validate.js"></script>

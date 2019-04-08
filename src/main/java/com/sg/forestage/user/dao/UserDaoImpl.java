@@ -57,5 +57,22 @@ public class UserDaoImpl implements UserDao{
 		}
 		return user;
 	}
+	/**
+	 * 用户修改密码
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public int doChangePassword(String userTelno, String userPassword) {
+		String sql="update user set user_password='"+userPassword+"' where user_telno='"+userTelno+"'";
+		System.out.println(sql);
+		try {
+			return qr.update(conn, sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }

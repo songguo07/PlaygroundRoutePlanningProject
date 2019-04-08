@@ -40,4 +40,16 @@ public class UserServiceImpl implements UserService{
 		return userDao.doLogin(userTelno, userPassword);
 	}
 
+	/**
+	 * 用户修改密码
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public int doChangePassword(String userTelno, String userPassword) {
+		userPassword = MD5Util.getInstance().getMD5(userPassword);
+		return userDao.doChangePassword(userTelno, userPassword);
+	}
+
 }

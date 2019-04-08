@@ -94,7 +94,7 @@
 						<a href="${pageContext.request.contextPath}/views/login_regist/regist.jsp">新用户注册</a>
 					</li>
 					<li>
-						<a href="#">忘记密码</a>
+						<a href="${pageContext.request.contextPath}/views/login_regist/forget_password.jsp">忘记密码</a>
 					</li>
 				</ul>
 			</div>
