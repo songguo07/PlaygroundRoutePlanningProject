@@ -1,6 +1,7 @@
 package com.sg.forestage.user.service;
 
 import com.sg.common.util.MD5Util;
+import com.sg.forestage.user.entity.Evaluate;
 import com.sg.forestage.user.dao.UserDao;
 import com.sg.forestage.user.dao.UserDaoImpl;
 import com.sg.forestage.user.entity.User;
@@ -40,4 +41,30 @@ public class UserServiceImpl implements UserService{
 		return userDao.doLogin(userTelno, userPassword);
 	}
 
+	/**
+	 * 用户修改密码
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public int doChangePassword(String userTelno, String userPassword) {
+		userPassword = MD5Util.getInstance().getMD5(userPassword);
+		return userDao.doChangePassword(userTelno, userPassword);
+	}
+
+	/**
+	 * 添加评论
+	 *
+	 *
+	 * @author 高小惠
+	 */
+	@Override
+	public int doAdd(Evaluate ee) {
+		String evaluate = ee.getEvaluate();
+		System.out.println(evaluate);
+		return userDao.doAdd(ee);
+	}
+
+	
 }
