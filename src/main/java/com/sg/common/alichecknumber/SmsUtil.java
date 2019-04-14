@@ -42,7 +42,7 @@ public class SmsUtil {
         //必填:待发送手机号
         request.setPhoneNumbers(phoneNumber);
         //必填:短信签名-可在短信控制台中找到举个例子
-        request.setSignName("郑大软件二组头条");
+        request.setSignName("松果服务");
         //必填:短信模板id-可在短信控制台中找到，是id不是名字，举个例子
         request.setTemplateCode("SMS_162732595");
         //可选:模板中的变量替换JSON串,如模板内容	\为"亲爱的${name},您的验证码为${code}"时,此处的值为--必填，与模板相对应
@@ -79,7 +79,7 @@ public class SmsUtil {
         //必填:待发送手机号
         request.setPhoneNumbers(phoneNumber);
         //必填:短信签名-可在短信控制台中找到举个例子
-        request.setSignName("郑大软件二组头条");
+        request.setSignName("松果服务");
         //必填:短信模板id-可在短信控制台中找到，是id不是名字，举个例子
         request.setTemplateCode("SMS_162732595");
         //可选:模板中的变量替换JSON串,如模板内容	\为"亲爱的${name},您的验证码为${code}"时,此处的值为--必填，与模板相对应
