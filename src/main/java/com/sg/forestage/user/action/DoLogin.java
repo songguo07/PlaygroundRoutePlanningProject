@@ -35,7 +35,11 @@ public class DoLogin extends HttpServlet {
 		System.out.println(reallyCheckNumber);
 		UserService userService = new UserServiceImpl();
 		User user = userService.doLogin(userTelno.trim(), userPassword.trim());
-		//SMSUtils.verifyCode(userTelno, checkNumber)网易云验证输入验证码是否一致
+		/**网易云需要修改两个地方：
+		 * 1，网易云验证输入验证码是否一致，在Dologin中修改这个
+		 * SMSUtils.verifyCode(userTelno, checkNumber)
+		 * 2，在login.jsp form表单中提交URL到CaptchaMsgServlet
+		 */
 		if(user!=null&&reallyCheckNumber.equals(checkNumber)) {
 			HttpSession session=request.getSession();
 			session.setAttribute("userSession", user);
