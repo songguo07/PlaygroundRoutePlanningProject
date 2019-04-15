@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 encoding//src/main/java/com/sg/backstage/admin/service/AdminServiceImpl.java=UTF-8
 encoding//src/main/java/com/sg/forestage/user/dao/UserDaoImpl.java=UTF-8
+=======
+encoding/<project>=UTF-8
+>>>>>>> 4646a5fdb45b56a4ce082bdf2b9151a4a52e4616
