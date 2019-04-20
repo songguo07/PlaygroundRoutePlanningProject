@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+    import="com.sg.forestage.user.entity.User"
     pageEncoding="UTF-8"%>
+<%
+   User user=(User)request.getSession().getAttribute("userSession");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -54,20 +58,20 @@
                                 <hr>
                                 <div class="panel panel-default contact btn-footer">
                                     <div class="panel-body">
-                                        <form role="form">
+                                        <form role="form" action="${pageContext.request.contextPath}/DoAddEvaluate" method="post">
                                             <div class="form-group">
                                                 <label for="contactEmail">评分（满分10分）</label>
-                                                <input type="email" class="form-control" id="evaluateGrade">
+                                                <input type="text" name="evaluategrade" class="form-control" id="evaluateGrade">
                                             </div>
                                             <div class="form-group">
                                                 <label for="contactMessage">评论</label>
-                                                <textarea class="form-control" rows="10" id="evaluateMessage"></textarea>
+                                                <textarea class="form-control" name="evaluatetext" rows="10" id="evaluateMessage"></textarea>
+                                            </div>
+                                            </div>
+                                                <input type="submit" value="发送">
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <a class="btn btn-grey btn-lg btn-block">发送</a>
-                                    </div>
+                                
                                 </div>
                             </div>
                         </div>    
