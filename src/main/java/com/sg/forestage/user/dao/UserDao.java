@@ -1,5 +1,6 @@
 package com.sg.forestage.user.dao;
 
+import com.sg.forestage.user.entity.Evaluate;
 import com.sg.forestage.user.entity.User;
 
 /**
@@ -21,4 +22,10 @@ public interface UserDao {
 	 * 用户忘记密码
 	 */
 	public int doChangePassword(String userTelno,String userPassword);
+	/**
+	 * 添加评论
+	 */
+	public int doAdd(Evaluate ee);
+	
+	
 }

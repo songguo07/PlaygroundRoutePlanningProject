@@ -9,20 +9,21 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
 import com.sg.common.util.DbUtil;
+import com.sg.forestage.user.entity.Evaluate;
 import com.sg.forestage.user.entity.User;
 
 /**
- * 用户逻辑层实现类
+ * 鐢ㄦ埛閫昏緫灞傚疄鐜扮被
  */
 public class UserDaoImpl implements UserDao{
 
 	Connection conn=DbUtil.getDBConn();
 	QueryRunner qr=new QueryRunner();
 	/**
-	 * 用户注册
+	 * 鐢ㄦ埛娉ㄥ唽
 	 *
 	 *
-	 * @author 李银霞
+	 * @author 鏉庨摱闇�
 	 */
 	@Override
 	public int doRegist(User user) {
@@ -38,10 +39,10 @@ public class UserDaoImpl implements UserDao{
 		return row;
 	}
 	/**
-	 * 用户登陆
+	 * 鐢ㄦ埛鐧婚檰
 	 *
 	 *
-	 * @author 李银霞
+	 * @author 鏉庨摱闇�
 	 */
 	@Override
 	public User doLogin(String userTelno, String userPassword) {
@@ -58,10 +59,10 @@ public class UserDaoImpl implements UserDao{
 		return user;
 	}
 	/**
-	 * 用户修改密码
+	 * 鐢ㄦ埛淇敼瀵嗙爜
 	 *
 	 *
-	 * @author 李银霞
+	 * @author 鏉庨摱闇�
 	 */
 	@Override
 	public int doChangePassword(String userTelno, String userPassword) {
@@ -74,5 +75,25 @@ public class UserDaoImpl implements UserDao{
 		}
 		return 0;
 	}
+
+	/**
+	 * 添加评论评分
+	 * @author 高小惠
+	 */
+	@Override
+	public int doAdd(Evaluate ee) {
+		String sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
+		float score=ee.getEscore();
+		String [] param= {ee.getUserId(),ee.getDId(),ee.getEvaluate()};
+		int row=0;
+		try {
+			row = qr.update(conn, sql,param,param,score);
+			DbUtils.closeQuietly(conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return row;
+	}
+	
 
 }
