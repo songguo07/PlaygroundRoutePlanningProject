@@ -36,9 +36,9 @@ public class AdminServiceImpl extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		String Sid = request.getParameter("Sid");
-		 dao=new Selectone();
-		List list=dao.readFirstTitle(request.getParameter("Sid")); 
-		request.getSession().setAttribute("list", list);
+		 //dao=new Selectone();
+		//List list=dao.readFirstTitle(request.getParameter("Sid")); 
+		//request.getSession().setAttribute("list", list);
 		response.sendRedirect("SelectoneTable.jsp");
 	}
 
