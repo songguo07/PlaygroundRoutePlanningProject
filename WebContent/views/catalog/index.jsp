@@ -29,13 +29,13 @@
             <nav>
                 <ul class="list-inline" id="menu">
                     <li class="active">
-                        <a href="index.html">首页</a>
+                        <a href="index.jsp">首页</a>
                     </li>
                     <li>
                         <a href="blog.html">地图</a>
                     </li>
                     <li>
-                        <a href="contact.html">contact</a>
+                        <a href="contact.html">客服</a>
                     </li>
 <!--                    <li class="last">-->
 <!--                        <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="facebook"></a>-->
@@ -62,10 +62,14 @@
                             <!--activity descritpion-->
                             <p class="work">步骤：</p>
                             <p class="steps">
-                                 <a href="">1.选择游玩项目</a><br/>
+                                <!--  <a href="">1.选择偏爱类型</a><br/>
                                  <a href="">2.点击开始规划</a><br/>
-                                 <a href="">3.生成最佳路线</a><br/>
-                                 <a href="${pageContext.request.contextPath}/views/catalog/score_evaluate.jsp">4.结束规划打分</a><br/>
+                                 <a href="${pageContext.request.contextPath}/views/catalog/score_evaluate.jsp">3.结束规划打分</a><br/>
+                             -->
+                             1.选择偏爱类型
+                             2.点击开始规划
+                             3.选择最佳路线
+                             4.结束规划打分
                             </p>
 
                         </div>
