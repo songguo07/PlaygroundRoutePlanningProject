@@ -8,4 +8,6 @@ import javax.servlet.http.HttpSession;
 public interface DepartmentService {
 
 	public int insertHobby(String selectProjectName,HttpSession session);
+
 }
+	

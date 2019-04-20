@@ -11,7 +11,7 @@
 <meta name="format-detection" content="telephone=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="stylesheet" href="../../../static/05/styles/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/static/05/styles/style.css">
 <script src="http://www.weizoom.com/static/resources/js/jquery-1.7.1.min.js"></script>
 <script type="text/javascript">
 </script>
