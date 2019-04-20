@@ -1,6 +1,9 @@
 package com.sg.forestage.user.dao;
 
+import java.util.List;
+
 import com.sg.forestage.user.entity.Evaluate;
+import com.sg.forestage.user.entity.Hobby;
 import com.sg.forestage.user.entity.User;
 
 /**
@@ -27,5 +30,9 @@ public interface UserDao {
 	 */
 	public int doAdd(Evaluate ee);
 	
+	/**
+	 * 获得用户爱好
+	 */
+	public List<String> getHobbyList(String userId);
 	
 }

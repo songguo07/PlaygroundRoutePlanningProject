@@ -3,27 +3,35 @@ package com.sg.forestage.user.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.sg.common.util.DbUtil;
+import com.sg.forestage.department.entity.Department;
 import com.sg.forestage.user.entity.Evaluate;
+import com.sg.forestage.user.entity.Hobby;
 import com.sg.forestage.user.entity.User;
 
 /**
- * 鐢ㄦ埛閫昏緫灞傚疄鐜扮被
+ * 用户逻辑层实现类
  */
 public class UserDaoImpl implements UserDao{
 
 	Connection conn=DbUtil.getDBConn();
 	QueryRunner qr=new QueryRunner();
 	/**
-	 * 鐢ㄦ埛娉ㄥ唽
+	 * 注册功能
 	 *
 	 *
-	 * @author 鏉庨摱闇�
+	 * @author 李银霞
 	 */
 	@Override
 	public int doRegist(User user) {
@@ -39,10 +47,10 @@ public class UserDaoImpl implements UserDao{
 		return row;
 	}
 	/**
-	 * 鐢ㄦ埛鐧婚檰
+	 * 登陆功能
 	 *
 	 *
-	 * @author 鏉庨摱闇�
+	 * @author 李银霞
 	 */
 	@Override
 	public User doLogin(String userTelno, String userPassword) {
@@ -59,10 +67,10 @@ public class UserDaoImpl implements UserDao{
 		return user;
 	}
 	/**
-	 * 鐢ㄦ埛淇敼瀵嗙爜
+	 * 修改密码
 	 *
 	 *
-	 * @author 鏉庨摱闇�
+	 * @author 李银霞
 	 */
 	@Override
 	public int doChangePassword(String userTelno, String userPassword) {
@@ -77,7 +85,8 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	/**
-	 * 添加评论评分
+	 * 添加评分评论
+	 * 
 	 * @author 高小惠
 	 */
 	@Override
@@ -87,7 +96,7 @@ public class UserDaoImpl implements UserDao{
 		String [] param= {ee.getUserId(),ee.getDId(),ee.getEvaluate()};
 		int row=0;
 		try {
-			row = qr.update(conn, sql,param,param,score);
+			row = qr.update(conn, sql,param);
 			DbUtils.closeQuietly(conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -95,5 +104,24 @@ public class UserDaoImpl implements UserDao{
 		return row;
 	}
 	
-
+	public List<String> getHobbyList(String userId){
+		List<Hobby> hobbyList = new ArrayList();
+		List<String> hobbyNameList = new ArrayList();
+		String sql="select user_id userId ,d_id dId from hobby where user_id ='"+userId+"'";
+		try {
+			hobbyList = qr.query(conn, sql,  new BeanListHandler<Hobby>(Hobby.class));
+			System.out.println(hobbyList);
+			if(hobbyList==null) {
+				return hobbyNameList;
+			}
+			for (Hobby hobby : hobbyList) {
+				String sql1="select d_id dId, d_name dName,d_aver_score dAverScore from department where d_id ='"+hobby.getdId()+"'";
+				Department department = qr.query(conn, sql1, new BeanHandler<Department>(Department.class));
+				hobbyNameList.add(department.getdName());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return hobbyNameList;
+	}
 }

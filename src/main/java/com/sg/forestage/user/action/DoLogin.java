@@ -39,11 +39,12 @@ public class DoLogin extends HttpServlet {
 		 * 1，网易云验证输入验证码是否一致，在Dologin中修改这个
 		 * SMSUtils.verifyCode(userTelno, checkNumber)
 		 * 2，在login.jsp form表单中提交URL到CaptchaMsgServlet
+		 * &&reallyCheckNumber.equals(checkNumber)
 		 */
-		if(user!=null&&reallyCheckNumber.equals(checkNumber)) {
+		if(user!=null) {
 			HttpSession session=request.getSession();
 			session.setAttribute("userSession", user);
-		//	response.sendRedirect(request.getContextPath()+"/views/login_regist/login.jsp");
+			response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
 		}else {
 			response.sendRedirect(request.getContextPath()+"/views/login_regist/login.jsp");
 		}

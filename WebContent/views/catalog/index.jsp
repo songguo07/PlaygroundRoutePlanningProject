@@ -16,14 +16,53 @@
     <script src="js/bootstrap/respond.min.js"></script>
     <script src="js/bootstrap/html5shiv.js"></script>
     <![endif]-->
-
+    <script src="${pageContext.request.contextPath}/static/03/js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$("#startDesign").click(function(){
+			alert(11);
+			 $('input[type="radio"]:checked').each(function(){
+				$.ajax({
+							url:"http://localhost:8080/playgroundRoutePlanning/DesignRoute",
+							cache:false,
+							data:"selectProjectName="+$(this).val(),
+							success:function(result){
+							}
+							}); 
+					 });
+			 alert("选择成功，请点击最佳路线");
+			  
+		});
+		$("#getBestRoute").click(function(){
+			alert(222);
+			 var typeArray=new Array();
+			 var i=0;
+			  $.each($('input:checkbox:checked'),function(){
+	                typeArray[i++]=$(this).val();
+	            });
+			  alert(typeArray);
+			 $.ajax({
+				 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
+                 dataType: "json",
+                 traditional: true,
+                 type: "POST",
+                 data:{data : typeArray},
+				 success:function(result){
+					}
+			 });
+			 
+		});
+		
+	});
+		
+	</script>
 </head>
 <body class="page-index">
 <div class="container" id="container">
 
     <div class="row top">
         <div class="col-lg-8 col-md-8 col-sm-7 col-left">
-            <div class="name"><a href="index.html">游乐场路线规划</a></div>
+            <div class="name"><a href="index.jsp">游乐场路线规划</a></div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-5 col-right">
             <nav>
@@ -66,11 +105,18 @@
                                  <a href="">2.点击开始规划</a><br/>
                                  <a href="${pageContext.request.contextPath}/views/catalog/score_evaluate.jsp">3.结束规划打分</a><br/>
                              -->
-                             1.选择偏爱类型
-                             2.点击开始规划
-                             3.选择最佳路线
-                             4.结束规划打分
+                            
+                             
                             </p>
+                             <p class="steps">1.选择偏爱类型
+						        <input type="checkbox" name="favorite" value="excite"> 刺激 &nbsp; 
+						        <input type="checkbox" name="favorite" value="interact"> 互动 &nbsp;  
+						        <input type="checkbox" name="favorite" value="happy"> 欢乐 &nbsp;
+
+                             </p>
+                              <p class="steps"><button id="startDesign">2.选择项目</button></p>
+                              <p class="steps"><button id="getBestRoute">3.最佳路线</button></p>
+                             <p class="steps">4.结束规划打分</p>
 
                         </div>
                     </div>
@@ -110,6 +156,7 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="船奇戏水滩" name="1">  <font color="#00ff00">再看看</font><input type="radio" name="1" value="0" checked="checked">
                             </p>
                         </div>
                     </div>
@@ -131,6 +178,8 @@
                                 <a href="#">刺激</a> ,
                                 <a href="#">黑暗</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="加勒比海盗-沉落宝藏之战" name="2">  <font color="#00ff00">再看看</font><input type="radio" name="2" value="0" checked="checked">
+                           
                             </p>
                         </div>
                     </div>
@@ -151,6 +200,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="探秘海妖复仇号" name="3">  <font color="#00ff00">再看看</font><input type="radio" name="3" value="0" checked="checked">
+                           
                             </p>
                         </div>
                     </div>
@@ -171,6 +222,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">水花四溅</a> ,
                                 <a href="#">所有身高</a>
+                                &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="探险家独木舟" name="4">  <font color="#00ff00">再看看</font><input type="radio" name="4" value="0" checked="checked">
+                             
                             </p>
                         </div>
                     </div>
@@ -191,6 +244,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">旋转</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="弹簧狗团团转" name="5">  <font color="#00ff00">再看看</font><input type="radio" name="5" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -211,6 +266,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">旋转</a> ,
                                 <a href="#">81厘米或以上</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="胡迪牛仔嘉年华" name="6">  <font color="#00ff00">再看看</font><input type="radio" name="6" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -230,6 +287,8 @@
                             <p class="item-tags">
                                 <a href="#">室外</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="爱丽丝梦游仙境迷宫" name="7">  <font color="#00ff00">再看看</font><input type="radio" name="7" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -250,6 +309,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">缓速</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="晶彩奇航" name="8">  <font color="#00ff00">再看看</font><input type="radio" name="8" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -270,6 +331,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="漫游童话时光" name="9">  <font color="#00ff00">再看看</font><input type="radio" name="9" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -290,6 +353,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">刺激</a> ,
                                 <a href="#">97厘米或以上</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="七个小矮人矿山车" name="10">  <font color="#00ff00">再看看</font><input type="radio" name="10" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -310,6 +375,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">黑暗</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="小飞侠天空奇遇" name="11">  <font color="#00ff00">再看看</font><input type="radio" name="11" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -330,6 +397,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">黑暗</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="小熊维尼历险记" name="12">  <font color="#00ff00">再看看</font><input type="radio" name="12" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -350,6 +419,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">旋转</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="旋转疯蜜罐" name="13">  <font color="#00ff00">再看看</font><input type="radio" name="13" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -370,6 +441,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="迎宾阁" name="14">  <font color="#00ff00">再看看</font><input type="radio" name="14" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -390,6 +463,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="巴斯光年星际营救" name="15">  <font color="#00ff00">再看看</font><input type="radio" name="15" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -410,6 +485,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">刺激</a> ,
                                 <a href="#">122厘米或以上</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="创极速光轮-雪佛兰呈献" name="16">  <font color="#00ff00">再看看</font><input type="radio" name="16" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -429,6 +506,8 @@
                             <p class="item-tags">
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="创界：雪佛兰数字挑战" name="17">  <font color="#00ff00">再看看</font><input type="radio" name="17" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -449,6 +528,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">旋转</a> ,
                                 <a href="#">112厘米或以上</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="喷气背包飞行器" name="18">  <font color="#00ff00">再看看</font><input type="radio" name="18" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -469,6 +550,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="太空幸会史迪奇" name="19">  <font color="#00ff00">再看看</font><input type="radio" name="19" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -489,6 +572,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">旋转</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="幻想曲旋转木马" name="20">  <font color="#00ff00">再看看</font><input type="radio" name="20" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -509,6 +594,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="漫威英雄总部" name="21">  <font color="#00ff00">再看看</font><input type="radio" name="21" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -529,6 +616,8 @@
                                 <a href="#">室内</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="米奇俱乐部" name="22">  <font color="#00ff00">再看看</font><input type="radio" name="22" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -549,6 +638,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">旋转</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="小飞象" name=23">  <font color="#00ff00">再看看</font><input type="radio" name="23" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -568,6 +659,8 @@
                             <p class="item-tags">
                                 <a href="#">室内</a> ,
                                 <a href="#">102厘米或以上</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="翱翔·飞越地平线" name="24">  <font color="#00ff00">再看看</font><input type="radio" name="24" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -587,6 +680,8 @@
                             <p class="item-tags">
                                 <a href="#">室外</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="古迹探索营" name="25">  <font color="#00ff00">再看看</font><input type="radio" name="25" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -607,6 +702,8 @@
                                 <a href="#">室外</a> ,
                                 <a href="#">互动项目</a> ,
                                 <a href="#">所有身高</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="欢笑聚友会" name="26">  <font color="#00ff00">再看看</font><input type="radio" name="26" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>
@@ -628,6 +725,8 @@
                                 <a href="#">刺激</a> ,
                                 <a href="#">水花四溅</a> ,
                                 <a href="#">107厘米或以上</a>
+                                 &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio" value="雷鸣山漂流" name="28">  <font color="#00ff00">再看看</font><input type="radio" name="28" value="0" checked="checked">
+                            
                             </p>
                         </div>
                     </div>

@@ -1,7 +1,10 @@
 package com.sg.forestage.user.service;
 
+import java.util.List;
+
 import com.sg.common.util.MD5Util;
 import com.sg.forestage.user.entity.Evaluate;
+import com.sg.forestage.user.entity.Hobby;
 import com.sg.forestage.user.dao.UserDao;
 import com.sg.forestage.user.dao.UserDaoImpl;
 import com.sg.forestage.user.entity.User;
@@ -64,6 +67,18 @@ public class UserServiceImpl implements UserService{
 		String evaluate = ee.getEvaluate();
 		System.out.println(evaluate);
 		return userDao.doAdd(ee);
+	}
+
+	/**
+	 * 获得爱好项目List
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public List<String> getHobbyList(String userId) {
+		userId = userId.trim();
+		return userDao.getHobbyList(userId);
 	}
 
 	
