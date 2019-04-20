@@ -1,8 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Welcome To My Portfolio - Eldun Malosanu</title>
+    <title>首页</title>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
@@ -60,10 +62,10 @@
                             <!--activity descritpion-->
                             <p class="work">步骤：</p>
                             <p class="steps">
-                                 1.选择游玩项目<br/>
-                                 2.点击开始规划<br/>
-                                 3.生成最佳路线<br/>
-                                 4.结束规划打分<br/>
+                                 <a href="">1.选择游玩项目</a><br/>
+                                 <a href="">2.点击开始规划</a><br/>
+                                 <a href="">3.生成最佳路线</a><br/>
+                                 <a href="${pageContext.request.contextPath}/views/catalog/score_evaluate.jsp">4.结束规划打分</a><br/>
                             </p>
 
                         </div>
