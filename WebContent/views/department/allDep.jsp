@@ -141,7 +141,7 @@
                 <td>${department.d_aver_score}</td>
                 <td>${department.d_des}</td>
                 <td>${department.type_id}</td>
-                <td><a class="btn btn-default btn-sm" href="update.jsp">修改</a>&nbsp;<a class="btn btn-default btn-sm" href="javascript:;" onclick="userDel(${department.d_id})">删除</a></td>
+                <td><a class="btn btn-default btn-sm" href="${pageContext.request.contextPath}//alter1?d_id=${department.d_id }">修改</a>&nbsp;<a class="btn btn-default btn-sm" href="javascript:;" onclick="userDel(${department.d_id})">删除</a></td>
             </tr>
         </c:forEach>
 
