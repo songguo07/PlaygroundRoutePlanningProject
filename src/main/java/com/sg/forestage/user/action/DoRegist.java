@@ -32,6 +32,7 @@ public class DoRegist extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.print("进入DoRegist");
 		String userTelNo=request.getParameter("userTelNo");
 		String userNickname=request.getParameter("userNickname");
 		String userPassword=request.getParameter("userPassword");
