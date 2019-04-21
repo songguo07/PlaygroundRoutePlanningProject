@@ -50,5 +50,6 @@ public class GetBestRoute extends HttpServlet {
 		for (String typeLike : typeLikes) {
 			System.out.println(typeLike);
 		}
+		
 	}
 }
