@@ -45,19 +45,21 @@ public class ClearUserHobbyFilter implements Filter {
 		User user = (User) session.getAttribute("userSession");
 		System.out.println(user);
 		
-		if(user==null) {
-			
-		}
         String uri = request.getRequestURI(); 
         System.out.println("uri---->" + uri);
-		  if(uri.contains(".gif") || uri.contains(".css") || uri.contains(".js") || uri.contains(".png")|| uri.contains(".jpg")|| 
+      //如果发现是css或者js文件，直接放行
+		  if(uri.contains(".map") || uri.contains(".gif") || 
+				  uri.contains(".css") || uri.contains(".js") || 
+				  uri.contains(".png")|| uri.contains(".jpg")|| 
+				  uri.contains(".eot") || uri.contains(".svg") || 
+				  uri.contains(".ttf") || uri.contains(".woff") || 
+				  uri.contains(".woff2") || uri.contains(".gif") || 
 	        		uri.equals(((HttpServletRequest) request).getContextPath() + "/views/login_regist/login.jsp'")||
 	        		uri.equals(((HttpServletRequest) request).getContextPath() + "/views/login_regist/regist.jsp'")||
 	        		uri.equals(((HttpServletRequest) request).getContextPath() + "/views/login_regist/forget_password.jsp'")){
-	            //如果发现是css或者js文件，直接放行
-	        	System.out.println("直接放行");
+		     	System.out.println("直接放行");
 	        	chain.doFilter(request, response);
-	        }else{
+		  }else{
 				if(session!=null&&session.getAttribute("userSession")==null) {
 					System.out.println("agaagggggggggggggggggg");
 					 response.setContentType("text/html;charset=utf-8");
@@ -65,11 +67,11 @@ public class ClearUserHobbyFilter implements Filter {
 		             out.println("<script language='javascript' type='text/javascript'>");
 		             out.println("window.top.location.href='" + ((HttpServletRequest) request).getContextPath() + "/views/login_regist/login.jsp'");
 		             out.println("</script>");
+		             chain.doFilter(request, response);
 				}else {
 					chain.doFilter(request, response);
 				}
 			}
-		chain.doFilter(request, response);
 	}
 
 	/**
