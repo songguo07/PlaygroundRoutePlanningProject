@@ -8,12 +8,14 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 /*
  * 设置所有页面的编码方式
  */
+@WebFilter(filterName="/CharacterEncodingFilter",urlPatterns="/*")
 public class CharacterEncodingFilter implements Filter{
 
 	private String encoding = "UTF-8";
@@ -32,7 +34,7 @@ public class CharacterEncodingFilter implements Filter{
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		String encoding = arg0.getInitParameter("encoding");
-		System.out.println("1********************过滤器");
+		System.out.println("filter:CharacterEncodingFilter--->init()");
 		if(encoding != null && !"".equals(encoding)) {
 			this.encoding = encoding;
 		}

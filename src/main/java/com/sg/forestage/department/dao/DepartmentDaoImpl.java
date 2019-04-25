@@ -27,16 +27,15 @@ public class DepartmentDaoImpl implements DepartmentDao{
 	 * @author 李银霞
 	 */
 	@Override
-	public int insertHobby(String selectProjectName,HttpSession session) {
+	public int insertHobby(String selectProjectName,User user) {
 		String sql="select d_id dId from department where d_name='"+selectProjectName+"'";
 		Department department;
 		int row=0;
 		try {
 			department = qr.query(conn, sql,new BeanHandler<Department>(Department.class));
 			String dId=department.getdId();
-			User user=(User) session.getAttribute("userSession");
 			String userId = user.getUserId();
-			System.out.println("**********************>"+userId+"********"+dId);
+			System.out.println("DepartmentImpl--->insertHobby():user.userId="+userId+",department.dId:"+dId);
 			String sql1="insert into hobby value(?,?)";
 			String params[]= {userId,dId};
 			try {

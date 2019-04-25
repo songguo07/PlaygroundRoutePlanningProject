@@ -35,4 +35,11 @@ public interface UserDao {
 	 */
 	public List<String> getHobbyList(String userId);
 	
+	/**
+	 * 用户退出时，清除数据库中此次用户存的爱好
+	 *
+	 * @author 李银霞
+	 */
+	public int deleteAllHobbyByUserId(String userId);
+	
 }

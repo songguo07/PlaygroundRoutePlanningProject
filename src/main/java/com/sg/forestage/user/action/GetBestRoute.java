@@ -42,14 +42,16 @@ public class GetBestRoute extends HttpServlet {
 			response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
 		}
 		//用户喜欢的项目
+		System.out.println("用户喜欢的项目-------------------->");
 		for (String hobbyName : hobbyNameList) {
 			System.out.println(hobbyName);
 		}
 		//获得用户喜欢项目的类型
+		System.out.println("获得用户喜欢项目的类型-------------------->");
 		String[] typeLikes = request.getParameterValues("data");
 		for (String typeLike : typeLikes) {
 			System.out.println(typeLike);
 		}
-		
+		response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
 	}
 }

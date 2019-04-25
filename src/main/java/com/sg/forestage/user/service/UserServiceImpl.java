@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User doLogin(String userTelno,String userPassword) {
 		userPassword = MD5Util.getInstance().getMD5(userPassword);
-		System.out.println(userPassword);
+		System.out.println("UserServiceImpl:doLogin(), Md5 pwd:" + userPassword);
 		return userDao.doLogin(userTelno, userPassword);
 	}
 
@@ -79,6 +79,17 @@ public class UserServiceImpl implements UserService{
 	public List<String> getHobbyList(String userId) {
 		userId = userId.trim();
 		return userDao.getHobbyList(userId);
+	}
+
+	/**
+	 * 用户退出时，清除数据库中此次用户存的爱好
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public int deleteAllHobbyByUserId(String userId) {
+		userId = userId.trim();
+		return userDao.deleteAllHobbyByUserId(userId);
 	}
 
 	

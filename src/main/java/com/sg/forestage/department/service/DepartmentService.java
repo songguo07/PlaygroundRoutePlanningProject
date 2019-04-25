@@ -1,13 +1,13 @@
 package com.sg.forestage.department.service;
 
-import javax.servlet.http.HttpSession;
+import com.sg.forestage.user.entity.User;
 
 /**
  * 娱乐设施服务层接口
  */
 public interface DepartmentService {
 
-	public int insertHobby(String selectProjectName,HttpSession session);
+	public int insertHobby(String selectProjectName,User user);
 
 }
 	

@@ -30,9 +30,9 @@ public class DoLogin extends HttpServlet {
 		String userPassword= request.getParameter("userPassword");
 		String checkNumber= request.getParameter("checkNumber");
 		String reallyCheckNumber= request.getParameter("reallyCheckNumber");
-		System.out.println(userTelno);
-		System.out.println(userPassword);
-		System.out.println(reallyCheckNumber);
+		System.out.println("Servlet:Dologin------>userTelno:" + userTelno);
+		System.out.println("Servlet:Dologin------>userPassword:" + userPassword);
+		System.out.println("Servlet:Dologin------>reallyCheckNumber:" + reallyCheckNumber);
 		UserService userService = new UserServiceImpl();
 		User user = userService.doLogin(userTelno.trim(), userPassword.trim());
 		/**网易云需要修改两个地方：
@@ -46,7 +46,7 @@ public class DoLogin extends HttpServlet {
 			session.setAttribute("userSession", user);
 			response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
 		}else {
-			response.sendRedirect(request.getContextPath()+"/views/login_regist/login.jsp");
+			response.sendRedirect(request.getContextPath()+"/views/login_regist/regist.jsp");
 		}
 	}
 

@@ -55,11 +55,11 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public User doLogin(String userTelno, String userPassword) {
 		String sql = "select user_id userId,user_telno userTelno,user_nickname userNickname,user_age userAge,user_gender userGender,user_password userPassword ,user_image userImage from user where user_telno = '"+userTelno+"'and user_password = '"+userPassword+"'";
-		System.out.println(sql);
+		System.out.println("UserDaoImpl:doLogin(), sql:" + sql);
 		User user=null;
 		try {
 			user = qr.query(conn, sql,new BeanHandler<User>(User.class));
-			System.out.println(user);
+			System.out.println("UserDaoImpl:doLogin(), user:" + user);
 			DbUtils.closeQuietly(conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -123,5 +123,21 @@ public class UserDaoImpl implements UserDao{
 			e.printStackTrace();
 		}
 		return hobbyNameList;
+	}
+	/**
+	 * 用户退出时，清除数据库中此次用户存的爱好
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public int deleteAllHobbyByUserId(String userId) {
+		String sql="delete from hobby where user_id=?";
+		try {
+			return qr.update(conn, sql,userId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

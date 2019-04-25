@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sg.forestage.department.service.DepartmentService;
 import com.sg.forestage.department.service.DepartmentServiceImpl;
+import com.sg.forestage.user.entity.User;
 
 /**
  * ��ȡ�û�ϲ����Ŀ
@@ -30,12 +31,14 @@ public class DesignRoute extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Servlet:DesignRoute------>doPost()");
 		String selectProjectName=request.getParameter("selectProjectName");
+		System.out.println("Servlet:DesignRoute------>doPost(),selectProjectName:" + selectProjectName);
+		
 		DepartmentService departmentService = new DepartmentServiceImpl();
-		HttpSession session =request.getSession();
+		User user = (User) request.getSession().getAttribute("userSession");
 		if(!selectProjectName.equals("0")) {
-			System.out.println(selectProjectName);
-			departmentService.insertHobby(selectProjectName, session);
+			departmentService.insertHobby(selectProjectName, user);
 		}
 	}
 
