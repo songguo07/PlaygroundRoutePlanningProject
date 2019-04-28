@@ -2,8 +2,8 @@ package com.sg.forestage.user.dao;
 
 import java.util.List;
 
+import com.sg.backstage.ser.entity.Consult;
 import com.sg.forestage.user.entity.Evaluate;
-import com.sg.forestage.user.entity.Hobby;
 import com.sg.forestage.user.entity.User;
 
 /**
@@ -41,5 +41,20 @@ public interface UserDao {
 	 * @author 李银霞
 	 */
 	public int deleteAllHobbyByUserId(String userId);
+	
+	
+	/**
+	 * 获得客服回答的问题
+	 * 
+	 * @author QYJ
+	 */
+	public List<Consult> getAnswer(String userId);
+	
+	/**
+	 * 增加用户对话
+	 * 
+	 * @author QYJ
+	 */
+	public boolean insertQuestion(String userId,String content,String consultId,String dateTime);
 	
 }

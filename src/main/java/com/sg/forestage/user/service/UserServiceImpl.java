@@ -1,7 +1,11 @@
 package com.sg.forestage.user.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
+import com.sg.backstage.ser.entity.Consult;
 import com.sg.common.util.MD5Util;
 import com.sg.forestage.user.entity.Evaluate;
 import com.sg.forestage.user.entity.Hobby;
@@ -90,6 +94,28 @@ public class UserServiceImpl implements UserService{
 	public int deleteAllHobbyByUserId(String userId) {
 		userId = userId.trim();
 		return userDao.deleteAllHobbyByUserId(userId);
+	}
+
+	/**
+	 * 获得用户与客服的对话
+	 * 
+	 */
+	@Override
+	public List<Consult> getAnswer(String userId) {
+		return userDao.getAnswer(userId);
+	}
+
+	/**
+	 * 增加用户对话
+	 * 
+	 * @author QYJ
+	 */
+	@Override
+	public boolean insertQuestion(String userId, String content) {
+		String consultId=UUID.randomUUID().toString();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateTime = df.format(new Date());
+		return userDao.insertQuestion(userId, content, consultId, dateTime);
 	}
 
 	

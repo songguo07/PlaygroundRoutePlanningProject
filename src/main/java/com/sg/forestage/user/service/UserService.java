@@ -2,6 +2,7 @@ package com.sg.forestage.user.service;
 
 import java.util.List;
 
+import com.sg.backstage.ser.entity.Consult;
 import com.sg.forestage.user.entity.Evaluate;
 import com.sg.forestage.user.entity.Hobby;
 import com.sg.forestage.user.entity.User;
@@ -44,6 +45,18 @@ public interface UserService {
 	 * @author 李银霞
 	 */
 	public int deleteAllHobbyByUserId(String userId);
+	
+	/**
+	 * 获得与客服对话
+	 */
+	public List<Consult> getAnswer(String userId) ;
+	
+	/**
+	 * 增加用户对话
+	 * 
+	 * @author QYJ
+	 */
+	public boolean insertQuestion(String userId,String content);
 	
 	
 }

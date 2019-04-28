@@ -15,6 +15,7 @@ $(function(){
 		url:"../../../SelectQuestionServlet",
 		dataType:"JSON",
 		success:function(data){
+			alert(data)
 			if(data.code=="1"){
 				alert(data.message)
 			}

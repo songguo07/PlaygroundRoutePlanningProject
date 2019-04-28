@@ -10,44 +10,29 @@ import java.util.Date;
  */
 public class Consult {
 
-	private String consultId;
-	private String ListenId;
-	private String sayId;
+	private String consult_id;
+	private String listen_id;
+	private String say_id;
 	private String content;
 	private String flag;
 	private String conDate;
-	private String userName;
-	
-	
-	public String getUserName() {
-		return userName;
+	public String getConsult_id() {
+		return consult_id;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setConsult_id(String consult_id) {
+		this.consult_id = consult_id;
 	}
-	public String getConDate() {
-		return conDate;
+	public String getListen_id() {
+		return listen_id;
 	}
-	public void setConDate(String conDate) {
-		this.conDate = conDate;
+	public void setListen_id(String listen_id) {
+		this.listen_id = listen_id;
 	}
-	public String getConsultId() {
-		return consultId;
+	public String getSay_id() {
+		return say_id;
 	}
-	public void setConsultId(String consultId) {
-		this.consultId = consultId;
-	}
-	public String getListenId() {
-		return ListenId;
-	}
-	public void setListenId(String listenId) {
-		ListenId = listenId;
-	}
-	public String getSayId() {
-		return sayId;
-	}
-	public void setSayId(String sayId) {
-		this.sayId = sayId;
+	public void setSay_id(String say_id) {
+		this.say_id = say_id;
 	}
 	public String getContent() {
 		return content;
@@ -61,6 +46,11 @@ public class Consult {
 	public void setFlag(String flag) {
 		this.flag = flag;
 	}
-	
+	public String getConDate() {
+		return conDate;
+	}
+	public void setConDate(String conDate) {
+		this.conDate = conDate;
+	}
 	
 }

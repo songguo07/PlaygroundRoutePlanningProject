@@ -29,16 +29,15 @@ public class SerServiceImpl implements SerService{
 		Map<String,ConsultLength> userMap = new HashMap<String,ConsultLength>();
 		ConsultLength consultLength = new ConsultLength();
 		for(int i=0;i<qesList.size();i++) {
-			if(userMap.get(qesList.get(i).getSayId())!=null) {
-				consultLength = userMap.get(qesList.get(i).getSayId());
+			if(userMap.get(qesList.get(i).getSay_id())!=null) {
+				consultLength = userMap.get(qesList.get(i).getSay_id());
 				consultLength.setLength(consultLength.getLength()+1);
-				userMap.put(qesList.get(i).getSayId(), consultLength);
-			}else if(qesList.get(i).getSayId()!=null){
-				consultLength.setUserId(qesList.get(i).getSayId());
+				userMap.put(qesList.get(i).getSay_id(), consultLength);
+			}else if(qesList.get(i).getSay_id()!=null){
+				consultLength.setUserId(qesList.get(i).getSay_id());
 				consultLength.setConDate(qesList.get(i).getConDate());
-				consultLength.setUserName(qesList.get(i).getUserName());
 				consultLength.setLength(1);
-				userMap.put(qesList.get(i).getSayId(),consultLength);
+				userMap.put(qesList.get(i).getSay_id(),consultLength);
 			}
 		}
 		return userMap;
@@ -48,7 +47,7 @@ public class SerServiceImpl implements SerService{
 	public List<Consult> getUserQes(String userId,List<Consult> conList) {
 		List<Consult> userConList = new ArrayList<Consult>();
 		for(int i=0;i<conList.size();i++) {
-			if(userId.equals(conList.get(i).getSayId())) {
+			if(userId.equals(conList.get(i).getSay_id())) {
 				userConList.add(conList.get(i));
 			}
 		}

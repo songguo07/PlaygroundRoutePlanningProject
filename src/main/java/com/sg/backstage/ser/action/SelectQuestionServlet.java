@@ -50,6 +50,9 @@ public class SelectQuestionServlet extends HttpServlet {
 			resMsg.setResId("1");
 			resMsg.setMessage("暂时没有用户咨询客服");
 		}
+		for (Consult consult : qesList) {
+			System.out.println(consult);
+		}
 		response.getWriter().write(new Gson().toJson(resMsg));
 	}
 

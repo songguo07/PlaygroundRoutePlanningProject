@@ -14,6 +14,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
+import com.sg.backstage.ser.entity.Consult;
 import com.sg.common.util.DbUtil;
 import com.sg.forestage.department.entity.Department;
 import com.sg.forestage.user.entity.Evaluate;
@@ -139,5 +140,36 @@ public class UserDaoImpl implements UserDao{
 			e.printStackTrace();
 		}
 		return 0;
+	}
+	
+	/**
+	 * 获得客服的回答
+	 * 
+	 * @author QYJ
+	 */
+	@Override
+	public List<Consult> getAnswer(String userId) {
+		String sql = "select * from consult where listen_id='"+userId+"' or say_id='"+userId+"' group by conDate asc";
+		List<Consult> consultList= new ArrayList<Consult>();
+		try {
+			consultList=qr.query(conn, sql,  new BeanListHandler<Consult>(Consult.class));
+			sql="update consult set flag='1' where listen_id='"+userId+"'";
+			qr.update(conn, sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return consultList;
+	}
+	@Override
+	public boolean insertQuestion(String userId, String content,String consultId,String dateTime) {
+		String sql = "insert into consult (consult_id,say_id,content,flag,condate) values ('"+consultId+"','"+userId+"','"+content+"','0','"+dateTime+"')";
+		int row=0;
+		System.out.println(sql);
+		try {
+			row=qr.update(conn, sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return row>0;
 	}
 }
