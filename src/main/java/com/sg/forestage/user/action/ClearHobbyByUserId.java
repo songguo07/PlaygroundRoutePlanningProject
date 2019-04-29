@@ -15,50 +15,32 @@ import com.sg.forestage.user.service.UserService;
 import com.sg.forestage.user.service.UserServiceImpl;
 
 /**
- * Servlet implementation class DeleteAllHobby
+ * Servlet implementation class ClearHobbyByUserId
  */
-@WebServlet("/DeleteAllHobby")
-public class DeleteAllHobby extends HttpServlet {
+@WebServlet("/ClearHobbyByUserId")
+public class ClearHobbyByUserId extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DeleteAllHobby() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("userSession");
 		UserService userService = new UserServiceImpl();
 		PrintWriter out = response.getWriter();
-		System.out.println("删除用户单次选择项目**************进入Servlet");
+		System.out.println("不退出只删除用户单次选择项目**************进入Servlet");
 		response.setContentType("text/html;charset=utf-8");
-		if(user!=null) {
-			userService.deleteAllHobbyByUserId(user.getUserId());
-			System.out.println("删除用户单次选择项目**************进入Servlet的if");
-			System.out.println("要删除用户爱好的id："+user.getUserId());
-            out.println("" + ((HttpServletRequest) request).getContextPath() + "/views/login_regist/login.jsp");
-            //用户推出，删除Session
-            session.removeAttribute("userSession");
+		if(user!=null&&userService.deleteAllHobbyByUserId(user.getUserId())!=0) {
+			System.out.println("不退出只删除用户单次选择项目**************进入Servlet的if");
+			System.out.println("不退出只要删除用户爱好的id："+user.getUserId());
+            out.println("" + ((HttpServletRequest) request).getContextPath() + "/views/catalog/index.jsp");
 		}else {
-			System.out.println("删除用户单次选择项目**************进入Servlet的else");
+			System.out.println("不退出只删除用户单次选择项目**************进入Servlet的else");
             out.println("error");
 		}
-		out.flush();
-		out.close();
 	}
 
 }

@@ -1,13 +1,13 @@
 package com.sg.forestage.department.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.sg.forestage.department.service.DepartmentService;
 import com.sg.forestage.department.service.DepartmentServiceImpl;
@@ -37,8 +37,14 @@ public class DesignRoute extends HttpServlet {
 		
 		DepartmentService departmentService = new DepartmentServiceImpl();
 		User user = (User) request.getSession().getAttribute("userSession");
+		PrintWriter out =response.getWriter();
 		if(!selectProjectName.equals("0")) {
-			departmentService.insertHobby(selectProjectName, user);
+			int row = departmentService.insertHobby(selectProjectName, user);
+			if(row==0) {
+				out.println(0);
+				out.flush();
+				out.close();
+			}
 		}
 	}
 

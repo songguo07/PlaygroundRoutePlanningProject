@@ -76,13 +76,15 @@
 
 								</p>
 								<p class="steps">
-									<button id="startDesign">2.选择项目</button>
+									<button id="startDesign">2.我已选择项目</button>
 								</p>
 								<p class="steps">
 									<button id="getBestRoute">3.最佳路线</button>
 								</p>
-								<p class="steps">4.结束规划打分</p>
-
+								<p class="steps">
+									<button id="reSetHobby">4.重新选择游玩项目</button>
+								</p>
+								
 							</div>
 						</div>
 					</section>
@@ -730,9 +732,12 @@
 </body>
 <script type="text/javascript">
 	$(function(){
+		alert("请先选择您感兴趣的类型哦~");
 		$("#startDesign").click(function(){
+			 var i=0;
 			 $('input[type="radio"]:checked').each(function(){
 				 if($(this).val() != 0){
+					 i++;
 					 //选中的项目传ajax
 					 $.ajax({
 						url:"http://localhost:8080/playgroundRoutePlanning/DesignRoute",
@@ -743,8 +748,11 @@
 					}); 
 				 }
 			 });
-			 alert("选择成功，请点击最佳路线");
-			  
+			 if(i==0){
+				 alert("您还没有选择任何项目哦~~~");
+			 }else{
+				  alert("选择成功，如果选择完毕请点击'最佳路线'！");
+			 }
 		});
 		//最佳路线
 		$("#getBestRoute").click(function(){
@@ -753,17 +761,16 @@
 			  $.each($('input:checkbox:checked'),function(){
 	                typeArray[i++]=$(this).val();
 	            });
-			  alert(typeArray);
-			  alert("正在为您生成最佳路线。。。。。。。");
-			 $.ajax({
-				 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
-                 dataType: "json",
-                 traditional: true,
-                 type: "POST",
-                 data:{data : typeArray},
-				 success:function(result){
-					}
-			 });
+			  alert("这是您感兴趣类型吗？->"+typeArray);
+			  $.ajax({
+					 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
+	                 dataType: "json",
+	                 traditional: true,
+	                 type: "POST",
+	                 data:{data : typeArray},
+					 success:function(result){
+						}
+				 });
 			 
 		});
 	 	$("#withDrawl").click(function(){
@@ -774,13 +781,32 @@
                  type: "POST",
 				 success:function(result){
 					 if(result == "error"){
-						 alert("推出失败，请稍后重试");
+						 alert("退出失败，请稍后重试");
 					 }else{
 						 location.href = result;
 					 }
 				}
 			 });
 		}); 
+	 	
+	 	$("#reSetHobby").click(function(){
+			 $.ajax({
+				 url:"http://localhost:8080/playgroundRoutePlanning/ClearHobbyByUserId",
+                 traditional: true,
+                 type: "POST",
+				 success:function(result){
+					 if(result == "error"){
+						 alert("重新规划请求失败，请稍后重试");
+					 }else{
+						 location.href = result;
+						 alert("成功！！！请再次选择你的感兴趣项目。");
+					 }
+				}
+			 });
+		}); 
+	 	
+	 	
+	 	
 	});
 		
 	</script>
