@@ -93,8 +93,8 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int doAdd(Evaluate ee) {
 		String sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
-		float score=ee.getEscore();
-		String [] param= {ee.getUserId(),ee.getDId(),ee.getEvaluate()};
+		float score=ee.geteScore();
+		String [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate()};
 		int row=0;
 		try {
 			row = qr.update(conn, sql,param);

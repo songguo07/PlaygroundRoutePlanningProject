@@ -2,15 +2,17 @@ package com.sg.forestage.department.dao;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-
-import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import com.sg.common.util.DbUtil;
 import com.sg.forestage.department.entity.Department;
+import com.sg.forestage.user.entity.Evaluate;
 import com.sg.forestage.user.entity.User;
 
 /**
@@ -49,6 +51,28 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		}
 		
 		return row;
+	}
+	/**
+	 * 获得特定项目的历史评分评价
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public List<Evaluate> getDepartmentEvaluByDId(String dId) {
+		List<Evaluate> evaluateList = new ArrayList();
+		String sql="select user_id userId,d_id dId ,e_score eScore,e_evaluate eEvaluate from evaluate where d_id='"+dId+"'";
+		System.out.println("获得特定项目的历史评分评价   执行的sql语句："+sql);
+		try {
+			evaluateList = qr.query(conn, sql, new BeanListHandler<Evaluate>(Evaluate.class));
+			System.out.println("******************>项目的评分评价类：");
+			for (Evaluate evaluate : evaluateList) {
+				System.out.println("eavluate:"+evaluate);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return evaluateList;
 	}
 
 }

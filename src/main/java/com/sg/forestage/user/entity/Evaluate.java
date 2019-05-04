@@ -7,33 +7,33 @@ public class Evaluate {
 	
 	private String userId;
 	private String dId;
-	private String e_Evaluate;
-	private float e_Score;
-	
+	private String eEvaluate;
+	private float eScore;
 	public String getUserId() {
 		return userId;
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getDId() {
+	public String getdId() {
 		return dId;
 	}
-	public void setDId(String dId) {
+	public void setdId(String dId) {
 		this.dId = dId;
 	}
-	public Float getEscore() {
-		return e_Score;
+	public String geteEvaluate() {
+		return eEvaluate;
 	}
-	public void setEscore(Float score) {
-		this.e_Score = score;
+	public void seteEvaluate(String eEvaluate) {
+		this.eEvaluate = eEvaluate;
 	}
-	public String getEvaluate() {
-		return e_Evaluate;
+	public float geteScore() {
+		return eScore;
 	}
-	public void setEvaluate(String s) {
-		this.e_Evaluate = s;
+	public void seteScore(float eScore) {
+		this.eScore = eScore;
 	}
+	
 	
 	
 }

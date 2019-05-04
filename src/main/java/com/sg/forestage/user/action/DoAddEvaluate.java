@@ -39,9 +39,9 @@ public class DoAddEvaluate extends HttpServlet {
 		
 		/*evaluate.setUserId(userid);*/
 		evaluate.setUserId("gxbh");
-		evaluate.setDId("111");
-		evaluate.setEscore(EvaluateGrade);
-		evaluate.setEvaluate( EvaluateText.trim());
+		evaluate.setdId("111");
+		evaluate.seteScore(EvaluateGrade);
+		evaluate.seteEvaluate( EvaluateText.trim());
 		
 		int row = userservice.doAdd(evaluate);
 		if(row>0) {

@@ -35,7 +35,7 @@ public class GetBestRoute extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user=(User) session.getAttribute("userSession");
 		String userId = user.getUserId();
-		System.out.println(userId);
+		System.out.println("GetBestRoute的用户id:"+userId);
 		UserService userService = new UserServiceImpl();
 		List<String> hobbyNameList = new ArrayList();
 		hobbyNameList = userService.getHobbyList(userId);

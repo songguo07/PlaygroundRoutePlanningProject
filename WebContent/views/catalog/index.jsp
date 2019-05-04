@@ -131,12 +131,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="jlbhd.html"> <img class="img-responsive item-img"
+								<a href="jlbhd.jsp"> <img class="img-responsive item-img"
 									src="img/play/jlbhd.jpg" alt="Work 5">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="jlbhd.html"><h4 class="item-title">加勒比海盗-沉落宝藏之战</h4></a>
+								<a href="jlbhd.jsp"><h4 class="item-title">加勒比海盗-沉落宝藏之战</h4></a>
 								<p class="item-category">宝藏湾</p>
 								<p class="item-description">加入杰克船长的海盗队伍，向海洋进发，来一场寻宝之旅！</p>
 								<hr>
