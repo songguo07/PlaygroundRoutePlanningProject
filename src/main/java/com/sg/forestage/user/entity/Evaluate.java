@@ -33,7 +33,9 @@ public class Evaluate {
 	public void seteScore(float eScore) {
 		this.eScore = eScore;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Evaluate [userId=" + userId + ", dId=" + dId + ", eEvaluate=" + eEvaluate + ", eScore=" + eScore + "]";
+	}
 	
 }
