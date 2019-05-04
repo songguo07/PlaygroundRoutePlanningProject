@@ -195,19 +195,19 @@ $(function(){
 		var info = '';
 		switch (value) {
 			case 1 : 
-				info	= '<div class="info-box">1分&nbsp;很不满意<div>商品样式和质量都非常差，太令人失望了！</div></div>';
+				info	= '<div class="info-box">1分&nbsp;很不满意<div>一点都不好玩，太令人失望了！</div></div>';
 				break;
 			case 2 : 
-				info	= '<div class="info-box">2分&nbsp;不满意<div>商品样式和质量不好，不能满足要求。</div></div>';
+				info	= '<div class="info-box">2分&nbsp;不满意<div>不能满足追求的刺激要求。</div></div>';
 				break;
 			case 3 : 
-				info	= '<div class="info-box">3分&nbsp;一般<div>商品样式和质量感觉一般。</div></div>';
+				info	= '<div class="info-box">3分&nbsp;一般<div>还行吧，没有太大的感觉。</div></div>';
 				break;
 			case 4 : 
-				info	= '<div class="info-box">4分&nbsp;满意<div>商品样式和质量都比较满意，符合我的期望。</div></div>';
+				info	= '<div class="info-box">4分&nbsp;满意<div>挺好玩的，感觉挺爽，符合我的期望。</div></div>';
 				break;
 			case 5 : 
-				info	= '<div class="info-box">5分&nbsp;非常满意<div>我很喜欢！商品样式和质量都很满意，太棒了！</div></div>';
+				info	= '<div class="info-box">5分&nbsp;非常满意<div>我很喜欢！太棒了！太刺激了好好玩！！！</div></div>';
 				break;
 			default :
 				info = value;
@@ -216,5 +216,14 @@ $(function(){
 			return info;
 		}
 	}
+    
 	$('#rate-comm-1').rater(options);
+	
+	
+	$(".btm").click(function(){
+	    $("#divresult").val($(".rater-star-result").text()[0]); //评分结果
+	    $("#divcontent").val($("#content").val());//评论内容
+		 
+	});
 });
+

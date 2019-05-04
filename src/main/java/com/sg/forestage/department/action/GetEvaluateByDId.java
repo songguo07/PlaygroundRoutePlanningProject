@@ -28,6 +28,7 @@ public class GetEvaluateByDId extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String dId=request.getParameter("dId");
+		String fileName=request.getParameter("fileName");
 		System.out.println("GetEvaluateByDId  Servlet获得的dId:"+dId);
 		DepartmentService departmentService = new DepartmentServiceImpl();
 		List<Evaluate> evaluateList = departmentService.getDepartmentEvaluByDId(dId);
@@ -38,7 +39,7 @@ public class GetEvaluateByDId extends HttpServlet {
 		}else {
 			request.setAttribute("evaluateList", evaluateList);
 		}
-		request.getRequestDispatcher("/views/catalog/jlbhd.jsp").forward(request, response);
+		request.getRequestDispatcher("/views/catalog/"+fileName+".jsp").forward(request, response);
 	}
 
 }

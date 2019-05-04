@@ -52,7 +52,7 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/tmhyfch.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/tmhyfch.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
                     <h1>探秘海妖复仇号</h1>
@@ -111,7 +111,7 @@
 								</section>
 							</div>
                    <!--  <!--share-->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -121,7 +121,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div> -->
+                    </div> --> -->
 
                 </section>
             </div>
