@@ -10,7 +10,8 @@ public class BestRouteUtil {
 	public static Object[][] get(List<String> hobbyNameList, String[] typeLikes, int leisureTime) {
 		int starttime;// 开始时间
 		int leisuretime;// 休闲时间
-		Object result[][] = new Object[26][2];
+		Object[][] result=new Object[26][2];
+
 		int wait[][] = { { 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 9999, 9999, 9999 },
 				{ 150, 165, 180, 135, 145, 150, 150, 135, 150, 165, 150, 135, 90, 75 },
 				{ 5, 40, 40, 35, 30, 40, 30, 15, 30, 35, 30, 30, 10, 5 },
@@ -102,27 +103,22 @@ public class BestRouteUtil {
 
 		String name[] = { "爱丽丝梦游仙境迷宫", "翱翔-飞越地平线", "巴斯光年星际营救", "米奇俱乐部", "创极速光轮-雪佛兰呈献", "弹簧狗团团转", "古迹探索营", "欢笑聚友会",
 				"胡迪牛仔嘉年华", "加勒比海盗-沉落宝藏之战", "晶彩奇航", "雷鸣山漂流", "漫威英雄总部", "幻想曲旋转木马", "漫游童话时光", "喷气背包飞行器", "七个小矮人矿山车",
-				"小飞侠天空奇遇", "小熊维尼历险记", "旋转疯蜜罐", "迎宾阁", "小飞象", "太空幸会史迪奇", "船奇戏水滩", "探秘海妖复仇号", "探险家独木舟" };
+				"小飞侠天空奇遇", "小熊维尼历险记", "旋转疯蜜罐", "迎宾阁", "小飞象", "太空幸会史迪奇", "点亮奇梦：夜光幻影秀", "探秘海妖复仇号", "探险家独木舟" };
 
-		int pre[] = { 2, 2, 1, 1, 3, 2, 2, 1, 2, 3, 2, 3, 2, 2, 2, 2, 3, 2, 2, 2, 1, 2, 2, 2, 1, 2
-
-		};
+		int pre[] = { 2, 2, 1, 1, 3, 2, 2, 1, 2, 3, 2, 3, 2, 2, 2, 2, 3, 2, 2, 2, 1, 2, 2, 2, 1, 2 };
 
 		// 外部传入希望游玩的类别（互动、欢乐、刺激）
 		int hudong, huanle, ciji, xihuan1 = 0, xihuan2 = 0, xihuan3 = 0;
 		// 若喜欢互动则为2
-		for (String typeLike : typeLikes) {
-			if (typeLike.equals("互动"))
+		for (String type : typeLikes) {
+			if (type.equals("互动"))
 				xihuan1 = 1;
-			else if (typeLike.equals("欢乐"))
-				xihuan2 = 1;
-			else if (typeLike.equals("刺激"))
-				xihuan3 = 1;
+			else if (type.equals("欢乐"))
+				xihuan2 = 2;
+			else if (type.equals("刺激"))
+				xihuan3 = 3;
 		}
-		/*
-		 * cout<<"喜欢欢乐吗（不喜欢为1，喜欢为2）"<<endl; cin>>huanle;
-		 * cout<<"喜欢刺激吗（不喜欢为1，喜欢为2）"<<endl; cin>>ciji;
-		 */
+
 		int xiang;
 
 		for (xiang = 0; xiang < 26; xiang++) {
@@ -134,13 +130,10 @@ public class BestRouteUtil {
 
 		// 传入想玩哪个项目，最好给一个26个的0-1数组，想玩为1，不想玩为0
 		int xiangmu[] = new int[26];// 数组
-		for (int i = 0; i < xiangmu.length; i++) {
-			xiangmu[i] = 0;
-		}
-		for (int i = 0; i < hobbyNameList.size(); i++) {
-			for (int k = 0; k < 26; k++) {
-				if (hobbyNameList.get(i).equals(name[k])) {
-					xiangmu[k] = 1;
+		for (String hobbyName : hobbyNameList) {
+			for (xiang = 0; xiang < 26; xiang++) {
+				if (hobbyName.equals(name[xiang])) {
+					xiangmu[xiang] = 1;
 					break;
 				}
 			}
@@ -157,13 +150,8 @@ public class BestRouteUtil {
 
 		pre[23] = 10000;
 		for (k = 0; k < 26; k++) {
-			System.out.println(name[k] + "    ");
-			System.out.println("                偏好度为:" + pre[k]);
+			System.out.println(name[k] + "           " + pre[k]);
 		}
-
-		// 目的是使总评价指标F=P/W最高;其中P为所有项目用户偏好值，W为总等待时间
-		// 总时间应<
-		// 第i个项目寻找 ,
 		SimpleDateFormat df = new SimpleDateFormat("HH:mm");
 		String[] timeString = df.format(new Date()).split(":");
 
@@ -172,6 +160,7 @@ public class BestRouteUtil {
 		int currenttime = starttime;
 		int sequence[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		int curwait, curwalk, totime, t, best = 0, bestj = 0, number = 0, bestwalk, bestwait, P;
+		int q=0;
 		double F, bestF = 0;
 		for (; currenttime <= 720;) {
 
@@ -189,7 +178,6 @@ public class BestRouteUtil {
 				curwalk = (int) (dis[i][j] / 30);
 
 				t = (curwalk + currenttime) / 60;
-				t = t % 13;
 				curwait = wait[j - 1][t];
 				totime = curwalk + curwait + playtime[j - 1] + leisuretime;// 总时间=行走时间+等待时间+游玩设备时间
 				P = pre[j - 1];
@@ -203,17 +191,19 @@ public class BestRouteUtil {
 
 					bestj = j;
 				}
-
-				currenttime += best;
-				number += 1;
-				sequence[number - 1] = bestj;
-				result[number - 1][0] = name[bestj - 1];
-				result[number - 1][1] = currenttime;
-				System.out.println("             " + name[bestj - 1]);
-
-				System.out.println("              当前时间" + currenttime);
-				i = bestj;
 			}
+
+			currenttime += best;
+			number += 1;
+			sequence[number] = bestj;
+			result[q][0]=name[bestj-1];
+			result[q][1]=currenttime;
+			q++;
+			System.out.println("             " + name[bestj - 1]);
+			System.out.println("              当前时间" + currenttime);
+
+			i = bestj;
+
 		}
 		return result;
 	}
