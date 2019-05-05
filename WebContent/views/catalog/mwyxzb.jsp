@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>七个小矮人矿山车</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>漫威英雄总部</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,37 +53,73 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/qgxarksc.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/mwyxzb.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>七个小矮人矿山车</h1>
+                    <h1>漫威英雄总部</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
-                        <a href="#">室外</a> ,
-                        <a href="#">刺激</a> ,
-                        <a href="#">97厘米或以上</a>
+                        <a href="#">室内</a> ,
+                        <a href="#">互动项目</a> ,
+                        <a href="#">所有身高</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>适合全家共同体验的过山车项目——穿梭在《白雪公主和七个小矮人》的钻石矿山中。</strong></p>
+                    <p class="item-description"><strong>深入漫威英雄总部，您将有幸遇到一些自己喜爱的漫威超级英雄！</strong></p>
                     <hr>
-                    <p><strong>梦幻世界的刺激体验</strong></p>
-                    <p>惊险刺激的“七个小矮人矿山车”是适合全家共同体验的过山车项目，行驶在梦幻世界村庄连绵起伏的山峦中。</p>
-                    <p><strong>全程精彩有趣</strong></p>
-                    <p>跳进由木头、金属带和钉子制成的矿车，准备体验风驰电掣般的快感。</p>
-                    <p><strong>经久不衰的白雪公主</strong></p>
-                    <p>七个小矮人矿山车灵感源自华特迪士尼经典动画《白雪公主和七个小矮人》。</p>
+                    <p><strong>漫威动漫学院</strong></p>
+                    <p>像一位真正的漫威漫画家一样画画！</p>
+                    <p>在漫威动漫学院，通过和漫画家轻松有趣的互动，画出您最爱的漫威超级英雄。</p>
+                    <p><strong>变身钢铁侠</strong></p>
+                    <p>利用虚拟技术试穿钢铁侠的高科技装备！</p>
+                    <p>学习如何使用钢铁侠最引以为傲的冲击波，能和浩克对战，更能击退敌人保卫我们的城市！</p>
+                    <p>斯塔克工业的董事长托尼•斯塔克在一场绑架中，为了挽救自己的生命制造出了一套装甲，从而逃过一劫，而后他利用自己的资源继续研究制造高科技装甲，从此化身“钢铁侠”守卫世界。</p>
+                    <p><strong>深入漫威电影宇宙</strong></p>
+                    <p>探索这一囊括全球诸多伟大超级英雄的广阔世界！所有这些优秀勇敢的战士在漫威电影世界中都享有尊崇地位，在漫威漫画中皆有根可循。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="mythsg.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="xfxtkqy.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=20&fileName=hxqxzmm">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=22&fileName=mqjlb">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -89,7 +130,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
                     </div>
-
+ -->
                 </section>
             </div>
         </div>
@@ -334,12 +375,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

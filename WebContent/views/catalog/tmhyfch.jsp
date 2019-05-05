@@ -74,11 +74,11 @@
                     <p>多亏了探秘海妖复仇号，“宝藏湾”主题园区已然成为一个熙来攘往的海盗港口，让我们一起来探索这艘充满传奇历史的海盗船吧。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="jlbhd.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="txjdmz.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=2&fileName=jlbhd">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=4&fileName=txjdmz">后一个 &gt;</a></li>
                     </ul>
                     <hr>
-<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+                  <div class="col-lg-8 col-md-8 col-sm-7 col-left">
 								<section>
 									<div class="row">
 										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
@@ -110,7 +110,7 @@
 									</div>
 								</section>
 							</div>
-                   <!--  <!--share-->
+                     <!--share-->
                     <!-- <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
@@ -121,7 +121,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div> --> -->
+                    </div>  -->
 
                 </section>
             </div>

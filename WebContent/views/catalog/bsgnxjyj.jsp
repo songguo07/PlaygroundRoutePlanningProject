@@ -1,13 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>米奇俱乐部</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>巴斯光年星际营救</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,10 +54,10 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/mqjlb.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/bsgnxjyj.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>米奇俱乐部</h1>
+                    <h1>巴斯光年星际营救</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
@@ -62,21 +68,57 @@
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>准备好您的镜头！在与举世闻名的米奇会面之前，参观一个魔法画展吧！ </strong></p>
+                    <p class="item-description"><strong>投身战斗，竭尽全力消灭索克天王手下骇人的机器人部队，拯救外星人的星球！</strong></p>
                     <hr>
-                    <p><strong>愉快的会面和问候</strong></p>
-                    <p>为VIM——非常重要的老鼠——铺上红毯，这次迪士尼朋友问候体验将让您永生难忘。</p>
-                    <p><strong>一切都从一只老鼠开始</strong></p>
-                    <p>从《威力汽船》到史上最广为人知的卡通角色，米奇是迪士尼魔法的标志性代表，1928年，华特•迪士尼向世界介绍了这只小老鼠，从此一代又一代的人们为他着迷。</p>
+                    <p><strong>伽玛象限需要您</strong></p>
+                    <p>从默默无闻到太空骑警大英雄——加入互动，踏上星际探险之旅，和巴斯光年一起阻止星际指挥部的头号要犯！</p>
+                    <p>索克天王已经回来，带着用水晶提供能量的巨型超能炮，妄图摧毁外星人的星球，掀起宇宙大混乱。</p>
+                    <p><strong>服务和保护</strong></p>
+                    <p>跟随使命召唤，瞄准射击——外星人家园的命运就在您手中。</p>
+                    <p><strong>轰炸大荧幕</strong></p>
+                    <p>安迪的超级巨星太空骑警成为了全新征程的主角，超越了星系的界限。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="mwyxzb.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="xfx.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=14&fileName=ybg">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=16&fileName=cjsgl">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                   <!--  <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -87,7 +129,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
                     </div>
-
+ -->
                 </section>
             </div>
         </div>
@@ -332,12 +374,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

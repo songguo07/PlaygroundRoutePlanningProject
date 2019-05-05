@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>翱翔·飞越地平线</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>太空幸会史迪奇</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,34 +53,66 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/ax.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/tkxhsdq.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>翱翔·飞越地平线</h1>
+                    <h1>太空幸会史迪奇</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
                         <a href="#">室内</a> ,
-                        <a href="#">102厘米或以上</a>
+                        <a href="#">互动项目</a> ,
+                        <a href="#">所有身高</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>来一场令人兴奋的飞行，以前所未有的方式见证这个神奇的世界吧！</strong></p>
+                    <p class="item-description"><strong>阿咯哈（Aloha）! 快来太空观察站“幸会史迪奇”！不要担心，请跟这个毛茸茸的调皮蓝色小外星人打招呼吧，他保证让您捧腹大笑！</strong></p>
                     <hr>
-                    <p><strong>翱翔天际</strong></p>
-                    <p>汇集古老的原始力量，您将开始一段神奇的旅程，从空中欣赏美不胜收的地球。</p>
-                    <p><strong>环球感官之旅</strong></p>
-                    <p>前往地球上最神奇的地点，领略壮阔的景观之美。</p>
+                    <p><strong>连线史迪奇</strong></p>
+                    <p>坐下来与代号626号（史迪奇）视频聊天，看看淘气的动画外星人是如何将银河联邦搅得天翻地覆的。</p>
+                    <p><strong>灵感源自电影</strong></p>
+                    <p>在迪士尼卖座动画片《星际宝贝》中首次亮相的主角们将在太空幸会史迪奇继续他们的冒险之旅。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="xfx.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="gjtsy.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=18&fileName=pqbbfxq">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=20&fileName=hxqxzmm">后一个 &gt;</a></li>
                     </ul>
                     <hr>
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
 
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
                     <!--share-->
-                    <div class="row">
+                   <!--  <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -85,7 +122,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </section>
             </div>
@@ -331,12 +368,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

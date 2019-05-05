@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>爱丽丝梦游仙境迷宫</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>迎宾阁</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -30,10 +35,10 @@
                         <a href="index.html">首页</a>
                     </li>
                     <li>
-                        <a href="blog.html">项目</a>
+                        <a href="blog.html">地图</a>
                     </li>
                     <li>
-                        <a href="contact.html">contact</a>
+                        <a href="http://localhost:8080/playgroundRoutePlanning/SelectAnswerServlet">客服</a>
                     </li>
                     <!--                    <li class="last">-->
                     <!--                        <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="facebook"></a>-->
@@ -48,35 +53,69 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/alsmyxjmg.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/ybg.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>爱丽丝梦游仙境迷宫</h1>
+                    <h1>迎宾阁</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
                         <a href="#">室外</a> ,
+                        <a href="#">互动项目</a> ,
                         <a href="#">所有身高</a>
                     </p>
 
-
                     <!--project content-->
-                    <p class="item-description"><strong>穿越爱丽丝梦游仙境中蜿蜒的迷宫，参加愉快的疯狂茶会派对。</strong></p>
+                    <p class="item-description"><strong>当您受到迪士尼皇室的问候时，尽情享受一次美妙的邂逅吧！迪士尼的公主优雅地欢迎所有人进入一个“永远幸福”的世界，那里有家人，朋友，充满欢乐，当然还有您！ </strong></p>
                     <hr>
-                    <p><strong>帽子和兔子和猫……噢，天哪！</strong></p>
-                    <p>掉进兔子洞之后，快来结识一下疯帽子、妙妙猫和其它古古怪怪的迪士尼朋友吧。</p>
-                    <p><strong>经典故事，全新演绎</strong></p>
-                    <p>从华特早期的电影到蒂姆•伯顿的梦幻故事，爱丽丝的奇妙经历在迪士尼的历史上占据了特殊的地位。</p>
+                    <p><strong>迎宾阁</strong></p>
+                    <p>进入迎宾阁——您在此受到的欢迎或许会永生难忘！</p>
+                    <p>几位深受喜爱的迪士尼公主会时不时出现在城堡里——她们是，灰姑娘，长发公主、贝儿公主和白雪公主。</p>
+                    <p><strong>迪士尼公主们的故事</strong></p>
+                    <p>在奇幻童话城堡，您也许会偶遇灰姑娘、长发公主、贝儿公主、睡美人或白雪公主。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="hdnzjnh.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="jcqh.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=13&fileName=xzfmg">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=15&fileName=bsgnxjyj">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                   <!--  <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -87,7 +126,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
                     </div>
-
+ -->
                 </section>
             </div>
         </div>
@@ -332,12 +371,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

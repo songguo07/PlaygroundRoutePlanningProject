@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>小熊维尼历险记</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>七个小矮人矿山车</title>
+     <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,35 +53,70 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/xxwnlxj.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/qgxarksc.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>小熊维尼历险记</h1>
+                    <h1>七个小矮人矿山车</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
-                        <a href="#">室内</a> ,
-                        <a href="#">黑暗</a> ,
-                        <a href="#">所有身高</a>
+                        <a href="#">室外</a> ,
+                        <a href="#">刺激</a> ,
+                        <a href="#">97厘米或以上</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>进入百亩森林，探索小熊维尼和朋友们的美妙世界！</strong></p>
+                    <p class="item-description"><strong>适合全家共同体验的过山车项目——穿梭在《白雪公主和七个小矮人》的钻石矿山中。</strong></p>
                     <hr>
-                    <p><strong>童话世界中的音乐之旅</strong></p>
-                    <p>小熊维尼和朋友们和谐友爱，生活充满乐趣。 </p>
-                    <p><strong>钟爱蜂蜜</strong></p>
-                    <p>1999年，小熊维尼历险记首次亮相华特迪士尼世界度假区神奇王国主题乐园。</p>
+                    <p><strong>梦幻世界的刺激体验</strong></p>
+                    <p>惊险刺激的“七个小矮人矿山车”是适合全家共同体验的过山车项目，行驶在梦幻世界村庄连绵起伏的山峦中。</p>
+                    <p><strong>全程精彩有趣</strong></p>
+                    <p>跳进由木头、金属带和钉子制成的矿车，准备体验风驰电掣般的快感。</p>
+                    <p><strong>经久不衰的白雪公主</strong></p>
+                    <p>七个小矮人矿山车灵感源自华特迪士尼经典动画《白雪公主和七个小矮人》。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="xfxtkqy.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="xzfmg.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=9&fileName=mythsg">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=11&fileName=xfxtkqy">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                   <!--  <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -86,7 +126,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </section>
             </div>
@@ -332,12 +372,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

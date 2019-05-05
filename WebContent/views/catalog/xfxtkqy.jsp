@@ -1,14 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>旋转疯蜜罐</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>小飞侠天空奇遇</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="{pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
-
+    <link href="{pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="{pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
+	<script src="${pageContext.request.contextPath}/static/03/assets/js/jquery-1.11.1.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="js/bootstrap/respond.min.js"></script>
@@ -48,37 +53,70 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/xzfmg.jpg" alt="" class="img-responsive">
+                    <img src="{pageContext.request.contextPath}/views/catalog/img/play/xfxtkqy.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>旋转疯蜜罐</h1>
+                    <h1>小飞侠天空奇遇</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
-                        <a href="#">室外</a> ,
-                        <a href="#">旋转</a> ,
+                        <a href="#">室内</a> ,
+                        <a href="#">黑暗</a> ,
                         <a href="#">所有身高</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>与同伴一起乘坐旋转疯蜜罐，在自由控制的旋转中体验寻找美味的乐趣。小熊维尼和他的伙伴在等着你！</strong></p>
+                    <p class="item-description"><strong>和小飞侠、奇妙仙子还有梦幻岛的同伴一起遨游天际，朝着右边第二颗星的方向前行。</strong></p>
                     <hr>
-                    <p><strong>寻找美味的冒险</strong></p>
-                    <p>前往“百亩森林”，在回旋中体验无限欢乐，属于您的疯蜜罐在等着您！和屹耳、瑞比、猫头鹰、小猪、袋鼠妈妈和小豆一起帮助克里斯多夫·罗宾亲爱的“小笨熊”找到最爱的美食。 </p>
-                    <p><strong>疯帽子旋转杯摇身变为旋转疯蜜罐</strong></p>
-                    <p>旋转疯蜜罐是一处阖家同乐的理想选择，受其他迪士尼主题乐园“疯狂茶会派对”景点的启发。</p>
+                    <p><strong>船长一直在等您</strong></p>
+                    <p>登上神奇海盗船，扬帆起航，飞向梦幻岛，放飞您的想象。</p>
+                    <p><strong>诞生于1955年的梦幻翱翔</strong></p>
+                    <p>开启这段梦幻之旅时，想想最快乐的事情。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="xxwnlxj.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="ybg.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=10&fileName=qgxarksc">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=12&fileName=xxwnlxj">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+  <div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <h3 class="share">分享</h3>
+                            <h3 class="share">评分评价</h3>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-right">
                             <a href="#"><img class="social" src="img/icon/icon-mail.png" alt="Mail"></a>
@@ -86,7 +124,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </section>
             </div>
@@ -332,12 +370,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="{pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="{pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="{pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="{pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>
