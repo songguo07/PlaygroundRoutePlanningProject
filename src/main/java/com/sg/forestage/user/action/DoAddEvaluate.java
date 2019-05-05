@@ -1,6 +1,7 @@
 package com.sg.forestage.user.action;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sg.forestage.user.entity.Evaluate;
+import com.sg.forestage.user.entity.User;
 import com.sg.forestage.user.service.UserService;
 import com.sg.forestage.user.service.UserServiceImpl;
 
@@ -25,29 +27,30 @@ public class DoAddEvaluate extends HttpServlet {
 	
 		
 		System.out.print("进入servlet");
-		Float EvaluateGrade=Float.parseFloat(request.getParameter("evaluategrade"));
-		String EvaluateText=request.getParameter("evaluatetext");
-		/*HttpSession session = request.getSession(); 
-		session.getAttribute("userSession");
-		String userid=session.getAttribute("userId").toString();*/
+		String dId=request.getParameter("dId");
+		Float eScore=Float.parseFloat(request.getParameter("score"));
+		String eEvaluate=request.getParameter("content");
+		HttpSession session = request.getSession(); 
+		User user = (User) session.getAttribute("userSession");
+		String userid=user.getUserId();
 		
-		
-		System.out.println(EvaluateGrade);
-		System.out.println(EvaluateText);
-		
+		System.out.println("**************输出用户的评分评价**********************");
+		System.out.println(dId);
+		System.out.println(eScore);
+		System.out.println(eEvaluate);
+		System.out.println("***********************************************");
 		Evaluate evaluate=new Evaluate();
 		
-		/*evaluate.setUserId(userid);*/
-		evaluate.setUserId("gxbh");
-		evaluate.setdId("111");
-		evaluate.seteScore(EvaluateGrade);
-		evaluate.seteEvaluate( EvaluateText.trim());
+		evaluate.setUserId(userid);
+		evaluate.setdId(dId);
+		evaluate.seteScore(eScore);
+		evaluate.seteEvaluate(eEvaluate.trim());
 		
 		int row = userservice.doAdd(evaluate);
 		if(row>0) {
-	        response.sendRedirect(request.getContextPath()+"/views/evaluate/score_evaluate.jsp");
+	        response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
 		}else {
-			response.sendRedirect(request.getContextPath()+"/views/evaluate/score_evaluate.jsp");
+			response.sendRedirect(request.getContextPath()+"/views/evaluate/evaluate.jsp");
 		}
 	}
 

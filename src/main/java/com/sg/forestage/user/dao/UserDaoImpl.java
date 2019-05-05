@@ -94,7 +94,7 @@ public class UserDaoImpl implements UserDao{
 	public int doAdd(Evaluate ee) {
 		String sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
 		float score=ee.geteScore();
-		String [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate()};
+		Object [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate(),score};
 		int row=0;
 		try {
 			row = qr.update(conn, sql,param);
@@ -105,6 +105,11 @@ public class UserDaoImpl implements UserDao{
 		return row;
 	}
 	
+	/**
+	 * 获得用户的所有爱好
+	 * 
+	 * @author 李银霞
+	 */
 	public List<String> getHobbyList(String userId){
 		List<Hobby> hobbyList = new ArrayList();
 		List<String> hobbyNameList = new ArrayList();

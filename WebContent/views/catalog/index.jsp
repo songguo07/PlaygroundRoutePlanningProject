@@ -84,7 +84,6 @@
 								<p class="steps">
 									<button id="reSetHobby">4.重新选择游玩项目</button>
 								</p>
-								
 							</div>
 						</div>
 					</section>
@@ -110,12 +109,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="cqxst.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=1&fileName=cqxst"> <img class="img-responsive item-img"
 									src="img/play/cqxsw.jpg" alt="Work 4">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="cqxst.html"><h4 class="item-title">船奇戏水滩</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=1&fileName=cqxst"><h4 class="item-title">船奇戏水滩</h4></a>
 								<p class="item-category">宝藏湾</p>
 								<p class="item-description">在“宝藏湾”的一艘海盗船残骸中探索戏水，感受互动乐趣。</p>
 								<hr>
@@ -124,6 +123,7 @@
 									&nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio"
 										value="船奇戏水滩" name="1"> <font color="#00ff00">再看看</font><input
 										type="radio" name="1" value="0" checked="checked">
+										<a href="${pageContext.request.contextPath}/views/evaluate/evaluate.jsp?dId=1">评价</a>
 								</p>
 							</div>
 						</div>
@@ -131,12 +131,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="jlbhd.jsp"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=2&fileName=jlbhd"> <img class="img-responsive item-img"
 									src="img/play/jlbhd.jpg" alt="Work 5">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="jlbhd.jsp"><h4 class="item-title">加勒比海盗-沉落宝藏之战</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=2&fileName=jlbhd"><h4 class="item-title">加勒比海盗-沉落宝藏之战</h4></a>
 								<p class="item-category">宝藏湾</p>
 								<p class="item-description">加入杰克船长的海盗队伍，向海洋进发，来一场寻宝之旅！</p>
 								<hr>
@@ -154,12 +154,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="tmhyfch.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=3&fileName=tmhyfch"> <img class="img-responsive item-img"
 									src="img/play/tmhyfch.jpg" alt="Work 6">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="tmhyfch.html"><h4 class="item-title">探秘海妖复仇号</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=3&fileName=tmhyfch"><h4 class="item-title">探秘海妖复仇号</h4></a>
 								<p class="item-category">宝藏湾</p>
 								<p class="item-description">登上真正的海盗船，体验海盗的刺激生活与惊险行动。</p>
 								<hr>
