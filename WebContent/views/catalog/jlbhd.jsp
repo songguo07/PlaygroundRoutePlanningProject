@@ -94,10 +94,10 @@
 							<!--navigation-->
 							<ul class="pager">
 								<li class="previous">
-									<a href="cqxst.html">&lt; 前一个</a>
+									<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=1&fileName=cqxst">&lt; 前一个</a>
 								</li>
 								<li class="next">
-									<a href="tmhyfch.html">后一个 &gt;</a>
+									<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=3&fileName=tmhyfch">后一个 &gt;</a>
 								</li>
 							</ul>
 							<hr>
