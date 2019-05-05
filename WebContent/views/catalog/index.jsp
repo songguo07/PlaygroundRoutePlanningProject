@@ -770,9 +770,11 @@
 	                 data:{data : typeArray},
 					 success:function(data){
 						 window.location.href="http://localhost:8080/playgroundRoutePlanning/views/catalog/route.jsp"; 
-						}
+					},
+					error:function(data){
+					}
 				 });
-			 
+						 window.location.href="http://localhost:8080/playgroundRoutePlanning/views/catalog/route.jsp"; 
 		});
 	 	$("#withDrawl").click(function(){
 			alert("您确定要退出吗？");
