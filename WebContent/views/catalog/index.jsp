@@ -764,11 +764,12 @@
 			  alert("这是您感兴趣类型吗？->"+typeArray);
 			  $.ajax({
 					 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
-	                 dataType: "json",
+	                 dataType: "text",
 	                 traditional: true,
 	                 type: "POST",
 	                 data:{data : typeArray},
-					 success:function(result){
+					 success:function(data){
+						 window.location.href="http://localhost:8080/playgroundRoutePlanning/views/catalog/route.jsp"; 
 						}
 				 });
 			 

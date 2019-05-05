@@ -61,7 +61,12 @@ public class GetBestRoute extends HttpServlet {
 		System.out.println("**************最佳路线***********************");
 		for (int i = 0; i < result.length; i++) {
 			System.out.println(i+"========"+result[i][0] + "===========" + result[i][1]);
-	 }
-		response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
+		}
+		
+		int array[]=BestRouteUtil.getArray(result);
+		request.getSession().setAttribute("array", array);
+		request.getSession().setAttribute("result", result);
+		request.getSession().setAttribute("length", result.length);
+		response.getWriter().write("yes");
 	}
 }
