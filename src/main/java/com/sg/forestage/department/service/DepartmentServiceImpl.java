@@ -39,5 +39,10 @@ public class DepartmentServiceImpl implements DepartmentService{
 		return departmentDao.getDepartmentEvaluByDId(dId);
 	}
 
+	@Override
+	public String getDepIdByName(String depName) {
+		return departmentDao.getDepIdByName(depName);
+	}
+
 
 }

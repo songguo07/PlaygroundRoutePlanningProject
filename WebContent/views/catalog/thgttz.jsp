@@ -1,13 +1,17 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>探险家独木舟</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>弹簧狗团团转</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalogimg/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalogcss/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalogcss/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,37 +52,68 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/txjdmz.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/thgttz.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>探险家独木舟</h1>
+                    <h1>弹簧狗团团转</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
                         <a href="#">室外</a> ,
-                        <a href="#">水花四溅</a> ,
+                        <a href="#">旋转</a> ,
                         <a href="#">所有身高</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>登上探险家独木舟，划着船桨，开启在“宝藏湾”和“探险岛”两大主题园区的刺激探险之旅。 </strong></p>
+                    <p class="item-description"><strong>来迪士尼·皮克斯玩具总动员主题园区，坐上弹簧狗的螺旋形弹簧，和他一起欢快地围着一个盛满了玩具骨头的大狗盘绕圈。 </strong></p>
                     <hr>
-                    <p><strong>刺激有趣的独木舟探索之旅</strong></p>
-                    <p>拿起船桨，划着独木舟去探索嶙峋崎岖的海岸基地，这个海盗、移民者和当地人都称之为“家”的地方。</p>
-                    <p><strong>决定好您的探险路线！</strong></p>
-                    <p>这是领略“宝藏湾”和“探险岛”两大主题园区壮丽景观的最佳路线。</p>
-                    <p><strong>划行独木舟</strong></p>
-                    <p>华特迪士尼幻想工程历年来推出多种创新游乐设施，独木舟之旅一直是最受欢迎的游乐项目之一。</p>
+                    <p><strong>和弹簧狗一起快乐转转转</strong></p>
+                    <p>在迪士尼·皮克斯玩具总动员主题园区，安迪在他的后院放了很多玩具，当然少不了他最喜欢的弹簧狗，对，就是那只单纯可爱，具有特殊才能，腰部是弹簧组成的经典玩具狗。</p>
+                    <p><strong>隆重介绍 迪士尼·皮克斯玩具总动员主题园区</strong></p>
+                    <p>2018年4月26日（下午1点后），来玩具世界放开玩。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="tmhyfch.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="thgttz.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=4&fileName=txjdmz">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=6&fileName=hdnzjnh">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                   <!--  <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -88,7 +123,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </section>
             </div>
@@ -334,12 +369,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalogjs/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalogjs/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalogjs/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalogjs/main.js"></script>
 </body>
 </html>

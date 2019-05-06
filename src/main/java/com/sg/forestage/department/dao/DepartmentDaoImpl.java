@@ -74,5 +74,16 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		}
 		return evaluateList;
 	}
+	
+	@Override
+	public String getDepIdByName(String depName) {
+		String sql = "select d_id from department where d_name='"+depName+"'";
+		try {
+			return qr.query(conn, sql, new BeanHandler<Department>(Department.class)).getdId();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>古迹探索营</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>翱翔·飞越地平线</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,38 +53,67 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/gjtsy.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/ax.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>古迹探索营</h1>
+                    <h1>翱翔·飞越地平线</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
-                        <a href="#">室外</a> ,
-                        <a href="#">所有身高</a>
+                        <a href="#">室内</a> ,
+                        <a href="#">102厘米或以上</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>在探索探险岛的过程中，穿越绳索挑战道，踏上探索步行道，发掘部落遗迹。</strong></p>
+                    <p class="item-description"><strong>来一场令人兴奋的飞行，以前所未有的方式见证这个神奇的世界吧！</strong></p>
                     <hr>
-                    <p><strong>加入探险者的行列</strong></p>
-                    <p>踏上一个深入“神豹”奇凯之领域的远征。</p>
-                    <p><strong>绳索挑战道</strong></p>
-                    <p>三条让人兴奋不已的上升绳索道横穿过雷鸣山，带领探险者们通过河谷、瀑布和峭壁，从宜人的山川景致一路到达令人叹为观止的山洞景观。</p>
-                    <p><strong>探索步行道</strong></p>
-                    <p>这条平缓的线路遍布茂密的植被，适合各个年龄层，各种体力的探险者，在地面就可以体验绳索道沿途的风景，每一个转角都有令人惊喜的照相机会。</p>
-                    <p><strong>考古发掘场</strong></p>
-                    <p>在这处考古发掘场，年幼的考古学家们能亲身前往探索，动手挖掘那些掩埋在沙石中令人向往的文物遗迹。</p>
+                    <p><strong>翱翔天际</strong></p>
+                    <p>汇集古老的原始力量，您将开始一段神奇的旅程，从空中欣赏美不胜收的地球。</p>
+                    <p><strong>环球感官之旅</strong></p>
+                    <p>前往地球上最神奇的地点，领略壮阔的景观之美。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="ax.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="hxjyh.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=23&fileName=xfx">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=25&fileName=gjtsy">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -89,7 +123,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </section>
             </div>
@@ -335,12 +369,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

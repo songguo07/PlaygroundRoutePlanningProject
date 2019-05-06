@@ -157,6 +157,7 @@ public class BestRouteUtil {
 
 		starttime = Integer.parseInt(timeString[0]) * 60 - 540 + Integer.parseInt(timeString[1]);
 		leisuretime = leisureTime;
+		starttime=90;
 		int currenttime = starttime;
 		int sequence[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		int curwait, curwalk, totime, t, best = 0, bestj = 0, number = 0, bestwalk, bestwait, P;
@@ -205,6 +206,34 @@ public class BestRouteUtil {
 			i = bestj;
 
 		}
-		return result;
+		i=0;
+		for (Object[] o : result) {
+			if(o[0]!=null) {
+				i++;
+			}
+		}
+		Object[][]o= new Object[i][2];
+		for(j=0;j<i;j++) {
+			o[j][0]=result[j][0];
+			o[j][1]=result[j][1];
+		}
+		return o;
+	}
+	
+	public static int[] getArray(Object[][] o) {
+		int array[] = new int[26];
+		for(int i=0;i<26;i++) array[i]=0;
+		String name[] = { "爱丽丝梦游仙境迷宫", "翱翔-飞越地平线", "巴斯光年星际营救", "米奇俱乐部", "创极速光轮-雪佛兰呈献", "弹簧狗团团转", "古迹探索营", "欢笑聚友会",
+				"胡迪牛仔嘉年华", "加勒比海盗-沉落宝藏之战", "晶彩奇航", "雷鸣山漂流", "漫威英雄总部", "幻想曲旋转木马", "漫游童话时光", "喷气背包飞行器", "七个小矮人矿山车",
+				"小飞侠天空奇遇", "小熊维尼历险记", "旋转疯蜜罐", "迎宾阁", "小飞象", "太空幸会史迪奇", "点亮奇梦：夜光幻影秀", "探秘海妖复仇号", "探险家独木舟" };
+		for (Object object[] : o) {
+			for(int i=0;i<26;i++) {
+				if(object[0].equals(name[i])) {
+					array[i]=1;
+					break;
+				}
+			}
+		}
+		return array;
 	}
 }

@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>创界：雪佛兰数字挑战</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>欢笑聚友会</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,32 +53,68 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/cj.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/hxjyh.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>创界：雪佛兰数字挑战</h1>
+                    <h1>欢笑聚友会</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
+                        <a href="#">室外</a> ,
                         <a href="#">互动项目</a> ,
                         <a href="#">所有身高</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>探索奇妙的未来驾驶世界，游客们在这里能体验全新一代雪佛兰概念车与创世界尖端技术的融合。</strong></p>
+                    <p class="item-description"><strong>在地球上最大、最深、最蓝的海洋中，有一座被丛林覆盖的岛屿。您可能会在岛上的旅途中遇到一些丛林故事里的可爱迪士尼朋友，比如狮子王里的朋友们，甚至可能在现场与疯狂动物城中的朋友们见面！ </strong></p>
                     <hr>
-                    <p><strong>探索网格世界</strong></p>
-                    <p>汽车设计的一小步，虚拟汽车的一大步！进入顶尖的数字中心，游客们能跨越传统车辆设计局限，设计并感受新型的未来汽车。 </p>
+                    <p><strong>欢笑聚友会</strong></p>
+                    <p>在这里您可能会遇见著名的猩猩、树懒和狮子等迪士尼朋友，和他们打个招呼吧。</p>
+                    <p><strong>迪士尼经典动画里出现的丛林</strong></p>
+                    <p>在这座神奇岛屿的丛林里，居住着一群迪士尼朋友，他们来自多部深受喜爱的迪士尼经典动画电影。 </p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="cjsgl.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="pqbbfxq.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=25&fileName=gjtsy">&lt; 前一个</a></li>
+                        <li class="next"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=27&fileName=lmspl">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                   <!--  <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -83,7 +124,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </section>
             </div>
@@ -329,12 +370,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

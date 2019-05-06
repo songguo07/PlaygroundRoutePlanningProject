@@ -23,5 +23,7 @@ public interface DepartmentService {
 	 * @author 李银霞
 	 */
 	public List<Evaluate> getDepartmentEvaluByDId(String dId);
+	
+	public String getDepIdByName(String depName) ;
 }
 	

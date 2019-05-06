@@ -1,13 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>漫游童话时光</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
+    <title>雷鸣山漂流</title>
+    <link href="${pageContext.request.contextPath}/static/02/css/style.css" rel="stylesheet" media="screen">
+    
+    <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/views/catalog/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/views/catalog/css/style.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,37 +53,69 @@
             <div>
                 <section>
                     <!--banner image-->
-                    <img src="img/play/mythsg.jpg" alt="" class="img-responsive">
+                    <img src="${pageContext.request.contextPath}/views/catalog/img/play/lmspl.jpg" alt="" class="img-responsive">
 
                     <!--project title-->
-                    <h1>漫游童话时光</h1>
+                    <h1>雷鸣山漂流</h1>
                     <h1 class="spacer">___</h1>
 
                     <!--project tags-->
                     <p class="item-tags">
-                        <a href="#">室内</a> ,
-                        <a href="#">互动项目</a> ,
-                        <a href="#">所有身高</a>
+                        <a href="#">室外</a> ,
+                        <a href="#">刺激</a> ,
+                        <a href="#">水花四溅</a> ,
+                        <a href="#">107厘米或以上</a>
                     </p>
 
                     <!--project content-->
-                    <p class="item-description"><strong>穿过魔镜，进入奇幻世界：白雪公主的童话世界。</strong></p>
+                    <p class="item-description"><strong>踏上刺激的漂筏之旅，深入黑暗的深渊，和凶猛的巨兽赛跑， 在激流中辗转翻腾。</strong></p>
                     <hr>
-                    <p><strong>白雪公主、七个小矮人还有你！</strong></p>
-                    <p>以前所未有的方式重新体验这个经典故事，沉浸在欢乐、冒险与刺激中。</p>
-                    <p><strong>不一样的景点，不一样的位置</strong></p>
-                    <p>众多迪士尼公主在这里讲述她们的精彩故事，让您真切体验童话的上演！</p>
-                    <p><strong>《白雪公主》传奇延续</strong></p>
-                    <p>这位迪士尼公主在迪士尼经典动画《白雪公主和七个小矮人》中首次登场。</p>
+                    <p><strong>遭遇山间的未知惊险</strong></p>
+                    <p>加入漂筏探险队，深入探索远古传奇……但要小心前方的危险。</p>
+                    <p><strong>感受这激流吧!</strong></p>
+                    <p>探索之旅成为了一场刺激连连的惊险赛跑。</p>
                     <!--navigation-->
                     <ul class="pager">
-                        <li class="previous"><a href="jcqh.html">&lt; 前一个</a></li>
-                        <li class="next"><a href="qgxarksc.html">后一个 &gt;</a></li>
+                        <li class="previous"><a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=26&fileName=hxjyh">&lt; 前一个</a></li>
+                        <li class="next disabled"><a href="#">后一个 &gt;</a></li>
                     </ul>
                     <hr>
 
+<div class="col-lg-8 col-md-8 col-sm-7 col-left">
+								<section>
+									<div class="row">
+										<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
+
+											<!--input contact-->
+											<h1>评分评论</h1>
+											<h1 class="spacer">___</h1>
+											<!-- 循环显示该项目下的评价   -->
+											<tbody>
+												<c:forEach items="${evaluateList }" var="evaluate">
+													<tr>
+														<!-- <a class="pull-left" href="#"> 
+														<img class="media-object img-circle" src="img/blog/avatar.jpg" alt="miniature-comment" width="48">
+														</a> -->
+														<div class="media-body">
+															<h3 class="media-heading">
+															<p>用户:${evaluate.userId}</p>
+														</h3>
+															<p class="comment-date">❤❤❤❤❤</p>
+															<p class="comment-content">评分：${evaluate.eScore}</p>
+															<p class="comment-content">评价：${evaluate.eEvaluate}</p>
+														</div>
+
+													</tr>
+												</c:forEach>
+											</tbody>
+
+										</div>
+									</div>
+								</section>
+							</div>
+
                     <!--share-->
-                    <div class="row">
+                   <!--  <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <h3 class="share">分享</h3>
                         </div>
@@ -88,7 +125,7 @@
                             <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="Twitter"></a>
                             <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </section>
             </div>
@@ -334,12 +371,12 @@
 <script src="js/jquery.js"></script>
 
 <!-- FASTCLICK -->
-<script src="js/plugins/fastclick/fastclick.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/fastclick/fastclick.js"></script>
 <!-- SMOOTH SCROLL -->
-<script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
 <!-- MIXITUP -->
-<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
-<script src="js/main.js"></script>
+<script src="${pageContext.request.contextPath}/views/catalog/js/main.js"></script>
 </body>
 </html>

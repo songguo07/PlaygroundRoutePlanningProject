@@ -146,6 +146,7 @@
 										type="radio" value="加勒比海盗-沉落宝藏之战" name="2"> <font
 										color="#00ff00">再看看</font><input type="radio" name="2"
 										value="0" checked="checked">
+										<a href="${pageContext.request.contextPath}/views/evaluate/evaluate.jsp?dId=2">评价</a>
 
 								</p>
 							</div>
@@ -176,12 +177,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="txjdmz.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=4&fileName=txjdmz"> <img class="img-responsive item-img"
 									src="img/play/txjdmz.jpg" alt="Work 7">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="txjdmz.html"><h4 class="item-title">探险家独木舟</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=4&fileName=txjdmz"><h4 class="item-title">探险家独木舟</h4></a>
 								<p class="item-category">宝藏湾</p>
 								<p class="item-description">登上探险家独木舟，开启在宝藏湾和探险岛的探险之旅。</p>
 								<hr>
@@ -198,12 +199,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="thgttz.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=5&fileName=thgttz"> <img class="img-responsive item-img"
 									src="img/play/thgttz.jpg" alt="Work 8">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="thgttz.html"><h4 class="item-title">弹簧狗团团转</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=5&fileName=thgttz"><h4 class="item-title">弹簧狗团团转</h4></a>
 								<p class="item-category">皮克斯玩具总动员</p>
 								<p class="item-description">坐上弹簧狗的螺旋形弹簧，和他欢快地围着大狗盘绕圈。</p>
 								<hr>
@@ -220,12 +221,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="hdnzjnh.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=6&fileName=hdnzjnh"> <img class="img-responsive item-img"
 									src="img/play/hdnzjnh.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="hdnzjnh.html"><h4 class="item-title">胡迪牛仔嘉年华</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=6&fileName=hdnzjnh"><h4 class="item-title">胡迪牛仔嘉年华</h4></a>
 								<p class="item-category">皮克斯玩具总动员</p>
 								<p class="item-description">跳上怀旧的西部马车，踏着欢快的音乐，一同摇摆。</p>
 								<hr>
@@ -242,13 +243,13 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="alsmyxjmg.html"> <img
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=7&fileName=alsmyxjmg"> <img
 									class="img-responsive item-img" src="img/play/alsmyxjmg.jpg"
 									alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="alsmyxjmg.html"><h4 class="item-title">爱丽丝梦游仙境迷宫</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=7&fileName=alsmyxjmg"><h4 class="item-title">爱丽丝梦游仙境迷宫</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">穿越爱丽丝梦游仙境中蜿蜒的迷宫，参加疯狂茶会派对。</p>
 								<hr>
@@ -265,12 +266,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="jcqh.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=8&fileName=jcqh"> <img class="img-responsive item-img"
 									src="img/play/jcqh.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="jcqh.html"><h4 class="item-title">晶彩奇航</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=8&fileName=jcqh"><h4 class="item-title">晶彩奇航</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">借助音乐、灯光和神奇魔法，为游客呈现迪士尼经典故事</p>
 								<hr>
@@ -287,12 +288,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="mythsg.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=9&fileName=mythsj"> <img class="img-responsive item-img"
 									src="img/play/mythsg.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="mythsg.html"><h4 class="item-title">漫游童话时光</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=9&fileName=mythsj"><h4 class="item-title">漫游童话时光</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">穿过魔镜，进入奇幻世界：白雪公主的童话世界。</p>
 								<hr>
@@ -309,13 +310,13 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="qgxarksc.html"> <img
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=10&fileName=qgxarksc"> <img
 									class="img-responsive item-img" src="img/play/qgxarksc.jpg"
 									alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="qgxarksc.html"><h4 class="item-title">七个小矮人矿山车</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=10&fileName=qgxarksc"><h4 class="item-title">七个小矮人矿山车</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">过山车项目，穿梭在白雪公主和七个小矮人钻石矿山中。</p>
 								<hr>
@@ -332,12 +333,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="xfxtkqy.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=11&fileName=xfxtkqy"> <img class="img-responsive item-img"
 									src="img/play/xfxtkqy.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="xfxtkqy.html"><h4 class="item-title">小飞侠天空奇遇</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=11&fileName=xfxtkqy"><h4 class="item-title">小飞侠天空奇遇</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">和小飞侠、奇妙仙子还有梦幻岛的同伴一起遨游天际。</p>
 								<hr>
@@ -354,12 +355,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="xxwnlxj.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=12&fileName=xxwnlxj"> <img class="img-responsive item-img"
 									src="img/play/xxwnlxj.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="xxwnlxj.html"><h4 class="item-title">小熊维尼历险记</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=12&fileName=xxwnlxj"><h4 class="item-title">小熊维尼历险记</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">进入百亩森林，探索小熊维尼和朋友们的美妙世界！</p>
 								<hr>
@@ -376,12 +377,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="xzfmg.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=13&fileName=xzfmg"> <img class="img-responsive item-img"
 									src="img/play/xzfmg.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="xzfmg.html"><h4 class="item-title">旋转疯蜜罐</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=13&fileName=xzfmg"><h4 class="item-title">旋转疯蜜罐</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">和同伴一起，在自由控制的旋转中体验寻找美味的乐趣。</p>
 								<hr>
@@ -398,12 +399,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="ybg.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=14&fileName=ybg"> <img class="img-responsive item-img"
 									src="img/play/ybg.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="ybg.html"><h4 class="item-title">迎宾阁</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=14&fileName=ybg"><h4 class="item-title">迎宾阁</h4></a>
 								<p class="item-category">梦幻世界</p>
 								<p class="item-description">受到迪士尼皇室的问候，尽情享受一次美妙的邂逅吧！</p>
 								<hr>
@@ -420,13 +421,13 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="bsgnxjyj.html"> <img
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=15&fileName=bsgnxjyj"> <img
 									class="img-responsive item-img" src="img/play/bsgnxjyj.jpg"
 									alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="bsgnxjyj.html"><h4 class="item-title">巴斯光年星际营救</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=15&fileName=bsgnxjyj"><h4 class="item-title">巴斯光年星际营救</h4></a>
 								<p class="item-category">明日世界</p>
 								<p class="item-description">投身战斗，竭尽全力消灭索克天王手下骇人的机器人部队！</p>
 								<hr>
@@ -443,12 +444,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="cjsgl.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=16&fileName=cjsgl"> <img class="img-responsive item-img"
 									src="img/play/cjsgl.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="cjsgl.html"><h4 class="item-title">创极速光轮-雪佛兰呈献</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=16&fileName=cjsgl"><h4 class="item-title">创极速光轮-雪佛兰呈献</h4></a>
 								<p class="item-category">明日世界</p>
 								<p class="item-description">进入电子网络世界，随着极速光轮、极速转向，全力奔驰！</p>
 								<hr>
@@ -465,12 +466,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="cj.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=17&fileName=cj"> <img class="img-responsive item-img"
 									src="img/play/cj.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="cj.html"><h4 class="item-title">创界：雪佛兰数字挑战</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=17&fileName=cj"><h4 class="item-title">创界：雪佛兰数字挑战</h4></a>
 								<p class="item-category">明日世界</p>
 								<p class="item-description">探索奇妙的未来驾驶世界，体验概念车与创世界尖端技术。</p>
 								<hr>
@@ -487,12 +488,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="pqbbfxq.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=18&fileName=pqbbfxq"> <img class="img-responsive item-img"
 									src="img/play/pqbbfxq.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="pqbbfxq.html"><h4 class="item-title">喷气背包飞行器</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=18&fileName=pqbbfxq"><h4 class="item-title">喷气背包飞行器</h4></a>
 								<p class="item-category">明日世界</p>
 								<p class="item-description">加速，再加速，带着这次未来之旅令人激动的兴奋感出发！</p>
 								<hr>
@@ -509,12 +510,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="tkxhsdq.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=19&fileName=tkxhsdq"> <img class="img-responsive item-img"
 									src="img/play/tkxhsdq.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="tkxhsdq.html"><h4 class="item-title">太空幸会史迪奇</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=19&fileName=tkxhsdq"><h4 class="item-title">太空幸会史迪奇</h4></a>
 								<p class="item-category">明日世界</p>
 								<p class="item-description">请和这个蓝色小外星人打招呼吧，他保证让您捧腹大笑！</p>
 								<hr>
@@ -531,12 +532,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="hxqxzmm.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=20&fileName=hxqxzmm"> <img class="img-responsive item-img"
 									src="img/play/hxqxzmm.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="hxqxzmm.html"><h4 class="item-title">幻想曲旋转木马</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=20&fileName=hxqxzmm"><h4 class="item-title">幻想曲旋转木马</h4></a>
 								<p class="item-category">奇想花园</p>
 								<p class="item-description">乘坐飞马，伴随幻想曲中的交响乐，回旋在梦幻世界里。</p>
 								<hr>
@@ -553,12 +554,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="mwyxzb.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=21&fileName=mwyxzb"> <img class="img-responsive item-img"
 									src="img/play/mwyxzb.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="mwyxzb.html"><h4 class="item-title">漫威英雄总部</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=21&fileName=mwyxzb"><h4 class="item-title">漫威英雄总部</h4></a>
 								<p class="item-category">奇想花园</p>
 								<p class="item-description">深入漫威英雄总部，您将遇到一些自己喜爱的漫威英雄！</p>
 								<hr>
@@ -575,12 +576,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="mqjlb.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=22&fileName=mqjlb"> <img class="img-responsive item-img"
 									src="img/play/mqjlb.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="mqjlb.html"><h4 class="item-title">米奇俱乐部</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=22&fileName=mqjlb"><h4 class="item-title">米奇俱乐部</h4></a>
 								<p class="item-category">奇想花园</p>
 								<p class="item-description">在与举世闻名的米奇会面之前，参观一个魔法画展吧！</p>
 								<hr>
@@ -597,12 +598,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="xfx.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=23&fileName=xfx"> <img class="img-responsive item-img"
 									src="img/play/xfx.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="xfx.html"><h4 class="item-title">小飞象</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=23&fileName=xfx"><h4 class="item-title">小飞象</h4></a>
 								<p class="item-category">奇想花园</p>
 								<p class="item-description">乘着小飞象在空中尽情飞翔！他是奇想花园的超级明星。</p>
 								<hr>
@@ -619,12 +620,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="ax.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=24&fileName=ax"> <img class="img-responsive item-img"
 									src="img/play/ax.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="ax.html"><h4 class="item-title">翱翔·飞越地平线</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=24&fileName=ax"><h4 class="item-title">翱翔·飞越地平线</h4></a>
 								<p class="item-category">探险岛</p>
 								<p class="item-description">以前所未有的飞行方式见证这个神奇的世界吧！</p>
 								<hr>
@@ -641,12 +642,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="gjtsy.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=25&fileName=gjtsy"> <img class="img-responsive item-img"
 									src="img/play/gjtsy.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="gjtsy.html"><h4 class="item-title">古迹探索营</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=25&fileName=gjtsy"><h4 class="item-title">古迹探索营</h4></a>
 								<p class="item-category">探险岛</p>
 								<p class="item-description">穿越绳索挑战道，踏上探索步行道，发掘部落遗迹。</p>
 								<hr>
@@ -663,12 +664,12 @@
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="hxjyh.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=26&fileName=hxjyh"> <img class="img-responsive item-img"
 									src="img/play/hxjyh.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="hxjyh.html"><h4 class="item-title">欢笑聚友会</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=26&fileName=hxjyh"><h4 class="item-title">欢笑聚友会</h4></a>
 								<p class="item-category">探险岛</p>
 								<p class="item-description">您在岛上会遇到一些丛林故事里的可爱迪士尼朋友，比如狮子王里的朋友们，甚至可能在现场与疯狂动物城中的朋友们见面！
 								</p>
@@ -769,9 +770,10 @@
 	                 type: "POST",
 	                 data:{data : typeArray},
 					 success:function(result){
+						 window.location.href="route.jsp";
 						}
 				 });
-			 
+			  window.location.href="route.jsp";
 		});
 	 	$("#withDrawl").click(function(){
 			alert("您确定要退出吗？");
