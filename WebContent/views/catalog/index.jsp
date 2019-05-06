@@ -770,9 +770,10 @@
 	                 type: "POST",
 	                 data:{data : typeArray},
 					 success:function(result){
+						 window.location.href="route.jsp";
 						}
 				 });
-			 
+			  window.location.href="route.jsp";
 		});
 	 	$("#withDrawl").click(function(){
 			alert("您确定要退出吗？");

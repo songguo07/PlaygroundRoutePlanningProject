@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.sg.common.util.BestRouteUtil;
 import com.sg.forestage.user.entity.User;
 import com.sg.forestage.user.service.UserService;
@@ -25,7 +26,10 @@ public class GetBestRoute extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		Object o = request.getSession().getAttribute("result");
+		Object[][] result=(Object[][])o;
+		int array[]=BestRouteUtil.getArray(result);
+		response.getWriter().write(new Gson().toJson(array));
 	}
 
 	/**
@@ -37,7 +41,7 @@ public class GetBestRoute extends HttpServlet {
 		String userId = user.getUserId();
 		System.out.println("GetBestRoute的用户id:"+userId);
 		UserService userService = new UserServiceImpl();
-		List<String> hobbyNameList = new ArrayList();
+		List<String> hobbyNameList = new ArrayList<String>();
 		hobbyNameList = userService.getHobbyList(userId);
 		System.out.println("获得的用户所有感兴趣的项目："+hobbyNameList);
 		if(hobbyNameList==null) {
@@ -63,8 +67,7 @@ public class GetBestRoute extends HttpServlet {
 			System.out.println(i+"========"+result[i][0] + "===========" + result[i][1]);
 		}
 		
-		int array[]=BestRouteUtil.getArray(result);
-		request.getSession().setAttribute("array", array);
+		
 		request.getSession().setAttribute("result", result);
 		request.getSession().setAttribute("length", result.length);
 		response.getWriter().write("yes");

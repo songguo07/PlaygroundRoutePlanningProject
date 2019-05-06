@@ -157,7 +157,7 @@ public class BestRouteUtil {
 
 		starttime = Integer.parseInt(timeString[0]) * 60 - 540 + Integer.parseInt(timeString[1]);
 		leisuretime = leisureTime;
-		//starttime=90;
+		starttime=90;
 		int currenttime = starttime;
 		int sequence[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		int curwait, curwalk, totime, t, best = 0, bestj = 0, number = 0, bestwalk, bestwait, P;
@@ -228,7 +228,7 @@ public class BestRouteUtil {
 				"小飞侠天空奇遇", "小熊维尼历险记", "旋转疯蜜罐", "迎宾阁", "小飞象", "太空幸会史迪奇", "点亮奇梦：夜光幻影秀", "探秘海妖复仇号", "探险家独木舟" };
 		for (Object object[] : o) {
 			for(int i=0;i<26;i++) {
-				if(object[1].equals(name[i])) {
+				if(object[0].equals(name[i])) {
 					array[i]=1;
 					break;
 				}
