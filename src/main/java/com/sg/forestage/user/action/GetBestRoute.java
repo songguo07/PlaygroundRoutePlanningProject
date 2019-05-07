@@ -53,23 +53,41 @@ public class GetBestRoute extends HttpServlet {
 		for (String hobbyName : hobbyNameList) {
 			System.out.println(hobbyName);
 		}
-		
 		//获得用户喜欢项目的类型
 		System.out.println("获得用户喜欢项目的类型-------------------->");
 		String[] typeLikes = request.getParameterValues("data");
-		for (String typeLike : typeLikes) {
-			System.out.println(typeLike);
+		if(typeLikes.length!=0) {
+			for (String typeLike : typeLikes) {
+				System.out.println(typeLike);
+			}
 		}
+		
 		
 		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3);
 		System.out.println("**************最佳路线***********************");
-		for (int i = 0; i < result.length; i++) {
-			System.out.println(i+"========"+result[i][0] + "===========" + result[i][1]);
+		
+		int j=0;
+		for (String hobbyName : hobbyNameList) {
+			for(int i=0;i<result.length;i++) {
+				if(hobbyName.equals(result[i][0])) j++;
+			}
+		}
+		System.out.println("用户想玩的项目的个数："+j);
+		Object result1[][]=new Object[j][2];
+		for(int k=0;k<j;k++) {
+			for(int i=0;i<result.length;i++) {
+				for (String hobbyName : hobbyNameList) {
+					if(hobbyName.equals(result[i][0])) result1[k++]=result[i];
+				}
+			}
+		}
+		for (int i = 0; i < result1.length; i++) {
+			System.out.println( "======最终项目顺序=====" + result1[i][0]);
 		}
 		
 		
-		request.getSession().setAttribute("result", result);
-		request.getSession().setAttribute("length", result.length);
+		request.getSession().setAttribute("result", result1);
+		request.getSession().setAttribute("length", result1.length);
 		response.getWriter().write("yes");
 	}
 }

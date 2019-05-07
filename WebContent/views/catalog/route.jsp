@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>路线规划</title>
 <style type="text/css">
 th {
 	width: 150px;
@@ -73,7 +73,7 @@ a {
 	<div
 		style="margin-left: 300px; margin-top: 30px; display: block; width: 1000px; height: 300px;">
 		<c:choose>
-			<c:when test="${length<=2 }">
+			<c:when test="${length==1 }">
 				<c:forEach var="dep" items="${result }" begin="${length-1 }" end="${length-1 }">
 					<div onclick="sel('${dep[0]}','${dep[1] }')"
 						style="display: inline-block; width: 185px; height: 90px;"

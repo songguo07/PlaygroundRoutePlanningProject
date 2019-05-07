@@ -77,7 +77,8 @@ public class DepartmentDaoImpl implements DepartmentDao{
 	
 	@Override
 	public String getDepIdByName(String depName) {
-		String sql = "select d_id from department where d_name='"+depName+"'";
+		String sql = "select * from department where d_name='"+depName+"'";
+		System.out.println(sql);
 		try {
 			return qr.query(conn, sql, new BeanHandler<Department>(Department.class)).getdId();
 		} catch (SQLException e) {

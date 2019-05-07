@@ -57,7 +57,7 @@ body{font:12px/180% Arial, Helvetica, sans-serif;}
 	<h3>我要评论</h3>
 	<div class="quiz_content">
 		<form action="${pageContext.request.contextPath}/DoAddEvaluate" id="" method="post">
-		<input name="dId" type="hidden" value="1"/>
+		<input name="dId" type="hidden" value="${d_id }"/>
 		<input name="score" type="hidden" id="divresult"/>
 		<input name="content" type="hidden"  id="divcontent"/>
 			<div class="goods-comm">
@@ -66,7 +66,6 @@ body{font:12px/180% Arial, Helvetica, sans-serif;}
 					<div id="rate-comm-1" class="rate-comm" ></div>
 				</div>
 			</div>
-
 			<div class="l_text">
 				<label class="m_flo">内  容：</label>
 				<textarea  id="content" class="text"></textarea>
