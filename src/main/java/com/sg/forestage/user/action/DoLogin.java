@@ -33,6 +33,9 @@ public class DoLogin extends HttpServlet {
 		System.out.println("Servlet:Dologin------>userTelno:" + userTelno);
 		System.out.println("Servlet:Dologin------>userPassword:" + userPassword);
 		System.out.println("Servlet:Dologin------>reallyCheckNumber:" + reallyCheckNumber);
+		reallyCheckNumber=reallyCheckNumber.substring(reallyCheckNumber.length()-5);
+		System.out.println("Servlet:Dologin------>reallyCheckNumber截取后:" + reallyCheckNumber);
+		
 		UserService userService = new UserServiceImpl();
 		User user = userService.doLogin(userTelno.trim(), userPassword.trim());
 		/**网易云需要修改两个地方：
