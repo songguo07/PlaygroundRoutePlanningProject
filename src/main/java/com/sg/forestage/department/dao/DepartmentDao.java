@@ -25,4 +25,11 @@ public interface DepartmentDao {
 	public List<Evaluate> getDepartmentEvaluByDId(String dId);
 	
 	public String getDepIdByName(String depName);
+	
+	/**
+	 * 根据id获得项目名字
+	 *
+	 * @author 李银霞
+	 */
+	public String getDepNameById(String dId);
 }

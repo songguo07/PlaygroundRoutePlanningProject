@@ -44,5 +44,17 @@ public class DepartmentServiceImpl implements DepartmentService{
 		return departmentDao.getDepIdByName(depName);
 	}
 
+	/**
+	 * 根据id获得项目民资
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public String getDepNameById(String dId) {
+		dId = dId.trim();
+		return null;
+	}
+
 
 }

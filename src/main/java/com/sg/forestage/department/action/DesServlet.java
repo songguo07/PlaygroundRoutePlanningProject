@@ -19,8 +19,8 @@ public class DesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String depName = request.getParameter("depName");
 		String depId = departmentService.getDepIdByName(depName);
+		System.out.println("DesServlet获取的项目id："+depId);
 		request.getSession().setAttribute("d_id", depId);
-		System.out.println(depId+"//////////////////");
 		response.sendRedirect("/playgroundRoutePlanning/views/evaluate/evaluate.jsp");
 	}
 

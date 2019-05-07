@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sg.forestage.department.service.DepartmentService;
+import com.sg.forestage.department.service.DepartmentServiceImpl;
 import com.sg.forestage.user.entity.Evaluate;
 import com.sg.forestage.user.entity.User;
 import com.sg.forestage.user.service.UserService;
@@ -48,7 +50,9 @@ public class DoAddEvaluate extends HttpServlet {
 		
 		int row = userservice.doAdd(evaluate);
 		if(row>0) {
-	        response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
+//			DepartmentService departmentService =new DepartmentServiceImpl();
+//			String dName=departmentService.getDepNameById(dId);
+	        response.sendRedirect(request.getContextPath()+"/views/catalog/route.jsp");
 		}else {
 			response.sendRedirect(request.getContextPath()+"/views/evaluate/evaluate.jsp");
 		}

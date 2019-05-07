@@ -26,6 +26,10 @@ public class Department {
 	public void setdAverScore(float dAverScore) {
 		this.dAverScore = dAverScore;
 	}
+	@Override
+	public String toString() {
+		return "Department [dId=" + dId + ", dName=" + dName + ", dAverScore=" + dAverScore + "]";
+	}
 	
 	
 }

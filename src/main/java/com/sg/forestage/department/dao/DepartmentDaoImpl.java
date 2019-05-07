@@ -77,10 +77,31 @@ public class DepartmentDaoImpl implements DepartmentDao{
 	
 	@Override
 	public String getDepIdByName(String depName) {
-		String sql = "select * from department where d_name='"+depName+"'";
+		String sql = "select d_id dId,d_name dName from department where d_name='"+depName+"'";
 		System.out.println(sql);
 		try {
-			return qr.query(conn, sql, new BeanHandler<Department>(Department.class)).getdId();
+			Department department = qr.query(conn, sql, new BeanHandler<Department>(Department.class));
+			System.out.println("DesServlet根据项目名获取项目id："+department);
+			return department.getdId();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	/**
+	 * 获得id获得项目名字
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public String getDepNameById(String dId) {
+		String sql = "select d_id dId,d_name dName from department where d_id='"+dId+"'";
+		System.out.println(sql);
+		try {
+			Department department = qr.query(conn, sql, new BeanHandler<Department>(Department.class));
+			System.out.println("DesServlet根据项目名获取项目name："+department);
+			return department.getdName();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
