@@ -73,7 +73,7 @@
 		var promap = new Array();
 		for (var i = 0; i < 26;) {
 			if (flag[i] === 1) {
-				promap[i] = promap1[i];
+				promap[j] = promap1[i];
 				i++;
 			} else {
 				i++;

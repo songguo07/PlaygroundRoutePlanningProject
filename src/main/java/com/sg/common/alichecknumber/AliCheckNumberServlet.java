@@ -28,7 +28,7 @@ public class AliCheckNumberServlet extends HttpServlet {
 		try {
 			
 			if(SmsUtil.sendSms(userTelno,randomSMSCode)) {
-				System.out.println("短信发送成功");
+				System.out.println("短信发送成功"+randomSMSCode);
 				response.getWriter().print(randomSMSCode); // 将结果返回到前端
 			}
 		} catch (ClientException e) {

@@ -51,7 +51,9 @@
 					url:"http://localhost:8080/playgroundRoutePlanning/AliCheckNumberServlet",
 					cache:false,
 					data:"userTelno="+value,
+					dataType:"text",
 					success:function(result){
+						alert(result)
 						$("#reallyCheckNumber").val(result);
 					}
 				});
