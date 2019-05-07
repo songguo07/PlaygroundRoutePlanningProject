@@ -123,7 +123,6 @@
 									&nbsp;&nbsp;<font color="#00ff00">喜欢</font><input type="radio"
 										value="船奇戏水滩" name="1"> <font color="#00ff00">再看看</font><input
 										type="radio" name="1" value="0" checked="checked">
-										<a href="${pageContext.request.contextPath}/views/evaluate/evaluate.jsp?dId=1">评价</a>
 								</p>
 							</div>
 						</div>
@@ -146,7 +145,6 @@
 										type="radio" value="加勒比海盗-沉落宝藏之战" name="2"> <font
 										color="#00ff00">再看看</font><input type="radio" name="2"
 										value="0" checked="checked">
-										<a href="${pageContext.request.contextPath}/views/evaluate/evaluate.jsp?dId=2">评价</a>
 
 								</p>
 							</div>

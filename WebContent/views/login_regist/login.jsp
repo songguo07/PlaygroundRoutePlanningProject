@@ -52,6 +52,7 @@
 					cache:false,
 					data:"userTelno="+value,
 					success:function(result){
+						alert(result);
 						$("#reallyCheckNumber").val(result);
 					}
 				});
