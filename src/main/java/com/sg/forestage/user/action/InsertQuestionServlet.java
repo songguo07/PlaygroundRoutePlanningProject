@@ -22,6 +22,7 @@ public class InsertQuestionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Object o = request.getSession().getAttribute("userSession");
 		String content = request.getParameter("content");
+		System.out.println(content);
 		User user=new User();
 		List<Consult> consultList =null;
 		if(o!=null) {

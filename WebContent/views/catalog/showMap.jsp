@@ -66,14 +66,13 @@
 				});
 			}
 		});
-		//flag = new Array(1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 		var promap1 = new Array(myP1, myP2, myP3, myP4, myP5, myP6, myP7, myP8,
 				myP9, myP10, myP11, myP12, myP13, myP14, myP15, myP16, myP17,
 				myP18, myP19, myP20, myP21, myP22, myP23, myP24, myP25, myP26);
 		var promap = new Array();
-		for (var i = 0; i < 26;) {
+		for (var i = 0,j=0; i < 26;) {
 			if (flag[i] === 1) {
-				promap[j] = promap1[i];
+				promap[j++] = promap1[i];
 				i++;
 			} else {
 				i++;

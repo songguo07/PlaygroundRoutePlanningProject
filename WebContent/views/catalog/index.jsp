@@ -763,15 +763,15 @@
 			  alert("这是您感兴趣类型吗？->"+typeArray);
 			  $.ajax({
 					 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
-	                 dataType: "json",
+	                 dataType: "text",
 	                 traditional: true,
 	                 type: "POST",
 	                 data:{data : typeArray},
 					 success:function(result){
+						 alert(result)
 						 window.location.href="route.jsp";
-						}
-				 });
-			  window.location.href="route.jsp";
+					 }
+			 });
 		});
 	 	$("#withDrawl").click(function(){
 			alert("您确定要退出吗？");

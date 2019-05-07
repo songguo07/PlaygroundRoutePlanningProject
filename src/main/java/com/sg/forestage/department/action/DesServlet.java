@@ -20,6 +20,7 @@ public class DesServlet extends HttpServlet {
 		String depName = request.getParameter("depName");
 		String depId = departmentService.getDepIdByName(depName);
 		request.getSession().setAttribute("d_id", depId);
+		System.out.println(depId+"//////////////////");
 		response.sendRedirect("/playgroundRoutePlanning/views/evaluate/evaluate.jsp");
 	}
 
