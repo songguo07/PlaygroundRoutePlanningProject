@@ -53,7 +53,11 @@
 					data:"userTelno="+value,
 					dataType:"text",
 					success:function(result){
+<<<<<<< HEAD
 						alert(result)
+=======
+						alert(result);
+>>>>>>> dc4ae05857ee9bb4b5298413000b3069bda2c5d8
 						$("#reallyCheckNumber").val(result);
 					}
 				});
