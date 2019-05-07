@@ -19,7 +19,7 @@
 <body>
 <div class="dialogue-wrapper">
     
-    <div class="dialogue-main">
+    <div class="dialogue-main"  style="margin-right: 350px">
         <div class="dialogue-header">
             <i id="btn_close" class="dialogue-close">></i>
             <div class="dialogue-service-info">
@@ -32,21 +32,46 @@
             </div>
         </div>
         <div id="dialogue_contain" class="dialogue-contain">
-            <c:forEach items="${qes }" var="question">
-            	<p class="dialogue-service-contain"><span class="dialogue-text dialogue-service-text">${question.content }</span></p>
+        <c:set var="times" value="0"></c:set>
+            <c:forEach items="${consultList }" var="question">
+            <c:choose>
+            	<c:when test="${question.flag=='1' }">
+            	<c:choose>
+            		<c:when test="${question.say_id==null }">
+            			<p class="dialogue-service-contain"><span class="dialogue-text dialogue-service-text">${question.content }</span></p>
+            		</c:when>
+            		<c:otherwise>
+            			<p class="dialogue-customer-contain"><span class="dialogue-text dialogue-service-text">${question.content }</span></p>
+            		</c:otherwise>
+            		</c:choose>
+            	</c:when>
+            	<c:otherwise>
+            		 <c:if test="${times==0 }">
+			            <p style="text-align: center;color:black;">以上为历史消息</p>
+		            	<c:set value="1" var="times"></c:set>
+	            	</c:if>
+		            	<c:choose>
+		            <c:when test="${question.say_id==null }">
+			            <p class="dialogue-service-contain"><span class="dialogue-text dialogue-service-text">${question.content }</span></p>
+	            	</c:when>
+	            	<c:otherwise>
+	            		<p class="dialogue-customer-contain"><span class="dialogue-text dialogue-service-text">${question.content }</span></p>
+	            	</c:otherwise>
+	            	</c:choose>
+            	</c:otherwise>
+            </c:choose>
             </c:forEach>
-            <c:forEach items="${answerList }" var="answer">
-            	<p class="dialogue-customer-contain"><span class="dialogue-text dialogue-custom-text">${answer }</span></p>
-            </c:forEach>
-            <!-- <p class="dialogue-customer-contain"><span class="dialogue-text dialogue-customer-text">我有个问题</span></p> -->
+            <c:if test="${times==0 }">
+	            <p style="text-align: center;color:black;">以上为历史消息</p>
+	           	<c:set value="1" var="times"></c:set>
+          	</c:if>
         </div>
-        <form action="${pageContext.request.contextPath }/InsertAnswerServlet" method="post">
+       <form action="${pageContext.request.contextPath }/InsertQuestionServlet" method="post">
         <div class="dialogue-submit">
             <p id="dialogue_hint" class="dialogue-hint"><span class="dialogue-hint-icon">!</span><span class="dialogue-hint-text">发送内容不能为空</span></p>
-            <input id="dialogue_input" name="content" class="dialogue-input-text" placeholder="请输入您的回答，按Enter键提交（shift+Enter换行）"></input>
-            <input type="hidden" name="userId" value="${userId }"></input>
+            <input id="dialogue_input" name="content" class="dialogue-input-text" placeholder="请输入您的问题，按Enter键提交（shift+Enter换行）"></input>
             <div class="dialogue-input-tools" style="text-align: center; line-height: 80px;" >
-             	<a href="serMain.jsp">返回</a>
+             	<a href="http://localhost:8080/playgroundRoutePlanning/views/catalog/index.jsp">返回</a>
             </div>
         </div>
         </form>
