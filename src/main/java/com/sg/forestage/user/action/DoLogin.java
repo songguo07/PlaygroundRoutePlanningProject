@@ -44,7 +44,7 @@ public class DoLogin extends HttpServlet {
 		 * 2，在login.jsp form表单中提交URL到CaptchaMsgServlet
 		 * &&reallyCheckNumber.equals(checkNumber)
 		 */
-		if(user!=null) {
+		if(user!=null&&reallyCheckNumber.equals(checkNumber)) {
 			HttpSession session=request.getSession();
 			session.setAttribute("userSession", user);
 			response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");

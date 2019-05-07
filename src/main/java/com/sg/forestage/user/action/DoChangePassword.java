@@ -30,6 +30,9 @@ public class DoChangePassword extends HttpServlet {
 		String userPassword= request.getParameter("userPassword");
 		String checkNumber= request.getParameter("checkNumber");
 		String reallyCheckNumber= request.getParameter("reallyCheckNumber");
+		reallyCheckNumber=reallyCheckNumber.substring(reallyCheckNumber.length()-5);
+		System.out.println("Servlet:Dologin------>reallyCheckNumber截取后:" + reallyCheckNumber);
+		
 		if(checkNumber.trim().equals(reallyCheckNumber.trim())) {
 			UserService userService = new UserServiceImpl();
 			int row = userService.doChangePassword(userTelno.trim(), userPassword.trim());
