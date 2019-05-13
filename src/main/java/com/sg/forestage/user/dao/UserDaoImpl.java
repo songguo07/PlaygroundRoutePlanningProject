@@ -92,11 +92,13 @@ public class UserDaoImpl implements UserDao{
 	 */
 	@Override
 	public int doAdd(Evaluate ee) {
-		String sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
+		String sql="delete from evaluate where d_id='"+ee.getdId()+"' and user_id='"+ee.getUserId()+"'";
 		float score=ee.geteScore();
 		Object [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate(),score};
 		int row=0;
 		try {
+			qr.update(conn,sql);
+			sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
 			row = qr.update(conn, sql,param);
 			DbUtils.closeQuietly(conn);
 		} catch (SQLException e) {
@@ -111,8 +113,8 @@ public class UserDaoImpl implements UserDao{
 	 * @author 李银霞
 	 */
 	public List<String> getHobbyList(String userId){
-		List<Hobby> hobbyList = new ArrayList();
-		List<String> hobbyNameList = new ArrayList();
+		List<Hobby> hobbyList = new ArrayList<Hobby>();
+		List<String> hobbyNameList = new ArrayList<String>();
 		String sql="select user_id userId ,d_id dId from hobby where user_id ='"+userId+"'";
 		try {
 			hobbyList = qr.query(conn, sql,  new BeanListHandler<Hobby>(Hobby.class));

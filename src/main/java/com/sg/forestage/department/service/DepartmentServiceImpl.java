@@ -53,7 +53,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 	@Override
 	public String getDepNameById(String dId) {
 		dId = dId.trim();
-		return null;
+		return departmentDao.getDepNameById(dId);
 	}
 
 

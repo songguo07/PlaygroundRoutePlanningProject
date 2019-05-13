@@ -15,6 +15,10 @@ public class DeleteServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String dName = request.getParameter("d_name");
+		if(dName==null) {
+			dName=(String) request.getSession().getAttribute("d_name");
+		}
+		System.out.println(dName);
 		Object o = request.getSession().getAttribute("result");
 		if(o!=null) {
 			Object result[][]=(Object[][]) o;

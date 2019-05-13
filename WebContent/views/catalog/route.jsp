@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:if test="${length==0 }">
+		<c:redirect url="index.jsp"></c:redirect>
+</c:if>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -60,9 +63,6 @@ a {
 </head>
 <body
 	style="background-image: url('/playgroundRoutePlanning/static/image/all.jpg'); background-repeat: no-repeat; background-size: 100% 640px;">
-	<c:if test="${length==0 }">
-		<c:redirect>index.jsp</c:redirect>
-	</c:if>
 	<br><br><br>
 	<button style="margin-left: 600px;">
 		<a href="showMap.jsp" style="color: red">导航</a>

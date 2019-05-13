@@ -43,7 +43,7 @@ public class ClearUserHobbyFilter implements Filter {
 		HttpSession session = request.getSession();
 
 		String uri = request.getRequestURI();
-		System.out.println("filter:ClearUserHobbyFilter-->doFilter(), uri:" + uri);
+//		System.out.println("filter:ClearUserHobbyFilter-->doFilter(), uri:" + uri);
 		// 如果发现是css或者js文件，直接放行
 		/**
 		 * uri.equals(request.getContextPath() + "/views/login_regist/login.jsp")||

@@ -50,6 +50,7 @@
 				$.ajax({
 					url:"http://localhost:8080/playgroundRoutePlanning/AliCheckNumberServlet",
 					cache:false,
+					dataType:"text",
 					data:"userTelno="+value,
 					success:function(result){
 						$("#reallyCheckNumber").val(result);

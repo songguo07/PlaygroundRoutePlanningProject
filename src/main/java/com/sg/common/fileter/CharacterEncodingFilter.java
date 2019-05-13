@@ -28,6 +28,7 @@ public class CharacterEncodingFilter implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain arg2)
 			throws IOException, ServletException {
 		request.setCharacterEncoding(encoding);//硬编码
+		response.setCharacterEncoding(encoding);
 		arg2.doFilter(request, response);
 	}
 

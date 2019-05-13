@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.aliyuncs.exceptions.ClientException;
 
-/**
- * Servlet implementation class AliCheckNumberServlet
- */
 @WebServlet("/AliCheckNumberServlet")
 public class AliCheckNumberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -26,10 +23,9 @@ public class AliCheckNumberServlet extends HttpServlet {
 		System.out.println(userTelno);
 		String randomSMSCode = SmsUtil.getRandomSMSCode(5,true);
 		try {
-			
 			if(SmsUtil.sendSms(userTelno,randomSMSCode)) {
 				System.out.println("短信发送成功"+randomSMSCode);
-				response.getWriter().print(randomSMSCode); // 将结果返回到前端
+				response.getWriter().write(randomSMSCode); // 将结果返回到前端
 			}
 		} catch (ClientException e) {
 			e.printStackTrace();

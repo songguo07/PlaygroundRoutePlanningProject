@@ -157,7 +157,7 @@ public class BestRouteUtil {
 
 		starttime = Integer.parseInt(timeString[0]) * 60 - 540 + Integer.parseInt(timeString[1]);
 		leisuretime = leisureTime;
-//		starttime=90;
+		starttime=90;
 		int currenttime = starttime;
 		int sequence[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		int curwait, curwalk, totime, t, best = 0, bestj = 0, number = 0, bestwalk, bestwait, P;

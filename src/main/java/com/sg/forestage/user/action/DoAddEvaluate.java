@@ -19,6 +19,7 @@ import com.sg.forestage.user.service.UserServiceImpl;
 @WebServlet("/DoAddEvaluate")
 public class DoAddEvaluate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private DepartmentService departmentService = new DepartmentServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
@@ -50,9 +51,9 @@ public class DoAddEvaluate extends HttpServlet {
 		
 		int row = userservice.doAdd(evaluate);
 		if(row>0) {
-//			DepartmentService departmentService =new DepartmentServiceImpl();
-//			String dName=departmentService.getDepNameById(dId);
-	        response.sendRedirect(request.getContextPath()+"/views/catalog/route.jsp");
+			String dName=departmentService.getDepNameById(dId);
+			session.setAttribute("d_name", dName);
+	        response.sendRedirect(request.getContextPath()+"/DeleteServlet");
 		}else {
 			response.sendRedirect(request.getContextPath()+"/views/evaluate/evaluate.jsp");
 		}

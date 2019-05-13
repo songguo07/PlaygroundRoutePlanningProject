@@ -6,8 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">window.location="${pageContext.request.contextPath}/views/login_regist/login.jsp"</script>
 </head>
 <body>
-<script type="text/javascript">window.location="${pageContext.request.contextPath}/views/login_regist/login.jsp"</script>
 </body>
 </html>

@@ -17,12 +17,10 @@ import com.sg.forestage.user.entity.User;
 import com.sg.forestage.user.service.UserService;
 import com.sg.forestage.user.service.UserServiceImpl;
 
-/**
- * Servlet implementation class GetBestRoute
- */
 @WebServlet("/GetBestRoute")
 public class GetBestRoute extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UserService userService = new UserServiceImpl();
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,15 +30,12 @@ public class GetBestRoute extends HttpServlet {
 		response.getWriter().write(new Gson().toJson(array));
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println(111);
 		HttpSession session = request.getSession();
 		User user=(User) session.getAttribute("userSession");
 		String userId = user.getUserId();
 		System.out.println("GetBestRoute的用户id:"+userId);
-		UserService userService = new UserServiceImpl();
 		List<String> hobbyNameList = new ArrayList<String>();
 		hobbyNameList = userService.getHobbyList(userId);
 		System.out.println("获得的用户所有感兴趣的项目："+hobbyNameList);
@@ -56,7 +51,8 @@ public class GetBestRoute extends HttpServlet {
 		//获得用户喜欢项目的类型
 		System.out.println("获得用户喜欢项目的类型-------------------->");
 		String[] typeLikes = request.getParameterValues("data");
-		if(typeLikes.length!=0) {
+		System.out.println(typeLikes);
+		if(typeLikes!=null) {
 			for (String typeLike : typeLikes) {
 				System.out.println(typeLike);
 			}
@@ -87,7 +83,7 @@ public class GetBestRoute extends HttpServlet {
 		
 		
 		request.getSession().setAttribute("result", result1);
-		request.getSession().setAttribute("length", result1.length);
-		response.getWriter().write("yes");
+		request.getSession().setAttribute("length", j);
+		response.getWriter().write(j);
 	}
 }

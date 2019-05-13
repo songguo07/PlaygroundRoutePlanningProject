@@ -33,7 +33,7 @@
 				<nav>
 					<ul class="list-inline" id="menu">
 						<li class="active"><a href="index.jsp">首页</a></li>
-						<li><a href="blog.html">地图</a></li>
+						<li><a href="http://localhost:8080/playgroundRoutePlanning/views/catalog/blog.jsp">地图</a></li>
 						<li><a href="http://localhost:8080/playgroundRoutePlanning/SelectAnswerServlet">客服</a></li>
 						<!--                    <li class="last">-->
 						<!--                        <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="facebook"></a>-->
@@ -760,18 +760,21 @@
 			  $.each($('input:checkbox:checked'),function(){
 	                typeArray[i++]=$(this).val();
 	            });
-			  alert("这是您感兴趣类型吗？->"+typeArray);
-			  $.ajax({
-					 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
-	                 dataType: "text",
-	                 traditional: true,
-	                 type: "POST",
-	                 data:{data : typeArray},
-					 success:function(result){
-						 alert(result)
-						 window.location.href="route.jsp";
-					 }
-			 });
+			  if(typeArray!=''){
+				  alert("这是您感兴趣类型吗？->"+typeArray);
+				  $.ajax({
+						 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
+		                 traditional: true,
+		                 type: "POST",
+		                 data:{data : typeArray},
+						 success:function(result){
+								 window.location.href="route.jsp";
+						 }
+				 });
+			  }else{
+				  alert("请选择您感兴趣的类型");
+			  }
+			 
 		});
 	 	$("#withDrawl").click(function(){
 			alert("您确定要退出吗？");
