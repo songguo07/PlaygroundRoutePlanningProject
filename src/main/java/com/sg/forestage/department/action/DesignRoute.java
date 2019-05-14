@@ -32,20 +32,16 @@ public class DesignRoute extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Servlet:DesignRoute------>doPost()");
-		String selectProjectName=request.getParameter("selectProjectName");
-		System.out.println("Servlet:DesignRoute------>doPost(),selectProjectName:" + selectProjectName);
-		
+		String selectProjectNames[]=request.getParameterValues("selectProjectName");
 		DepartmentService departmentService = new DepartmentServiceImpl();
 		User user = (User) request.getSession().getAttribute("userSession");
 		PrintWriter out =response.getWriter();
-		if(!selectProjectName.equals("0")) {
+		
+		 for (String selectProjectName : selectProjectNames) {
+			System.out.println("获取的喜欢的项目名字：------》"+selectProjectName);
 			int row = departmentService.insertHobby(selectProjectName, user);
-			if(row==0) {
-				out.println(0);
-				out.flush();
-				out.close();
-			}
 		}
+		
 	}
 
 }

@@ -45,6 +45,7 @@ public class UserDaoImpl implements UserDao{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return row;
 	}
 	/**
@@ -94,11 +95,11 @@ public class UserDaoImpl implements UserDao{
 	public int doAdd(Evaluate ee) {
 		String sql="delete from evaluate where d_id='"+ee.getdId()+"' and user_id='"+ee.getUserId()+"'";
 		float score=ee.geteScore();
-		Object [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate(),score};
+		Object [] param= {ee.getEvaluId(),ee.getUserId(),ee.getdId(),ee.geteEvaluate(),score};
 		int row=0;
 		try {
 			qr.update(conn,sql);
-			sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
+			sql="insert into evaluate(evalu_id,user_id,d_id,e_evaluate,e_score) value(?,?,?,?,?)";
 			row = qr.update(conn, sql,param);
 			DbUtils.closeQuietly(conn);
 		} catch (SQLException e) {

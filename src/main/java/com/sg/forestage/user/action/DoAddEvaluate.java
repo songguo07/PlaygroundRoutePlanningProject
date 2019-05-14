@@ -1,6 +1,7 @@
 package com.sg.forestage.user.action;
 
 import java.io.IOException;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,6 +45,7 @@ public class DoAddEvaluate extends HttpServlet {
 		System.out.println("***********************************************");
 		Evaluate evaluate=new Evaluate();
 		
+		evaluate.setEvaluId(UUID.randomUUID().toString());
 		evaluate.setUserId(userid);
 		evaluate.setdId(dId);
 		evaluate.seteScore(eScore);

@@ -106,7 +106,7 @@
 
 				<section class="row" id="Grid">
 
-				<%-- 	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=1&fileName=cqxst"> <img class="img-responsive item-img"
@@ -126,7 +126,7 @@
 								</p>
 							</div>
 						</div>
-					</div> --%>
+					</div>
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
@@ -734,19 +734,23 @@
 		alert("请先选择您感兴趣的类型哦~");
 		$("#startDesign").click(function(){
 			 var i=0;
+			 var hobby=new Array();
 			 $('input[type="radio"]:checked').each(function(){
 				 if($(this).val() != 0){
-					 i++;
-					 //选中的项目传ajax
-					 $.ajax({
-						url:"/playgroundRoutePlanning/DesignRoute",
-						cache:false,
-						data:"selectProjectName="+$(this).val(),
-						success:function(result){
-						}
-					}); 
+					 hobby[i++]=$(this).val();
 				 }
 			 });
+			 alert(hobby);
+			 $.ajax({
+					url:"/playgroundRoutePlanning/DesignRoute",
+					cache:false,
+					dataType: "json",
+					traditional: true,
+					type: "POST",
+					data:{selectProjectName : hobby},
+					success:function(result){
+					}
+				}); 
 			 if(i==0){
 				 alert("您还没有选择任何项目哦~~~");
 			 }else{
@@ -761,11 +765,11 @@
 	                typeArray[i++]=$(this).val();
 	            });
 			  if(typeArray!=''){
-				  alert("这是您感兴趣类型吗？->"+typeArray);
 				  $.ajax({
 						 url:"/playgroundRoutePlanning/GetBestRoute",
 		                 traditional: true,
 		                 type: "POST",
+		                 cache : false,
 		                 data:{data : typeArray},
 						 success:function(result){
 								 window.location.href="route.jsp";
@@ -782,6 +786,7 @@
 				 url:"/playgroundRoutePlanning/DeleteAllHobby",
                  traditional: true,
                  type: "POST",
+                 cache : false,
 				 success:function(result){
 					 if(result == 'error'){
 						 alert("退出失败，请稍后重试");
@@ -793,10 +798,12 @@
 		}); 
 	 	
 	 	$("#reSetHobby").click(function(){
+	 		alert("重新规划请求");
 			 $.ajax({
 				 url:"/playgroundRoutePlanning/ClearHobbyByUserId",
                  traditional: true,
                  type: "POST",
+                 cache : false,
 				 success:function(result){
 					result = result.replace(/\s*/g,"");
 					 if(result == 'error'){

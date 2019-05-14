@@ -27,11 +27,13 @@ public class ClearHobbyByUserId extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("不退出只删除用户单次选择项目**************进入Servlet");
+		System.out.println("第二行代码");
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("userSession");
 		UserService userService = new UserServiceImpl();
 		PrintWriter out = response.getWriter();
-		System.out.println("不退出只删除用户单次选择项目**************进入Servlet");
+		System.out.println("第3行代码");
 		response.setContentType("text/html;charset=utf-8");
 		if(user!=null&&userService.deleteAllHobbyByUserId(user.getUserId())!=0) {
 			System.out.println("不退出只删除用户单次选择项目**************进入Servlet的if");

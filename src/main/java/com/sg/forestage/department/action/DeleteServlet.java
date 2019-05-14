@@ -14,6 +14,7 @@ public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("DeleteServlet评价后删除该项目");
 		String dName = request.getParameter("d_name");
 		if(dName==null) {
 			dName=(String) request.getSession().getAttribute("d_name");
@@ -32,7 +33,7 @@ public class DeleteServlet extends HttpServlet {
 			}
 			request.getSession().setAttribute("result", reObject);
 			request.getSession().setAttribute("length", reObject.length);
-			response.sendRedirect("http://localhost:8080/playgroundRoutePlanning/views/catalog/route.jsp");
+			response.sendRedirect("/playgroundRoutePlanning/views/catalog/route.jsp");
 		}
 	}
 

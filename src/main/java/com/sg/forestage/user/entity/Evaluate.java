@@ -5,6 +5,7 @@ package com.sg.forestage.user.entity;
  */
 public class Evaluate {
 	
+	private String evaluId;
 	private String userId;
 	private String dId;
 	private String eEvaluate;
@@ -33,9 +34,18 @@ public class Evaluate {
 	public void seteScore(float eScore) {
 		this.eScore = eScore;
 	}
+	
+	public String getEvaluId() {
+		return evaluId;
+	}
+	public void setEvaluId(String evaluId) {
+		this.evaluId = evaluId;
+	}
 	@Override
 	public String toString() {
-		return "Evaluate [userId=" + userId + ", dId=" + dId + ", eEvaluate=" + eEvaluate + ", eScore=" + eScore + "]";
+		return "Evaluate [evaluId=" + evaluId + ", userId=" + userId + ", dId=" + dId + ", eEvaluate=" + eEvaluate
+				+ ", eScore=" + eScore + "]";
 	}
+	
 	
 }

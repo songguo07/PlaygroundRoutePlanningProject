@@ -42,14 +42,12 @@ public class DepartmentDaoImpl implements DepartmentDao{
 			String params[]= {userId,dId};
 			try {
 				row = qr.update(conn, sql1, params);
-				DbUtils.closeQuietly(conn);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-		
 		return row;
 	}
 	/**
