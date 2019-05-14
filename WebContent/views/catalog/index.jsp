@@ -739,7 +739,7 @@
 					 i++;
 					 //选中的项目传ajax
 					 $.ajax({
-						url:"http://localhost:8080/playgroundRoutePlanning/DesignRoute",
+						url:"/playgroundRoutePlanning/DesignRoute",
 						cache:false,
 						data:"selectProjectName="+$(this).val(),
 						success:function(result){
@@ -763,7 +763,7 @@
 			  if(typeArray!=''){
 				  alert("这是您感兴趣类型吗？->"+typeArray);
 				  $.ajax({
-						 url:"http://localhost:8080/playgroundRoutePlanning/GetBestRoute",
+						 url:"/playgroundRoutePlanning/GetBestRoute",
 		                 traditional: true,
 		                 type: "POST",
 		                 data:{data : typeArray},
@@ -779,7 +779,7 @@
 	 	$("#withDrawl").click(function(){
 			alert("您确定要退出吗？");
 			 $.ajax({
-				 url:"http://localhost:8080/playgroundRoutePlanning/DeleteAllHobby",
+				 url:"/playgroundRoutePlanning/DeleteAllHobby",
                  traditional: true,
                  type: "POST",
 				 success:function(result){
@@ -794,11 +794,11 @@
 	 	
 	 	$("#reSetHobby").click(function(){
 			 $.ajax({
-				 url:"http://localhost:8080/playgroundRoutePlanning/ClearHobbyByUserId",
+				 url:"/playgroundRoutePlanning/ClearHobbyByUserId",
                  traditional: true,
                  type: "POST",
 				 success:function(result){
-					alert(result);
+					result = result.replace(/\s*/g,"");
 					 if(result == 'error'){
 						 alert("重新规划请求失败，请稍后重试");
 					 }else{

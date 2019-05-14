@@ -39,7 +39,7 @@ public class ClearHobbyByUserId extends HttpServlet {
             out.println("" + ((HttpServletRequest) request).getContextPath() + "/views/catalog/index.jsp");
 		}else {
 			System.out.println("不退出只删除用户单次选择项目**************进入Servlet的else");
-            out.println("error.jsp");
+            out.println("error");
 		}
 	}
 

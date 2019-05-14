@@ -43,7 +43,7 @@
 		    settime(obj) }
 		    ,1000) 
 		}
-		$(function(){
+		/* $(function(){
 			$("#getCheckNumber").click(function(){
 				sendemail();
 				var value = $("#userTelno").val();
@@ -57,7 +57,7 @@
 					}
 				});
 			});
-		});
+		}); */
 	</script>
 	<!-- Meta tag Keywords -->
 	<!-- css files -->
@@ -103,7 +103,7 @@
 				</label>
 				<input placeholder="请输入密码" name="userPassword" type="password" required="true">
 			</div>
-			<div class="form-style-agile">
+			<!-- <div class="form-style-agile">
 				<label>
 					<i class="fas fa-unlock-alt"></i>
 					验证码
@@ -112,7 +112,7 @@
 				<input  name="reallyCheckNumber" type="hidden" required="true" id="reallyCheckNumber">
 				<cite><input type="button" id="getCheckNumber" class="loginbtn" value="点击获取验证码" />
 				</cite>
-			</div>
+			</div> -->
 			<!-- checkbox -->
 			<div class="wthree-text">
 				<ul>
@@ -138,7 +138,7 @@
 	<!-- //Jquery -->
 
 	<!-- effect js -->
-	<script src="${pageContext.request.contextPath}/static/03js/canva_moving_effect.js"></script>
+	<script src="${pageContext.request.contextPath}/static/03/js/canva_moving_effect.js"></script>
 	<!-- //effect js -->
 
 </body>
