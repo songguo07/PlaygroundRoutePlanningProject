@@ -461,7 +461,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<%-- <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=17&fileName=cj"> <img class="img-responsive item-img"
@@ -482,7 +482,7 @@
 								</p>
 							</div>
 						</div>
-					</div>
+					</div> --%>
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
