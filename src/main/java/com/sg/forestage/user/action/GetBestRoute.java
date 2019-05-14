@@ -31,7 +31,6 @@ public class GetBestRoute extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(111);
 		HttpSession session = request.getSession();
 		User user=(User) session.getAttribute("userSession");
 		String userId = user.getUserId();
@@ -61,29 +60,31 @@ public class GetBestRoute extends HttpServlet {
 		
 		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3);
 		System.out.println("**************最佳路线***********************");
-		
-		int j=0;
-		for (String hobbyName : hobbyNameList) {
-			for(int i=0;i<result.length;i++) {
-				if(hobbyName.equals(result[i][0])) j++;
-			}
+		for (Object[] objects : result) {
+			System.out.println("++++++++++++"+objects[0]);
 		}
-		System.out.println("用户想玩的项目的个数："+j);
-		Object result1[][]=new Object[j][2];
-		for(int k=0;k<j;k++) {
-			for(int i=0;i<result.length;i++) {
-				for (String hobbyName : hobbyNameList) {
-					if(hobbyName.equals(result[i][0])) result1[k++]=result[i];
-				}
-			}
-		}
-		for (int i = 0; i < result1.length; i++) {
-			System.out.println( "======最终项目顺序=====" + result1[i][0]);
-		}
+//		int j=0;
+//		for (String hobbyName : hobbyNameList) {
+//			for(int i=0;i<result.length;i++) {
+//				if(hobbyName.equals(result[i][0])) j++;
+//			}
+//		}
+//		System.out.println("用户想玩的项目的个数："+j);
+//		Object result1[][]=new Object[j][2];
+//		for(int k=0;k<j;k++) {
+//			for(int i=0;i<result.length;i++) {
+//				for (String hobbyName : hobbyNameList) {
+//					if(hobbyName.equals(result[i][0])) result1[k++]=result[i];
+//				}
+//			}
+//		}
+//		for (int i = 0; i < result1.length; i++) {
+//			System.out.println( "======最终项目顺序=====" + result1[i][0]);
+//		}
+//		
 		
-		
-		request.getSession().setAttribute("result", result1);
-		request.getSession().setAttribute("length", j);
-		response.getWriter().write(j);
+		request.getSession().setAttribute("result", result);
+		request.getSession().setAttribute("length", result.length);
+		response.getWriter().write("yes");
 	}
 }

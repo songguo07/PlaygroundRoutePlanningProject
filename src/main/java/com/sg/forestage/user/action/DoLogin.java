@@ -28,13 +28,13 @@ public class DoLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userTelno = request.getParameter("userTelno");
 		String userPassword= request.getParameter("userPassword");
-		String checkNumber= request.getParameter("checkNumber");
-		String reallyCheckNumber= request.getParameter("reallyCheckNumber");
-		System.out.println("Servlet:Dologin------>userTelno:" + userTelno);
-		System.out.println("Servlet:Dologin------>userPassword:" + userPassword);
-		System.out.println("Servlet:Dologin------>reallyCheckNumber:" + reallyCheckNumber);
-		reallyCheckNumber=reallyCheckNumber.substring(reallyCheckNumber.length()-5);
-		System.out.println("Servlet:Dologin------>reallyCheckNumber截取后:" + reallyCheckNumber);
+		//String checkNumber= request.getParameter("checkNumber");
+		//String reallyCheckNumber= request.getParameter("reallyCheckNumber");
+//		System.out.println("Servlet:Dologin------>userTelno:" + userTelno);
+//		System.out.println("Servlet:Dologin------>userPassword:" + userPassword);
+//		System.out.println("Servlet:Dologin------>reallyCheckNumber:" + reallyCheckNumber);
+//		reallyCheckNumber=reallyCheckNumber.substring(reallyCheckNumber.length()-5);
+//		System.out.println("Servlet:Dologin------>reallyCheckNumber截取后:" + reallyCheckNumber);
 		
 		UserService userService = new UserServiceImpl();
 		User user = userService.doLogin(userTelno.trim(), userPassword.trim());
@@ -42,9 +42,10 @@ public class DoLogin extends HttpServlet {
 		 * 1，网易云验证输入验证码是否一致，在Dologin中修改这个
 		 * SMSUtils.verifyCode(userTelno, checkNumber)
 		 * 2，在login.jsp form表单中提交URL到CaptchaMsgServlet
+		 * && reallyCheckNumber.equals(checkNumber)
 		 * &&reallyCheckNumber.equals(checkNumber)
-		 */
-		if(user!=null && reallyCheckNumber.equals(checkNumber)) {
+		 * */
+		if(user!=null) {
 			HttpSession session=request.getSession();
 			session.setAttribute("userSession", user);
 			response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");

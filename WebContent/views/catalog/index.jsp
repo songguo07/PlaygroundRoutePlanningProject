@@ -106,7 +106,7 @@
 
 				<section class="row" id="Grid">
 
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+				<%-- 	<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=1&fileName=cqxst"> <img class="img-responsive item-img"
@@ -126,7 +126,7 @@
 								</p>
 							</div>
 						</div>
-					</div>
+					</div> --%>
 					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
@@ -783,7 +783,7 @@
                  traditional: true,
                  type: "POST",
 				 success:function(result){
-					 if(result == "error"){
+					 if(result == 'error'){
 						 alert("退出失败，请稍后重试");
 					 }else{
 						 location.href = result;
@@ -798,7 +798,8 @@
                  traditional: true,
                  type: "POST",
 				 success:function(result){
-					 if(result == "error"){
+					alert(result);
+					 if(result == 'error'){
 						 alert("重新规划请求失败，请稍后重试");
 					 }else{
 						 location.href = result;
