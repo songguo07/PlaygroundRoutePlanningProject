@@ -11,6 +11,7 @@
 <title>注册</title>
 
 <!-- CSS -->
+<link href="${pageContext.request.contextPath}/static/03/css/mystyle.css" rel='stylesheet' type='text/css' />
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/03/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/03/assets/css/form-elements.css">
@@ -77,20 +78,21 @@
 				
 				<form role="form" action="${pageContext.request.contextPath}/DoRegist" method="post" class="registration-form" id="myForm">
 					<div class="form-group">
-						<label class="sr-only" for="form-first-name">手机号</label>
 						<input type="text" name="userTelNo" placeholder="请输入手机号" class="form-first-name form-control" id="tel_no">
 					</div>
 					<div class="form-group">
-						<label class="sr-only" for="form-last-name">昵称</label>
 						<input type="text" name="userNickname" placeholder="请输入昵称" class="form-last-name form-control" id="nickname">
 					</div>
 					<div class="form-group">
-						<label class="sr-only" for="form-email">密码</label>
-						<input type="password" name="userPassword" placeholder="请输入密码" class="form-email form-control" id="userPassword">
+						<input type="password" name="userPassword" placeholder="请输入密码" class="form-last-name form-control" id="userPassword">
 					</div>
 					<div class="form-group">
-						<label class="sr-only" for="form-email">再次密码</label>
-						<input type="password" name="againUserPassword" placeholder="请再次输入密码" class="form-email form-control" id="againUserPassword" >
+						<input type="password" name="againUserPassword" placeholder="请再次输入密码" class="form-last-name form-control" id="againUserPassword" >
+					</div>
+					<div class="form-group">
+						<input  name="reallyCheckNumber" type="hidden" required="true" id="reallyCheckNumber">
+						<input style="padding-right:243px"  placeholder="请输入验证码" name="checkNumber" type="text" required="true">			
+						<input id="btnSendCode1"  type="button" class="btn btn-default" value="获取验证码" />
 					</div>
 					
 					<button type="submit" class="btn">提交!</button>
@@ -132,6 +134,46 @@
 			    	againUserPassword: "密码输入不一致"
 			    }
 			});
+		
+		var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;//手机号正则 
+		var count = 60; //间隔函数，1秒执行
+		var InterValObj1; //timer变量，控制时间
+		var curCount1;//当前剩余秒数
+		/*第一*/
+		function SetRemainTime1() {
+			if (curCount1 == 0) {                
+				window.clearInterval(InterValObj1);//停止计时器
+				$("#btnSendCode1").removeAttr("disabled");//启用按钮
+				$("#btnSendCode1").val("重新发送");
+			}
+			else {
+				curCount1--;
+				$("#btnSendCode1").val( + curCount1 + "秒再获取");
+			}
+		} 
+		$("#btnSendCode1").click(function(){
+			curCount1 = count;		 		 
+			var phone = $.trim($("#tel_no").val());
+			if (!phoneReg.test(phone)) {
+				alert(" 请输入有效的手机号码"); 
+				return false;
+			}
+			//设置button效果，开始计时
+			$("#btnSendCode1").attr("disabled", "true");
+			$("#btnSendCode1").val( + curCount1 + "秒再获取");
+			InterValObj1 = window.setInterval(SetRemainTime1, 1000); //启动计时器，1秒执行一次
+			//向后抬输入数据
+			 $.ajax({
+				url:"/playgroundRoutePlanning/AliCheckNumberServlet",
+				cache:false,
+				data:"userTelno="+phone,
+				success:function(result){
+					$("#reallyCheckNumber").val(result);
+				}
+			}); 
+			
+		});
+		
 	})
 
 
