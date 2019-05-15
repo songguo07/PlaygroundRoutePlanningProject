@@ -48,28 +48,45 @@ a {
         oDiv.style.position='absolute'; // 为新创建的DIV指定绝对定位
         oDiv.style.width='200px'; // 指定宽度
         oDiv.style.height='200px'; // 指定高度
-        oDiv.innerHTML='<br><br>'+data1+'的等待时间为:'+data2+'分钟<br><br><br><button><a href="http://localhost:8080/playgroundRoutePlanning/DeleteServlet?d_name='+data1+'">我不想玩这个</a></button>';
+        oDiv.innerHTML='<br><br>'+data1+'的等待时间为:'+data2+'分钟<br><br><br><button><a href="../../DeleteServlet?d_name='+data1+'">我不想玩这个</a></button>';
         document.body.appendChild(oDiv); 
 	}
 
 	function complete(data1, data2) {
+		d(data1);
 		if($('.'+data1).text()!=data1){
 			$("#tbody").append(
-					'<tr><td class="'+data1+'">'+ data1+ '</td><td><a href="http://localhost:8080/playgroundRoutePlanning/DesServlet?depName='+ data1 + '">评价</a></td></tr>')
+					'<tr><td class="'+data1+'">'+ data1+ '</td><td><a href="../../DesServlet?depName='+ data1 + '">评价</a></td></tr>')
 			$("#" + data2).addClass("cla");
 		}
+		
+	}
+	
+	function d(data1){
+		$.ajax({
+			type:"post",
+			url:"../../DeleteServlet",
+			data:{dName:data1},
+			dataType:"text",
+			success:function(data){
+			}
+		});
 	}
 </script>
 </head>
 <body
 	style="background-image: url('/playgroundRoutePlanning/static/image/all.jpg'); background-repeat: no-repeat; background-size: 100% 640px;">
 	<br><br><br>
-	<button style="margin-left: 600px;">
+	<button style="margin-left: 650px;">
 		<a href="showMap.jsp" style="color: red">导航</a>
 	</button>
 	<c:set var="index" value="1"></c:set>
 	<div
-		style="text-align: center; font-family: 楷体; margin-top: 10px; font-size: 20px">已经玩完一个项目，请双击</div>
+		style="text-align: center; font-family: 楷体; margin-top: 10px; font-size: 15px">单击可查看项目的等待时间</div>
+	<div
+		style="text-align: center; font-family: 楷体; margin-top: 10px; font-size: 15px">已经玩完一个项目，请双击</div>
+	<div
+		style="text-align: center; font-family: 楷体; margin-top: 10px; font-size: 15px" class="cla">为保证您可以在最短的时间内游玩最多项目，请按顺序进行游玩！</div>
 	<div
 		style="margin-left: 300px; margin-top: 30px; display: block; width: 1000px; height: 300px;">
 		<c:choose>

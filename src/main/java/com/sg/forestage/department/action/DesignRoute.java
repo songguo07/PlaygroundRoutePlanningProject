@@ -41,7 +41,7 @@ public class DesignRoute extends HttpServlet {
 			System.out.println("获取的喜欢的项目名字：------》"+selectProjectName);
 			int row = departmentService.insertHobby(selectProjectName, user);
 		}
-		
+		response.getWriter().write("111");
 	}
 
 }

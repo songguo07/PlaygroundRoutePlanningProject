@@ -71,7 +71,7 @@
             <p id="dialogue_hint" class="dialogue-hint"><span class="dialogue-hint-icon">!</span><span class="dialogue-hint-text">发送内容不能为空</span></p>
             <input id="dialogue_input" name="content" class="dialogue-input-text" placeholder="请输入您的问题，按Enter键提交（shift+Enter换行）"></input>
             <div class="dialogue-input-tools" style="text-align: center; line-height: 80px;" >
-             	<a href="http://localhost:8080/playgroundRoutePlanning/views/catalog/index.jsp">返回</a>
+             	<a href="../catalog/index.jsp">返回</a>
             </div>
         </div>
         </form>
