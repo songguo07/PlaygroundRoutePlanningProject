@@ -740,7 +740,6 @@
 					 hobby[i++]=$(this).val();
 				 }
 			 });
-			 alert(hobby);
 			 $.ajax({
 					url:"/playgroundRoutePlanning/DesignRoute",
 					cache:false,
@@ -798,7 +797,6 @@
 		}); 
 	 	
 	 	$("#reSetHobby").click(function(){
-	 		alert("重新规划请求");
 			 $.ajax({
 				 url:"/playgroundRoutePlanning/ClearHobbyByUserId",
                  traditional: true,

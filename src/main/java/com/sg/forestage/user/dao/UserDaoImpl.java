@@ -6,9 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -26,8 +23,7 @@ import com.sg.forestage.user.entity.User;
  */
 public class UserDaoImpl implements UserDao{
 
-	Connection conn=DbUtil.getDBConn();
-	QueryRunner qr=new QueryRunner();
+	QueryRunner qr=new QueryRunner(DbUtil.getDataSource());
 	/**
 	 * 注册功能
 	 *
@@ -36,12 +32,12 @@ public class UserDaoImpl implements UserDao{
 	 */
 	@Override
 	public int doRegist(User user) {
+//		Connection conn=DbUtil.getDBConn();
 		String sql="insert into user(user_id,user_telno,user_nickname,user_password) value(?,?,?,?)";
 		String [] param= {user.getUserId(),user.getUserTelno(),user.getUserNickname(),user.getUserPassword()};
 		int row=0;
 		try {
-			row = qr.update(conn, sql,param);
-			DbUtils.closeQuietly(conn);
+			row = qr.update(sql,param);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -60,9 +56,8 @@ public class UserDaoImpl implements UserDao{
 		System.out.println("UserDaoImpl:doLogin(), sql:" + sql);
 		User user=null;
 		try {
-			user = qr.query(conn, sql,new BeanHandler<User>(User.class));
+			user = qr.query(sql,new BeanHandler<User>(User.class));
 			System.out.println("UserDaoImpl:doLogin(), user:" + user);
-			DbUtils.closeQuietly(conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -79,7 +74,7 @@ public class UserDaoImpl implements UserDao{
 		String sql="update user set user_password='"+userPassword+"' where user_telno='"+userTelno+"'";
 		System.out.println(sql);
 		try {
-			return qr.update(conn, sql);
+			return qr.update(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -98,10 +93,16 @@ public class UserDaoImpl implements UserDao{
 		Object [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate(),score};
 		int row=0;
 		try {
+<<<<<<< HEAD
 			qr.update(conn,sql);
 			sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
 			row = qr.update(conn, sql,param);
 			DbUtils.closeQuietly(conn);
+=======
+			qr.update(sql);
+			sql="insert into evaluate(evalu_id,user_id,d_id,e_evaluate,e_score) value(?,?,?,?,?)";
+			row = qr.update(sql,param);
+>>>>>>> 669787411602a68c83ccb4926e8617fe5ca065a9
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -118,14 +119,14 @@ public class UserDaoImpl implements UserDao{
 		List<String> hobbyNameList = new ArrayList<String>();
 		String sql="select user_id userId ,d_id dId from hobby where user_id ='"+userId+"'";
 		try {
-			hobbyList = qr.query(conn, sql,  new BeanListHandler<Hobby>(Hobby.class));
+			hobbyList = qr.query(sql,  new BeanListHandler<Hobby>(Hobby.class));
 			System.out.println(hobbyList);
 			if(hobbyList==null) {
 				return hobbyNameList;
 			}
 			for (Hobby hobby : hobbyList) {
 				String sql1="select d_id dId, d_name dName,d_aver_score dAverScore from department where d_id ='"+hobby.getdId()+"'";
-				Department department = qr.query(conn, sql1, new BeanHandler<Department>(Department.class));
+				Department department = qr.query(sql1, new BeanHandler<Department>(Department.class));
 				hobbyNameList.add(department.getdName());
 			}
 		} catch (SQLException e) {
@@ -143,7 +144,7 @@ public class UserDaoImpl implements UserDao{
 	public int deleteAllHobbyByUserId(String userId) {
 		String sql="delete from hobby where user_id=?";
 		try {
-			return qr.update(conn, sql,userId);
+			return qr.update(sql,userId);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -160,21 +161,22 @@ public class UserDaoImpl implements UserDao{
 		String sql = "select * from consult where listen_id='"+userId+"' or say_id='"+userId+"' group by conDate asc";
 		List<Consult> consultList= new ArrayList<Consult>();
 		try {
-			consultList=qr.query(conn, sql,  new BeanListHandler<Consult>(Consult.class));
+			consultList=qr.query(sql,  new BeanListHandler<Consult>(Consult.class));
 			sql="update consult set flag='1' where listen_id='"+userId+"'";
-			qr.update(conn, sql);
+			qr.update(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return consultList;
 	}
+	
 	@Override
 	public boolean insertQuestion(String userId, String content,String consultId,String dateTime) {
 		String sql = "insert into consult (consult_id,say_id,content,flag,condate) values ('"+consultId+"','"+userId+"','"+content+"','0','"+dateTime+"')";
 		int row=0;
 		System.out.println(sql);
 		try {
-			row=qr.update(conn, sql);
+			row=qr.update(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

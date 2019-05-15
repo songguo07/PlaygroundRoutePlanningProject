@@ -40,11 +40,12 @@ public class DeleteAllHobby extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("退出——————————————删除用户单次选择项目**************进入Servlet");
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("userSession");
 		UserService userService = new UserServiceImpl();
 		PrintWriter out = response.getWriter();
-		System.out.println("删除用户单次选择项目**************进入Servlet");
+		
 		response.setContentType("text/html;charset=utf-8");
 		if(user!=null) {
 			userService.deleteAllHobbyByUserId(user.getUserId());
