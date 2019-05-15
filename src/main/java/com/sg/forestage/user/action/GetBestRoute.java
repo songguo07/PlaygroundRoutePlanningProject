@@ -3,6 +3,7 @@ package com.sg.forestage.user.action;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,13 +58,13 @@ public class GetBestRoute extends HttpServlet {
 			}
 		}
 		request.getSession().setAttribute("typeLikes", typeLikes);
-//		Object o=request.getSession().getAttribute("weight");
-//		List<String> weight = null;
-//		if(o!=null) {
-//			weight=(List<String>) o;
-//		}
-//		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3,weight);
-		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3,null);
+		Object o=request.getSession().getAttribute("weight");
+		Set<String> weight = null;
+		if(o!=null) {
+			weight=(Set<String>) o;
+		}
+		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3,weight);
+//		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3,null);
 		System.out.println("**************最佳路线***********************");
 		for (Object[] objects : result) {
 			System.out.println("++++++++++++"+objects[0]);
@@ -87,16 +88,16 @@ public class GetBestRoute extends HttpServlet {
 //			System.out.println( "======最终项目顺序=====" + result1[i][0]);
 //		}
 //		
-		request.getSession().setAttribute("weight",null);
-		Object o=request.getSession().getAttribute("weight");
-		if(o!=null) {
-			List<String> weight = (List<String>) o;
-			System.out.println("第一次时获得的权值++++++++++++++++++++++++++++");
-			for (String string : weight) {
-				System.out.println(string);
-			}
-			System.out.println("结束++++++++++++++++++++++++++++++++++++++++");
-		}
+//		request.getSession().setAttribute("weight",null);
+//		Object o=request.getSession().getAttribute("weight");
+//		if(o!=null) {
+//			List<String> weight = (List<String>) o;
+//			System.out.println("第一次时获得的权值++++++++++++++++++++++++++++");
+//			for (String string : weight) {
+//				System.out.println(string);
+//			}
+//			System.out.println("结束++++++++++++++++++++++++++++++++++++++++");
+//		}
 		request.getSession().setAttribute("result", result);
 		request.getSession().setAttribute("length", result.length);
 		response.getWriter().write("yes");

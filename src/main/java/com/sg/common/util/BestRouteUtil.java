@@ -1,9 +1,9 @@
 package com.sg.common.util;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class BestRouteUtil {
 
@@ -114,7 +114,7 @@ public class BestRouteUtil {
 		return array;
 	}
 	
-	public static Object[][] get(List<String> hobbyNameList, String[] typeLikes, int leisureTime,List<String> weight) {
+	public static Object[][] get(List<String> hobbyNameList, String[] typeLikes, int leisureTime,Set<String> weight) {
 		int starttime;// 开始时间
 		int leisuretime;// 休闲时间
 		Object[][] result=new Object[26][2];

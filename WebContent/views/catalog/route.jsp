@@ -49,15 +49,15 @@ a {
         oDiv.style.width='200px'; // 指定宽度
         oDiv.style.height='200px'; // 指定高度
         oDiv.innerHTML='<br><br>'+data1+'的等待时间为:'+data2+'分钟<br><br><br><button><a href="../../DeleteServlet?d_name='+data1+'">我不想玩这个</a></button>';
-        document.body.appendChild(oDiv); 
+        document.body.appendChild(oDiv);
 	}
 
-	function complete(data1, data2) {
+	function complete(data1) {
 		d(data1);
 		if($('.'+data1).text()!=data1){
 			$("#tbody").append(
-					'<tr><td class="'+data1+'">'+ data1+ '</td><td><a href="../../DesServlet?depName='+ data1 + '">评价</a></td></tr>')
-			$("#" + data2).addClass("cla");
+					'<tr class="'+data1+'"><td>'+ data1+ '</td><td><a href="../../DesServlet?depName='+ data1 + '">评价</a></td></tr>')
+			$("#" + data1).addClass("cla");
 		}
 		
 	}
@@ -72,6 +72,8 @@ a {
 			}
 		});
 	}
+	
+	
 </script>
 </head>
 <body
@@ -91,10 +93,10 @@ a {
 		style="margin-left: 300px; margin-top: 30px; display: block; width: 1000px; height: 300px;">
 		<c:choose>
 			<c:when test="${length==1 }">
-				<c:forEach var="dep" items="${result }" begin="${length-1 }" end="${length-1 }">
+				<c:forEach var="dep" items="${result }">
 					<div onclick="sel('${dep[0]}','${dep[1] }')"
 						style="display: inline-block; width: 185px; height: 90px;"
-						ondblclick="complete('${dep[0]}','${index }')" id="${index }">
+						ondblclick="complete('${dep[0]}')" id="${dep[0] }">
 						<input type="radio" style="margin: 0"><br> ${index }:${dep[0] }
 					</div>
 				</c:forEach>
@@ -103,25 +105,23 @@ a {
 				<c:forEach var="dep" items="${result }" end="${length-2 }">
 					<div style="display: inline-block; width: 205px; height: 90px;">
 						<input value="${dep[0] }" type="radio" style="margin: 0">
-						<hr style="width: 185px; display: inline-block; margin-left: 0; margin-right: 0"
-							onclick="sel('${dep[0]}','${dep[1] }')">
+						<hr style="width: 185px; display: inline-block; margin-left: 0; margin-right: 0">
 						<br> <a onclick="sel('${dep[0]}','${dep[1] }')"
-							id="${index }" ondblclick="complete('${dep[0]}','${index }')">${index }:${dep[0] }</a>
+							id="${dep[0] }" ondblclick="complete('${dep[0]}')">${index }:${dep[0] }</a>
 						<c:set var="index" value="${index+1 }"></c:set>
 					</div>
 				</c:forEach>
-				<c:forEach var="dep" items="${result }" begin="${length-1 }"
-					end="${length-1 }">
+				<c:forEach var="dep" items="${result }" begin="${length-1 }" end="${length-1 }">
 					<div onclick="sel('${dep[0]}','${dep[1] }')"
 						style="display: inline-block; width: 185px; height: 90px;font-family: 楷体;"
-						ondblclick="complete('${dep[0]}','${index }')" id="${index }">
+						ondblclick="complete('${dep[0]}')" id="${dep[0] }">
 						<input type="radio" style="margin: 0"><br> ${index }:${dep[0] }
 					</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
-
 	</div>
+	
 	<table style="margin-left: 400px;">
 		<caption>已经玩完的项目</caption>
 		<tr>
@@ -132,5 +132,15 @@ a {
 
 		</tbody>
 	</table>
+	<c:forEach items="${hadDone }" var="had">
+		<script type="text/javascript">
+			complete("${had}");
+		</script>
+	</c:forEach>
+	<c:forEach items="${hadEva }" var="eva">
+		<script type="text/javascript">
+			document.getElementsByClassName("${eva}")[0].remove();
+		</script>
+	</c:forEach>
 </body>
 </html>

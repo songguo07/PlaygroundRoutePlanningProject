@@ -2,7 +2,6 @@
 <<<<<<<=HEAD
 >>>>>>>=4646a5fdb45b56a4ce082bdf2b9151a4a52e4616
 eclipse.preferences.version=1
-encoding//src/main/java/com/sg/backstage/admin/service/AdminServiceImpl.java=UTF-8
 encoding//src/main/java/com/sg/forestage/department/dao/DepartmentDao.java=UTF-8
 encoding//src/main/java/com/sg/forestage/department/entity/Department.java=UTF-8
 encoding//src/main/java/com/sg/forestage/user/dao/UserDao.java=UTF-8

@@ -22,14 +22,14 @@ public class AliCheckNumberServlet extends HttpServlet {
 		String userTelno = request.getParameter("userTelno");
 		System.out.println(userTelno);
 		String randomSMSCode = SmsUtil.getRandomSMSCode(5,true);
-//		try {
-//			if(SmsUtil.sendSms(userTelno,randomSMSCode)) {
+		try {
+			if(SmsUtil.sendSms(userTelno,randomSMSCode)) {
 				System.out.println("短信发送成功"+randomSMSCode);
 				response.getWriter().write(randomSMSCode); // 将结果返回到前端
-//			}
-//		} catch (ClientException e) {
-//			e.printStackTrace();
-//		}
+			}
+		} catch (ClientException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

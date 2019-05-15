@@ -32,7 +32,6 @@ public class UserDaoImpl implements UserDao{
 	 */
 	@Override
 	public int doRegist(User user) {
-//		Connection conn=DbUtil.getDBConn();
 		String sql="insert into user(user_id,user_telno,user_nickname,user_password) value(?,?,?,?)";
 		String [] param= {user.getUserId(),user.getUserTelno(),user.getUserNickname(),user.getUserPassword()};
 		int row=0;
@@ -93,16 +92,12 @@ public class UserDaoImpl implements UserDao{
 		Object [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate(),score};
 		int row=0;
 		try {
-<<<<<<< HEAD
-			qr.update(conn,sql);
+			qr.update(sql);
 			sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
-			row = qr.update(conn, sql,param);
-			DbUtils.closeQuietly(conn);
-=======
+			row = qr.update( sql,param);
 			qr.update(sql);
 			sql="insert into evaluate(evalu_id,user_id,d_id,e_evaluate,e_score) value(?,?,?,?,?)";
 			row = qr.update(sql,param);
->>>>>>> 669787411602a68c83ccb4926e8617fe5ca065a9
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
