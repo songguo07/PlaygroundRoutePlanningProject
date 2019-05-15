@@ -20,8 +20,8 @@ import com.sg.forestage.user.entity.User;
  */
 public class DepartmentDaoImpl implements DepartmentDao{
 
-	Connection conn=DbUtil.getDBConn();
-	QueryRunner qr=new QueryRunner();
+	
+	QueryRunner qr=new QueryRunner(DbUtil.getDataSource());
 	/**
 	 * 插入用户喜好项目
 	 *
@@ -34,14 +34,14 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		Department department;
 		int row=0;
 		try {
-			department = qr.query(conn, sql,new BeanHandler<Department>(Department.class));
+			department = qr.query(sql,new BeanHandler<Department>(Department.class));
 			String dId=department.getdId();
 			String userId = user.getUserId();
 			System.out.println("DepartmentImpl--->insertHobby():user.userId="+userId+",department.dId:"+dId);
 			String sql1="insert into hobby value(?,?)";
 			String params[]= {userId,dId};
 			try {
-				row = qr.update(conn, sql1, params);
+				row = qr.update(sql1, params);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -62,7 +62,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		String sql="select user_id userId,d_id dId ,e_score eScore,e_evaluate eEvaluate from evaluate where d_id='"+dId+"'";
 		System.out.println("获得特定项目的历史评分评价   执行的sql语句："+sql);
 		try {
-			evaluateList = qr.query(conn, sql, new BeanListHandler<Evaluate>(Evaluate.class));
+			evaluateList = qr.query(sql, new BeanListHandler<Evaluate>(Evaluate.class));
 			System.out.println("******************>项目的评分评价类：");
 			for (Evaluate evaluate : evaluateList) {
 				System.out.println("eavluate:"+evaluate);
@@ -78,7 +78,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		String sql = "select d_id dId,d_name dName from department where d_name='"+depName+"'";
 		System.out.println(sql);
 		try {
-			Department department = qr.query(conn, sql, new BeanHandler<Department>(Department.class));
+			Department department = qr.query(sql, new BeanHandler<Department>(Department.class));
 			System.out.println("DesServlet根据项目名获取项目id："+department);
 			return department.getdId();
 		} catch (SQLException e) {
@@ -97,7 +97,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		String sql = "select d_id dId,d_name dName from department where d_id='"+dId+"'";
 		System.out.println(sql);
 		try {
-			Department department = qr.query(conn, sql, new BeanHandler<Department>(Department.class));
+			Department department = qr.query(sql, new BeanHandler<Department>(Department.class));
 			System.out.println("DesServlet根据项目名获取项目name："+department);
 			return department.getdName();
 		} catch (SQLException e) {
