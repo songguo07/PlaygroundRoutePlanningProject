@@ -36,15 +36,15 @@
                 <div class="col-lg-4 col-md-4 col-sm-5 col-right">
                     <nav>
                         <ul class="list-inline" id="menu">
-                            <li>
-                                <a href="index.html">首页</a>
-                            </li>
-                            <li class=" active">
-                                <a href="blog.html">地图</a>
-                            </li>
-                            <li>
-                                <a href="contact.html">contact</a>
-                            </li>
+                         <li>
+                        <a href="${pageContext.request.contextPath}/views/catalog/index.jsp">首页</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/views/catalog/blog.jsp">地图</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/SelectAnswerServlet">客服</a>
+                    </li>
                            <!--  <li class="last">
                                 <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="facebook"></a>
                                 <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="twitter"></a>

@@ -39,7 +39,7 @@
                         <a href="${pageContext.request.contextPath}/views/catalog/blog.jsp">地图</a>
                     </li>
                     <li>
-                        <a href="/playgroundRoutePlanning/SelectAnswerServlet">客服</a>
+                        <a href="${pageContext.request.contextPath}/SelectAnswerServlet">客服</a>
                     </li>
                     <!--                    <li class="last">-->
                     <!--                        <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="facebook"></a>-->
