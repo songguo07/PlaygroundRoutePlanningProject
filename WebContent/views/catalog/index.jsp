@@ -741,6 +741,16 @@
 <script type="text/javascript">
 	$(function(){
 		jAlert("请先选择您感兴趣的类型哦~");
+		//获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+	    var curWwwPath=window.document.location.href;
+	    //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+	    var pathName=window.document.location.pathname;
+	    var pos=curWwwPath.indexOf(pathName);
+	    //获取主机地址，如： http://localhost:8083
+	    var localhostPaht=curWwwPath.substring(0,pos);
+	    //获取带"/"的项目名，如：/uimcardprj
+	    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+	    result=localhostPaht+projectName;
 		$("#startDesign").click(function(){
 			 var i=0;
 			 var hobby=new Array();
@@ -750,7 +760,7 @@
 				 }
 			 });
 			 $.ajax({
-					url:"/playgroundRoutePlanning/DesignRoute",
+					url:result+"/DesignRoute",
 					cache:false,
 					dataType: "json",
 					traditional: true,
@@ -774,7 +784,7 @@
 	            });
 			  if(typeArray!=''){
 				  $.ajax({
-						 url:"/playgroundRoutePlanning/GetBestRoute",
+						 url:result+"/GetBestRoute",
 		                 traditional: true,
 		                 type: "POST",
 		                 cache : false,
@@ -792,7 +802,7 @@
 	 		jConfirm('你确定要退出吗？', '请确定',function(res){
 				if(res){
 					$.ajax({
-						 url:"/playgroundRoutePlanning/DeleteAllHobby",
+						 url:result+"/DeleteAllHobby",
 		                traditional: true,
 		                type: "POST",
 		                cache : false,
@@ -811,7 +821,7 @@
 	 	
 	 	$("#reSetHobby").click(function(){
 			 $.ajax({
-				 url:"/playgroundRoutePlanning/ClearHobbyByUserId",
+				 url:result+"/ClearHobbyByUserId",
                  traditional: true,
                  type: "POST",
                  cache : false,
