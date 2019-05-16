@@ -91,7 +91,7 @@
 					</div>
 					<div class="form-group">
 						<input  name="reallyCheckNumber" type="hidden" required="true" id="reallyCheckNumber">
-						<input style="padding-right:243px"  placeholder="请输入验证码" name="checkNumber" type="text" required="true">			
+						<input   placeholder="请输入验证码" name="checkNumber" type="text" required="true">			
 						<input id="btnSendCode1"  type="button" class="btn btn-default" value="获取验证码" />
 					</div>
 					

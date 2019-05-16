@@ -32,10 +32,15 @@
 			<div class="col-lg-4 col-md-4 col-sm-5 col-right">
 				<nav>
 					<ul class="list-inline" id="menu">
-						<li class="active"><a href="index.jsp">首页</a></li>
-						<li><a href="http://localhost:8080/playgroundRoutePlanning/views/catalog/blog.jsp">地图</a></li>
-						<li><a href="http://localhost:8080/playgroundRoutePlanning/SelectAnswerServlet">客服</a></li>
-						<!--                    <li class="last">-->
+						 <li>
+                        <a href="${pageContext.request.contextPath}/views/catalog/index.jsp">首页</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/views/catalog/blog.jsp">地图</a>
+                    </li>
+                    <li>
+                        <a href="/playgroundRoutePlanning/SelectAnswerServlet">客服</a>
+                    </li><!--                    <li class="last">-->
 						<!--                        <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="facebook"></a>-->
 						<!--                        <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="twitter"></a>-->
 						<!--                    </li>-->
