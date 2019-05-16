@@ -11,14 +11,18 @@
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="css/style.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alert/jquery.alert.css"/>
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
     <script src="js/bootstrap/respond.min.js"></script>
     <script src="js/bootstrap/html5shiv.js"></script>
     <![endif]-->
-<script
-	src="${pageContext.request.contextPath}/static/03/js/jquery-3.3.1.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/03/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.easydrag.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.alert.js"></script>
+	
 </head>
 <body class="page-index">
 	<div class="container" id="container">
@@ -736,7 +740,7 @@
 </body>
 <script type="text/javascript">
 	$(function(){
-		alert("请先选择您感兴趣的类型哦~");
+		jAlert("请先选择您感兴趣的类型哦~");
 		$("#startDesign").click(function(){
 			 var i=0;
 			 var hobby=new Array();
@@ -756,9 +760,9 @@
 					}
 				}); 
 			 if(i==0){
-				 alert("您还没有选择任何项目哦~~~");
+				 jAlert("您还没有选择任何项目哦~~~");
 			 }else{
-				  alert("选择成功，如果选择完毕请点击'最佳路线'！");
+				  jAlert("选择成功，如果选择完毕请点击'最佳路线'！");
 			 }
 		});
 		//最佳路线
@@ -780,25 +784,29 @@
 						 }
 				 });
 			  }else{
-				  alert("请选择您感兴趣的类型");
+				  jAlert("请选择您感兴趣的类型");
 			  }
 			 
 		});
 	 	$("#withDrawl").click(function(){
-			alert("您确定要退出吗？");
-			 $.ajax({
-				 url:"/playgroundRoutePlanning/DeleteAllHobby",
-                 traditional: true,
-                 type: "POST",
-                 cache : false,
-				 success:function(result){
-					 if(result == 'error'){
-						 alert("退出失败，请稍后重试");
-					 }else{
-						 location.href = result;
-					 }
+	 		jConfirm('你确定要退出吗？', '请确定',function(res){
+				if(res){
+					$.ajax({
+						 url:"/playgroundRoutePlanning/DeleteAllHobby",
+		                traditional: true,
+		                type: "POST",
+		                cache : false,
+						 success:function(result){
+							 if(result == 'error'){
+								 jAlert("退出失败，请稍后重试");
+							 }else{
+								 location.href = result;
+							 }
+						}
+					 });
 				}
-			 });
+	 		});
+	 		return false;
 		}); 
 	 	
 	 	$("#reSetHobby").click(function(){
@@ -810,10 +818,10 @@
 				 success:function(result){
 					result = result.replace(/\s*/g,"");
 					 if(result == 'error'){
-						 alert("重新规划请求失败，请稍后重试");
+						 jAlert("重新规划请求失败，请稍后重试");
 					 }else{
 						 location.href = result;
-						 alert("成功！！！请再次选择你的感兴趣项目。");
+						 jAlert("成功！！！请再次选择你的感兴趣项目。");
 					 }
 				}
 			 });
