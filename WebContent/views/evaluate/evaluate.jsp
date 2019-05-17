@@ -58,12 +58,20 @@ body{font:12px/180% Arial, Helvetica, sans-serif;}
 	<div class="quiz_content">
 		<form action="${pageContext.request.contextPath}/DoAddEvaluate" id="" method="post">
 		<input name="dId" type="hidden" value="${d_id }"/>
-		<input name="score" type="hidden" id="divresult"/>
+		<!-- <input name="score" type="hidden" id="divresult"/> -->
 		<input name="content" type="hidden"  id="divcontent"/>
 			<div class="goods-comm">
 				<div class="goods-comm-stars">
 					<span class="star_l" >满意度：</span>
-					<div id="rate-comm-1" class="rate-comm" ></div>
+					<!-- <div id="rate-comm-1" class="rate-comm" ></div> -->
+					<div  style="float: left;padding-left:20px">
+					<input type="radio" id="radioScore" name="radioScore" value="1"/>1
+					<input type="radio" id="radioScore" name="radioScore" value="2"/>2
+					<input type="radio" id="radioScore" name="radioScore" value="3"/>3
+					<input type="radio" id="radioScore" name="radioScore" value="4"/>4
+					<input type="radio" id="radioScore" name="radioScore" value="5"/>5
+					</div>
+				
 				</div>
 			</div>
 			<div class="l_text">

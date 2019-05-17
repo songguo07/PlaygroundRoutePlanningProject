@@ -221,7 +221,7 @@ $(function(){
 	
 	
 	$(".btm").click(function(){
-	    $("#divresult").val($(".rater-star-result").text()[0]); //评分结果
+	   // $("#divresult").val($(".rater-star-result").text()[0]); //评分结果
 	    $("#divcontent").val($("#content").val());//评论内容
 		 
 	});

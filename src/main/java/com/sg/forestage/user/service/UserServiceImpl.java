@@ -68,8 +68,7 @@ public class UserServiceImpl implements UserService{
 	 */
 	@Override
 	public int doAdd(Evaluate ee) {
-		String evaluate = ee.geteEvaluate();
-		System.out.println(evaluate);
+		System.out.println(ee);
 		return userDao.doAdd(ee);
 	}
 

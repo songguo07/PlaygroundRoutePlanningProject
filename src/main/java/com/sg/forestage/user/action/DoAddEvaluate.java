@@ -32,7 +32,7 @@ public class DoAddEvaluate extends HttpServlet {
 		
 		System.out.print("进入servlet");
 		String dId=request.getParameter("dId");
-		Float eScore=Float.parseFloat(request.getParameter("score"));
+		Float eScore=Float.parseFloat(request.getParameter("radioScore"));
 		String eEvaluate=request.getParameter("content");
 		HttpSession session = request.getSession(); 
 		User user = (User) session.getAttribute("userSession");

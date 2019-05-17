@@ -88,16 +88,13 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int doAdd(Evaluate ee) {
 		String sql="delete from evaluate where d_id='"+ee.getdId()+"' and user_id='"+ee.getUserId()+"'";
-		float score=ee.geteScore();
-		Object [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate(),score};
+		System.out.println("删除原来的评价："+sql);
+		Object [] param= {ee.getUserId(),ee.getdId(),ee.geteEvaluate(),ee.geteScore()};
 		int row=0;
 		try {
-			qr.update(sql);
+			System.out.println("原来表中是否含有评价------->>："+qr.update(sql));
 			sql="insert into evaluate(user_id,d_id,e_evaluate,e_score) value(?,?,?,?)";
-			row = qr.update( sql,param);
-			qr.update(sql);
-			sql="insert into evaluate(evalu_id,user_id,d_id,e_evaluate,e_score) value(?,?,?,?,?)";
-			row = qr.update(sql,param);
+			return  qr.update(sql,param);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
