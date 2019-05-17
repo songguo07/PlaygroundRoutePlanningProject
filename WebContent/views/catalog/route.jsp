@@ -56,7 +56,7 @@ a {
 		d(data1);
 		if ($('.' + data1).text() != data1) {
 			$("#tbody").append(
-					'<tr><td class="'+data1+'">' + data1
+					'<tr id="'+data1+'"><td class="'+data1+'">' + data1
 							+ '</td><td><a href="../../DesServlet?depName='
 							+ data1 + '">评价</a></td></tr>')
 		}
@@ -124,6 +124,7 @@ a {
 										<tbody id="tbody">
 										</tbody>
 									</table>
+									<br><br><br><br><br><br>
 							</div>
 						</div>
 					</section>
@@ -146,8 +147,7 @@ a {
 									<img class="img-responsive item-img" src="img/play/${pinyin[dep[0]] }.jpg" alt="Work 5">
 								</div>
 								<div class="panel-body">
-									<a
-										href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=2&fileName=jlbhd">
+									<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=2&fileName=jlbhd">
 										<h4 class="item-title">${dep[0] }</h4>
 									</a>
 									<p class="item-category">等待时间：${dep[1] }</p>
@@ -167,7 +167,7 @@ a {
 			</div>
 		</div>
 	</div>
-
+	
 	<script src="js/jquery.js"></script>
 
 	<!-- FASTCLICK -->
@@ -178,6 +178,16 @@ a {
 	<script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
 
 	<script src="js/main.js"></script>
+	<c:forEach items="${hadDone }" var="had">
+		<script type="text/javascript">
+			complete("${had}");
+		</script>
+	</c:forEach>
+	<c:forEach items="${hadEva }" var="eva">
+		<script type="text/javascript">
+			document.getElementById("${eva}").remove();
+		</script>
+	</c:forEach>
 </body>
 </html>
 

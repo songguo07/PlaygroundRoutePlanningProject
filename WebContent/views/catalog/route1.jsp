@@ -139,6 +139,7 @@ a {
 	</c:forEach>
 	<c:forEach items="${hadEva }" var="eva">
 		<script type="text/javascript">
+			alert(${eva});
 			document.getElementsByClassName("${eva}")[0].remove();
 		</script>
 	</c:forEach>

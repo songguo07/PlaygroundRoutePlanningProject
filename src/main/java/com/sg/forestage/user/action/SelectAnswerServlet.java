@@ -27,6 +27,7 @@ public class SelectAnswerServlet extends HttpServlet {
 			user=(User)o;
 			String userId = user.getUserId();
 			consultList = userService.getAnswer(userId);
+			request.getSession().setAttribute("userId",user.getUserNickname());
 		}
 		request.getSession().setAttribute("consultList", consultList);
 		response.sendRedirect("views/consult/consult.jsp");
