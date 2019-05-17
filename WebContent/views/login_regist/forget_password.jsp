@@ -12,6 +12,7 @@
 
 
 <!--webfonts-->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alert/jquery.alert.css"/>
 <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!--//webfonts-->
 <!-- Javascript -->
@@ -20,60 +21,25 @@
 <script src="${pageContext.request.contextPath}/static/03/assets/js/jquery.backstretch.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/03/assets/js/scripts.js"></script>
 <script src="${pageContext.request.contextPath}/static/03/js/jquery.validate.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.easydrag.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.alert.js"></script>
 
 <script type="text/javascript">
 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
 
 $(function(){
-
-	$( "#myForm" ).validate({
-		  rules: {
-		    userPassword: "required",
-		    againUserPassword: {
-		      equalTo: "#userPassword"
-		    }
-		  },
-		  //重设提示信息
-		    messages:{
-		    	userPassword: "请输入密码",
-		    	againUserPassword: "密码输入不一致"
-		    }
-		});
-	
-/* 	var countdown=60;
-	function sendemail(){
-	    var obj = $("#getCheckNumber");
-	    settime(obj);
-	    
-	    }
-	function settime(obj) { //发送验证码倒计时
-	    if (countdown == 0) { 
-	        obj.attr('disabled',false); 
-	        //obj.removeattr("disabled"); 
-	        obj.val("免费获取验证码");
-	        countdown = 60; 
-	        return;
-	    } else { 
-	        obj.attr('disabled',true);
-	        obj.val("重新发送(" + countdown + ")");
-	        countdown--; 
-	    } 
-	setTimeout(function() { 
-	    settime(obj) }
-	    ,1000) 
-	}
-	$("#getCheckNumber").click(function(){
-		var value = $("#userTelno").val();
-		sendemail();
-		 $.ajax({
-			url:"/playgroundRoutePlanning/AliCheckNumberServlet",
-			cache:false,
-			data:"userTelno="+value,
-			success:function(result){
-				$("#reallyCheckNumber").val(result);
-			}
-		}); 
-	}); */
+	//获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+    var curWwwPath=window.document.location.href;
+    //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+    var pathName=window.document.location.pathname;
+    var pos=curWwwPath.indexOf(pathName);
+    //获取主机地址，如： http://localhost:8083
+    var localhostPaht=curWwwPath.substring(0,pos);
+    //获取带"/"的项目名，如：/uimcardprj
+    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+   	var result=localhostPaht+projectName;
+    
 	
 	var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;//手机号正则 
 	var count = 60; //间隔函数，1秒执行
@@ -91,11 +57,12 @@ $(function(){
 			$("#btnSendCode1").val( + curCount1 + "秒再获取");
 		}
 	} 
+	
 	$("#btnSendCode1").click(function(){
 		curCount1 = count;		 		 
 		var phone = $.trim($("#userTelno").val());
 		if (!phoneReg.test(phone)) {
-			alert(" 请输入有效的手机号码"); 
+			jAlert(" 请输入有效的手机号码"); 
 			return false;
 		}
 		//设置button效果，开始计时
@@ -104,7 +71,7 @@ $(function(){
 		InterValObj1 = window.setInterval(SetRemainTime1, 1000); //启动计时器，1秒执行一次
 		//向后抬输入数据
 		 $.ajax({
-			url:"/playgroundRoutePlanning/AliCheckNumberServlet",
+			url:result+"/AliCheckNumberServlet",
 			cache:false,
 			data:"userTelno="+phone,
 			success:function(result){
@@ -113,9 +80,21 @@ $(function(){
 		}); 
 		
 	});
+	$( "#myForm" ).validate({
+		  rules: {
+		    userPassword: "required",
+		    againUserPassword: {
+		      equalTo: "#userPassword"
+		    }
+		  },
+		  //重设提示信息
+		    messages:{
+		    	userPassword: "请输入密码",
+		    	againUserPassword: "密码输入不一致"
+		    }
+		});
 	
-	
-})
+});
 
 
 </script>

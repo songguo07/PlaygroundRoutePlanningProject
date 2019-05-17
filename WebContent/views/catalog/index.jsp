@@ -830,8 +830,9 @@
 					 if(result == 'error'){
 						 jAlert("重新规划请求失败，请稍后重试");
 					 }else{
-						 location.href = result;
-						 jAlert("成功！！！请再次选择你的感兴趣项目。");
+						 jConfirm('你确定要重新规划路线吗？', '请确定',function(res){
+							 location.href = result;
+						 });
 					 }
 				}
 			 });
