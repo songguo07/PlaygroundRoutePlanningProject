@@ -13,7 +13,7 @@
 	<p>
 		<input type='button' value='开始' onclick='run();' style="margin-left: 600px;" />
 	</p>
-	<div style="width: 820px; height: 500px; border: 1px solid gray; margin:auto;"
+	<div style="width: 100%; height: 650px; border: 1px solid gray; margin:auto;"
 		id="container" ></div>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript">

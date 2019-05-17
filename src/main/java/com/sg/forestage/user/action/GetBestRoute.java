@@ -2,7 +2,9 @@ package com.sg.forestage.user.action;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.ServletException;
@@ -64,40 +66,12 @@ public class GetBestRoute extends HttpServlet {
 			weight=(Set<String>) o;
 		}
 		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3,weight);
-//		Object result[][] = BestRouteUtil.get(hobbyNameList,typeLikes,3,null);
 		System.out.println("**************最佳路线***********************");
 		for (Object[] objects : result) {
 			System.out.println("++++++++++++"+objects[0]);
 		}
-//		int j=0;
-//		for (String hobbyName : hobbyNameList) {
-//			for(int i=0;i<result.length;i++) {
-//				if(hobbyName.equals(result[i][0])) j++;
-//			}
-//		}
-//		System.out.println("用户想玩的项目的个数："+j);
-//		Object result1[][]=new Object[j][2];
-//		for(int k=0;k<j;k++) {
-//			for(int i=0;i<result.length;i++) {
-//				for (String hobbyName : hobbyNameList) {
-//					if(hobbyName.equals(result[i][0])) result1[k++]=result[i];
-//				}
-//			}
-//		}
-//		for (int i = 0; i < result1.length; i++) {
-//			System.out.println( "======最终项目顺序=====" + result1[i][0]);
-//		}
-//		
-//		request.getSession().setAttribute("weight",null);
-//		Object o=request.getSession().getAttribute("weight");
-//		if(o!=null) {
-//			List<String> weight = (List<String>) o;
-//			System.out.println("第一次时获得的权值++++++++++++++++++++++++++++");
-//			for (String string : weight) {
-//				System.out.println(string);
-//			}
-//			System.out.println("结束++++++++++++++++++++++++++++++++++++++++");
-//		}
+		Map<String,String> pinyin=BestRouteUtil.getPinMap();
+		request.getSession().setAttribute("pinyin", pinyin);
 		request.getSession().setAttribute("result", result);
 		request.getSession().setAttribute("length", result.length);
 		response.getWriter().write("yes");

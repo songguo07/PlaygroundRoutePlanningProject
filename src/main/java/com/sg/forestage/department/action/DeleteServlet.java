@@ -24,6 +24,7 @@ public class DeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("DeleteServlet评价后删除该项目");
 		String dName = request.getParameter("d_name");
+		System.out.println(dName);
 		UserService userService = new UserServiceImpl();
 		System.out.println("设置该项目的权值为-10000");
 		if(dName==null) {

@@ -19,7 +19,6 @@ public class InsertAnswerServlet extends HttpServlet {
 	private SerService serService = new SerServiceImpl();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");
 		String content = request.getParameter("content");
 		List<String> answerList = null;

@@ -21,7 +21,6 @@ public class QuestionServlet extends HttpServlet {
 	private SerService serService = new SerServiceImpl();
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
 		List<Consult> conList=new ArrayList<Consult>();
 		List<Consult> conUserList=new ArrayList<Consult>();
 		Object o =  request.getSession().getAttribute("qesList");
