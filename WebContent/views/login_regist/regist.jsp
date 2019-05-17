@@ -16,7 +16,18 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/03/assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/03/assets/css/form-elements.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/static/03/assets/css/style.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alert/jquery.alert.css"/>
+<!-- Javascript -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.easydrag.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.alert.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/03/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/03/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/03/assets/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/03/assets/js/scripts.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/03/js/jquery.validate.js"></script>
 
+	
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -105,12 +116,6 @@
 </div>
 
 
-<!-- Javascript -->
-<script src="${pageContext.request.contextPath}/static/03/assets/js/jquery-1.11.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/assets/js/jquery.backstretch.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/assets/js/scripts.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/js/jquery.validate.js"></script>
 
 <!--[if lt IE 10]>
 	<script src="assets/js/placeholder.js"></script>
@@ -134,7 +139,16 @@
 			    	againUserPassword: "密码输入不一致"
 			    }
 			});
-		
+		//获取当前网址，如： http://localhost:8083/uimcardprj/share/meun.jsp
+	    var curWwwPath=window.document.location.href;
+	    //获取主机地址之后的目录，如： uimcardprj/share/meun.jsp
+	    var pathName=window.document.location.pathname;
+	    var pos=curWwwPath.indexOf(pathName);
+	    //获取主机地址，如： http://localhost:8083
+	    var localhostPaht=curWwwPath.substring(0,pos);
+	    //获取带"/"的项目名，如：/uimcardprj
+	    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+	    result=localhostPaht+projectName;
 		var phoneReg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;//手机号正则 
 		var count = 60; //间隔函数，1秒执行
 		var InterValObj1; //timer变量，控制时间
@@ -155,7 +169,7 @@
 			curCount1 = count;		 		 
 			var phone = $.trim($("#tel_no").val());
 			if (!phoneReg.test(phone)) {
-				alert(" 请输入有效的手机号码"); 
+				jAlert(" 请输入有效的手机号码"); 
 				return false;
 			}
 			//设置button效果，开始计时
@@ -164,7 +178,7 @@
 			InterValObj1 = window.setInterval(SetRemainTime1, 1000); //启动计时器，1秒执行一次
 			//向后抬输入数据
 			 $.ajax({
-				url:"/playgroundRoutePlanning/AliCheckNumberServlet",
+				url:result+"/AliCheckNumberServlet",
 				cache:false,
 				data:"userTelno="+phone,
 				success:function(result){
