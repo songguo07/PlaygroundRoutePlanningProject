@@ -38,6 +38,12 @@ public class DoRegist extends HttpServlet {
 		String userPassword=request.getParameter("userPassword");
 		System.out.println(userTelNo);
 		System.out.println(userNickname);
+		String checkNumber= request.getParameter("checkNumber");
+		String reallyCheckNumber= request.getParameter("reallyCheckNumber");
+		System.out.println("Servlet:Regist------>reallyCheckNumber:" + reallyCheckNumber);
+		reallyCheckNumber=reallyCheckNumber.substring(reallyCheckNumber.length()-5);
+		System.out.println("Servlet:Regist------>reallyCheckNumber截取后:" + reallyCheckNumber);
+	
 
 		System.out.println("未加密密码"+userPassword+"UUID:"+makeUUID());
 		User user=new User();
@@ -47,7 +53,7 @@ public class DoRegist extends HttpServlet {
 		user.setUserPassword(userPassword.trim());
 		
 		int row = userservice.doRegist(user);
-		if(row>0) {
+		if(row>0&&reallyCheckNumber.equals(checkNumber)) {
 	        response.sendRedirect(request.getContextPath()+"/views/login_regist/login.jsp");
 		}else {
 			response.sendRedirect(request.getContextPath()+"/views/login_regist/regist.jsp");

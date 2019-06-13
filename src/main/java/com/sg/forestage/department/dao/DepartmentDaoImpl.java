@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -38,8 +39,8 @@ public class DepartmentDaoImpl implements DepartmentDao{
 			String dId=department.getdId();
 			String userId = user.getUserId();
 			System.out.println("DepartmentImpl--->insertHobby():user.userId="+userId+",department.dId:"+dId);
-			String sql1="insert into hobby value(?,?)";
-			String params[]= {userId,dId};
+			String sql1="insert into hobby_log value(?,?,?)";
+			String params[]= {UUID.randomUUID().toString(),userId,dId};
 			try {
 				row = qr.update(sql1, params);
 			} catch (SQLException e) {

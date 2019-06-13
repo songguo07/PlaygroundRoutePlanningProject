@@ -110,12 +110,14 @@
 						class="filter" data-filter="excite">刺激</a> <a href="#"
 						class="filter" data-filter="interact">互动</a> <a href="#"
 						class="filter" data-filter="happy">欢乐</a>
-					<hr>
+						<a href="#" 
+						class="filter" data-filter="recommend">推荐</a>
+						
 				</div>
 
 				<section class="row" id="Grid">
 
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact " id="1">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=1&fileName=cqxst"> <img class="img-responsive item-img"
@@ -136,7 +138,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite " id="2">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=2&fileName=jlbhd"> <img class="img-responsive item-img"
@@ -159,7 +161,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="3">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=3&fileName=tmhyfch"> <img class="img-responsive item-img"
@@ -181,7 +183,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="4">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=4&fileName=txjdmz"> <img class="img-responsive item-img"
@@ -203,7 +205,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="5">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=5&fileName=thgttz"> <img class="img-responsive item-img"
@@ -225,7 +227,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="6">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=6&fileName=hdnzjnh"> <img class="img-responsive item-img"
@@ -247,7 +249,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="7">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=7&fileName=alsmyxjmg"> <img
@@ -270,7 +272,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="8">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=8&fileName=jcqh"> <img class="img-responsive item-img"
@@ -292,7 +294,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="9">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=9&fileName=mythsj"> <img class="img-responsive item-img"
@@ -314,7 +316,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite" id="10">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=10&fileName=qgxarksc"> <img
@@ -337,7 +339,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="11">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=11&fileName=xfxtkqy"> <img class="img-responsive item-img"
@@ -359,7 +361,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="12">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=12&fileName=xxwnlxj"> <img class="img-responsive item-img"
@@ -381,7 +383,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="13">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=13&fileName=xzfmg"> <img class="img-responsive item-img"
@@ -403,7 +405,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="14">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=14&fileName=ybg"> <img class="img-responsive item-img"
@@ -425,7 +427,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="15">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=15&fileName=bsgnxjyj"> <img
@@ -448,7 +450,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite" id="16">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=16&fileName=cjsgl"> <img class="img-responsive item-img"
@@ -470,7 +472,7 @@
 							</div>
 						</div>
 					</div>
-					<%-- <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<%-- <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="17">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=17&fileName=cj"> <img class="img-responsive item-img"
@@ -492,7 +494,7 @@
 							</div>
 						</div>
 					</div> --%>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="18">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=18&fileName=pqbbfxq"> <img class="img-responsive item-img"
@@ -514,7 +516,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="19">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=19&fileName=tkxhsdq"> <img class="img-responsive item-img"
@@ -536,7 +538,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="20">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=20&fileName=hxqxzmm"> <img class="img-responsive item-img"
@@ -558,7 +560,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="21">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=21&fileName=mwyxzb"> <img class="img-responsive item-img"
@@ -580,7 +582,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="22">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=22&fileName=mqjlb"> <img class="img-responsive item-img"
@@ -602,7 +604,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="23">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=23&fileName=xfx"> <img class="img-responsive item-img"
@@ -624,7 +626,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="24">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=24&fileName=ax"> <img class="img-responsive item-img"
@@ -646,7 +648,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix happy" id="25">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=25&fileName=gjtsy"> <img class="img-responsive item-img"
@@ -668,7 +670,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix interact" id="26">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
 								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=26&fileName=hxjyh"> <img class="img-responsive item-img"
@@ -691,15 +693,15 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite">
+					<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6 mix excite" id="27">
 						<div class="panel panel-default item">
 							<div class="panel-heading">
-								<a href="lmspl.html"> <img class="img-responsive item-img"
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=27&fileName=lmspl"> <img class="img-responsive item-img"
 									src="img/play/lmspl.jpg" alt="Work 9">
 								</a>
 							</div>
 							<div class="panel-body">
-								<a href="lmspl.html"><h4 class="item-title">雷鸣山漂流</h4></a>
+								<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=27&fileName=lmspl"><h4 class="item-title">雷鸣山漂流</h4></a>
 								<p class="item-category">探险岛</p>
 								<p class="item-description">踏上刺激的漂筏之旅，深入黑暗的深渊，和凶猛的巨兽赛跑，
 									在激流中辗转翻腾。</p>
@@ -707,8 +709,8 @@
 								<p class="item-tags">
 									<a href="#">室外</a> , <a href="#">刺激</a> , <a href="#">水花四溅</a>
 									, <a href="#">107厘米或以上</a> &nbsp;&nbsp;<font color="#00ff00">喜欢</font><input
-										type="radio" value="雷鸣山漂流" name="28"> <font
-										color="#00ff00">再看看</font><input type="radio" name="28"
+										type="radio" value="雷鸣山漂流" name="27"> <font
+										color="#00ff00">再看看</font><input type="radio" name="27"
 										value="0" checked="checked">
 
 								</p>
@@ -818,7 +820,22 @@
 	 		});
 	 		return false;
 		}); 
-	 	
+	 	$("#recommend").click(function(){
+	 		 $.ajax({
+				 url:result+"/RecommedHobby",
+                 traditional: true,
+                 type: "POST",
+                 cache : false,
+                 dataType:'JSON',
+				 success:function(result){
+				    jQuery.each(result,function(key,value){ 
+				    	var id=value[0];
+				    	$("#"+id).addClass("recommend");
+				    	
+	               }) 
+				}
+			 });
+	 	});
 	 	$("#reSetHobby").click(function(){
 			 $.ajax({
 				 url:result+"/ClearHobbyByUserId",

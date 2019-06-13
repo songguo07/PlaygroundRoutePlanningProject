@@ -35,6 +35,7 @@ public class DesignRoute extends HttpServlet {
 		String selectProjectNames[]=request.getParameterValues("selectProjectName");
 		DepartmentService departmentService = new DepartmentServiceImpl();
 		User user = (User) request.getSession().getAttribute("userSession");
+		request.getSession().setAttribute("selectProjectNames", selectProjectNames);
 		PrintWriter out =response.getWriter();
 		
 		 for (String selectProjectName : selectProjectNames) {

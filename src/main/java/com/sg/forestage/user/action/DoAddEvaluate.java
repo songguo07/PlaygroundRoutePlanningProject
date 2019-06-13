@@ -28,9 +28,6 @@ public class DoAddEvaluate extends HttpServlet {
 
 	UserService userservice=new UserServiceImpl();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		
-		System.out.print("进入servlet");
 		String dId=request.getParameter("dId");
 		Float eScore=Float.parseFloat(request.getParameter("radioScore"));
 		String eEvaluate=request.getParameter("content");
@@ -45,7 +42,6 @@ public class DoAddEvaluate extends HttpServlet {
 		System.out.println("***********************************************");
 		Evaluate evaluate=new Evaluate();
 		
-		evaluate.setEvaluId(UUID.randomUUID().toString());
 		evaluate.setUserId(userid);
 		evaluate.setdId(dId);
 		evaluate.seteScore(eScore);

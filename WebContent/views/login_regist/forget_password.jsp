@@ -16,11 +16,11 @@
 <link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 <!--//webfonts-->
 <!-- Javascript -->
-<script src="${pageContext.request.contextPath}/static/03/assets/js/jquery-1.11.1.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/assets/js/jquery.backstretch.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/assets/js/scripts.js"></script>
-<script src="${pageContext.request.contextPath}/static/03/js/jquery.validate.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/static/03/assets/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/static/03/js/bootstrap.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/static/03/assets/js/jquery.backstretch.min.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/static/03/assets/js/scripts.js"></script>
+<script type="text/javascript"  src="${pageContext.request.contextPath}/static/03/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.easydrag.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.alert.js"></script>

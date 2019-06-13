@@ -38,9 +38,12 @@ public class GetBestRoute extends HttpServlet {
 		User user=(User) session.getAttribute("userSession");
 		String userId = user.getUserId();
 		System.out.println("GetBestRoute的用户id:"+userId);
-		List<String> hobbyNameList = new ArrayList<String>();
-		hobbyNameList = userService.getHobbyList(userId);
-		System.out.println("获得的用户所有感兴趣的项目："+hobbyNameList);
+		String []hobbyNameList ;
+		//hobbyNameList = userService.getHobbyList(userId);
+		hobbyNameList =(String[]) request.getSession().getAttribute("selectProjectNames");
+		for (String hobbyName : hobbyNameList) {
+			System.out.println("获得的用户所有感兴趣的项目："+hobbyName);
+		}
 		if(hobbyNameList==null) {
 			response.sendRedirect(request.getContextPath()+"/views/catalog/index.jsp");
 		}

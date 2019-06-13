@@ -1,6 +1,7 @@
 package com.sg.forestage.user.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.sg.backstage.ser.entity.Consult;
 import com.sg.forestage.user.entity.Evaluate;
@@ -42,6 +43,18 @@ public interface UserDao {
 	 */
 	public int deleteAllHobbyByUserId(String userId);
 	
+	/**
+	 * 获得相似用户的已经玩过的项目id
+	 *
+	 * @author 李银霞
+	 */
+	public List<String> getSimHobbyId(String nowUserid,String userId);
+	/**
+	 * 为用户做出推荐
+	 *
+	 * @author 李银霞
+	 */
+	public Map<String,int[]> getUsersHobby(String userId);
 	
 	/**
 	 * 获得客服回答的问题

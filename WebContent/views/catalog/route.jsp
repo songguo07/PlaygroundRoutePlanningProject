@@ -147,7 +147,7 @@ a {
 									<img class="img-responsive item-img" src="img/play/${pinyin[dep[0]] }.jpg" alt="Work 5">
 								</div>
 								<div class="panel-body">
-									<a href="${pageContext.request.contextPath}/GetEvaluateByDId?dId=2&fileName=jlbhd">
+									<a >
 										<h4 class="item-title">${dep[0] }</h4>
 									</a>
 									<p class="item-category">等待时间：${dep[1] }</p>

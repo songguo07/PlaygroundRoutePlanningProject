@@ -62,9 +62,14 @@ public class DeleteServlet extends HttpServlet {
 			o=request.getSession().getAttribute("userSession");
 			if(o!=null) user=(User) o;
 			System.out.println("获得用户的id"+user);
-			List<String> hobbyNameList = new ArrayList<String>();
-			hobbyNameList = userService.getHobbyList(user.getUserId());
-			System.out.println("获得用户的喜欢的项目："+hobbyNameList);
+			String []hobbyNameList ;
+			//List<String> hobbyNameList = new ArrayList<String>();
+			//hobbyNameList = userService.getHobbyList(user.getUserId());
+			hobbyNameList =(String[]) request.getSession().getAttribute("selectProjectNames");
+			
+			for (String hobbyName : hobbyNameList) {
+				System.out.println("获得的用户所有感兴趣的项目："+hobbyName);
+			}
 			
 			o=request.getSession().getAttribute("typeLikes");
 			String [] typeLikes=(String[]) o;
@@ -91,7 +96,7 @@ public class DeleteServlet extends HttpServlet {
 			weight = (Set<String>) o;
 		}
 		weight.add(dName);
-		System.out.println("设置为-10000的点====================");
+		System.out.println("评价之后设置为-10000的点====================");
 		for (String string : weight) {
 			System.out.println(string);
 		}

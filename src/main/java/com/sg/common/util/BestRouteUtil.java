@@ -117,7 +117,7 @@ public class BestRouteUtil {
 		return array;
 	}
 
-	public static Object[][] get(List<String> hobbyNameList, String[] typeLikes, int leisureTime, Set<String> weight) {
+	public static Object[][] get(String[] hobbyNameList, String[] typeLikes, int leisureTime, Set<String> weight) {
 		int starttime;// 开始时间
 		int leisuretime;// 休闲时间
 		Object[][] result = new Object[26][2];

@@ -14,6 +14,12 @@
 	href="${pageContext.request.contextPath }/static/06/css/style.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/static/06/css/jquery.mobile.flatui.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alert/jquery.alert.css"/>
+<!-- Javascript -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.easydrag.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/alert/jquery.alert.js"></script>
+
 </head>
 <body>
 <c:set var="times" value="0"></c:set>
@@ -98,7 +104,7 @@
 				<ul class="operating row text-center linear-g">
 					<li class="col-xs-4" style="float: right;" onclick="fasong();"><a><span
 							class="glyphicon glyphicon-comment"></span> &nbsp;发送</a></li>
-					<li class="col-xs-4" style="float: right;"><a  href="../catalog/index.jsp"><span
+					<li class="col-xs-4" style="float: right;"><a  href="${pageContext.request.contextPath}/views/catalog/index.jsp"><span
 							class="glyphicon glyphicon-comment"></span> &nbsp;首页</a></li>
 				</ul>
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -116,7 +122,7 @@
 		function fasong() {
 			var content = document.getElementById("input").value;
 			if (content == '') {
-				alert("输入信息不能为空")
+				jAlert("输入信息不能为空")
 			} else {
 				document.getElementById("form").submit();
 			}

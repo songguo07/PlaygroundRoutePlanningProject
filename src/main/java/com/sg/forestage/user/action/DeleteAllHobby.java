@@ -48,12 +48,18 @@ public class DeleteAllHobby extends HttpServlet {
 		
 		response.setContentType("text/html;charset=utf-8");
 		if(user!=null) {
-			userService.deleteAllHobbyByUserId(user.getUserId());
+			//userService.deleteAllHobbyByUserId(user.getUserId());
+			session.removeAttribute("selectProjectNames");
+			session.removeAttribute("weight");
+    		session.removeAttribute("result");
+    		session.removeAttribute("hadEva");
+    		session.removeAttribute("hadDone");
 			System.out.println("删除用户单次选择项目**************进入Servlet的if");
 			System.out.println("要删除用户爱好的id："+user.getUserId());
             out.println("" + ((HttpServletRequest) request).getContextPath() + "/views/login_regist/login.jsp");
             //用户推出，删除Session
             session.removeAttribute("userSession");
+        	
 		}else {
 			System.out.println("删除用户单次选择项目**************进入Servlet的else");
             out.println("error");

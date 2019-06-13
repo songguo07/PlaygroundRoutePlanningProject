@@ -3,6 +3,7 @@ package com.sg.forestage.user.service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import com.sg.backstage.ser.entity.Consult;
@@ -115,6 +116,29 @@ public class UserServiceImpl implements UserService{
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String dateTime = df.format(new Date());
 		return userDao.insertQuestion(userId, content, consultId, dateTime);
+	}
+
+	/**
+	 * 
+	 *
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public Map<String, int[]> getUsersHobby(String userId) {
+		userId=userId.trim();
+		return userDao.getUsersHobby(userId);
+	}
+	/**
+	 * 获得相似用户的已经玩过的项目id
+	 *
+	 * @author 李银霞
+	 */
+	@Override
+	public List<String> getSimHobbyId(String nowUserid, String userId) {
+		nowUserid=nowUserid.trim();
+		userId=userId.trim();
+		return userDao.getSimHobbyId(nowUserid, userId);
 	}
 
 	
