@@ -104,7 +104,7 @@
 				<ul class="operating row text-center linear-g">
 					<li class="col-xs-4" style="float: right;" onclick="fasong();"><a><span
 							class="glyphicon glyphicon-comment"></span> &nbsp;发送</a></li>
-					<li class="col-xs-4" style="float: right;"><a  href="${pageContext.request.contextPath}/views/catalog/index.jsp"><span
+					<li class="col-xs-4" style="float: right;"><a onclick="index();"><span
 							class="glyphicon glyphicon-comment"></span> &nbsp;首页</a></li>
 				</ul>
 				<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -126,6 +126,10 @@
 			} else {
 				document.getElementById("form").submit();
 			}
+		}
+		
+		function index(){
+			window.location.href="../catalog/index.jsp";
 		}
 	</script>
 </body>

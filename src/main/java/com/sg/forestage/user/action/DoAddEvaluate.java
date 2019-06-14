@@ -50,7 +50,20 @@ public class DoAddEvaluate extends HttpServlet {
 		int row = userservice.doAdd(evaluate);
 		if(row>0) {
 			String dName=departmentService.getDepNameById(dId);
+			Object o = request.getSession().getAttribute("result");
+			Object result[][]=null;
+			if(o!=null) {
+				result=(Object[][]) o;
+			}
+			o = request.getSession().getAttribute("length");
+			int length = (int) o;
+			Object result1[][]=new Object[length-1][2];
+			int i=0;
+			for (Object[] objects : result) {
+				if(!dName.equals(objects[0])) result1[i++]=objects;
+			}
 			session.setAttribute("d_name", dName);
+			session.setAttribute("result", result1);
 	        response.sendRedirect(request.getContextPath()+"/DeleteServlet");
 		}else {
 			response.sendRedirect(request.getContextPath()+"/views/evaluate/evaluate.jsp");

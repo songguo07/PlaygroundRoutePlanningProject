@@ -821,6 +821,7 @@
 	 		return false;
 		}); 
 	 	$("#recommend").click(function(){
+	 		alert(11)
 	 		 $.ajax({
 				 url:result+"/RecommedHobby",
                  traditional: true,

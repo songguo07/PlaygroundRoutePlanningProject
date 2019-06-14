@@ -58,9 +58,10 @@ public class RecommedHobby extends HttpServlet {
 		double down=0;
 		double down2=0;
 		for (Map.Entry entry : ms) {
-			System.out.println("用户id:"+entry.getKey());
+			System.out.println("用户id1:"+entry.getKey());
 			scores=userScores.get(entry.getKey());
 			if(nowUserid.equals(entry.getKey())) {
+				System.out.println("scores1:"+scores[0]);
 				
 				for (int i=0;i<27;i++) {
 					newScore[i]=scores[i];
@@ -72,7 +73,7 @@ public class RecommedHobby extends HttpServlet {
 		}
 		
 		for (Map.Entry entry : ms) {
-			System.out.println("用户id:"+entry.getKey());
+			System.out.println("用户id2:"+entry.getKey());
 			scores=userScores.get(entry.getKey());
 			if(!nowUserid.equals(entry.getKey())) {
 				for(int k=0;k<27;k++) {
@@ -82,7 +83,7 @@ public class RecommedHobby extends HttpServlet {
 				down2=Math.sqrt(down2);
 				double sim=0;
 				sim=up/(down1*down2);
-				//System.out.println("余弦相似度："+sim);
+				System.out.println("余弦相似度："+sim);
 				if(sim>0.8) {
 					recommentUserId.add((String)entry.getKey());
 				}
