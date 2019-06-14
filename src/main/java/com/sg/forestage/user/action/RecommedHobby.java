@@ -43,7 +43,7 @@ public class RecommedHobby extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		User user = (User) request.getSession().getAttribute("userSession");
 		String nowUserid=user.getUserId();
-		System.out.println("推荐算法servlet");
+		System.out.println("！！！！！！！！！！！！！！！！！》》》推荐算法servlet");
 		int newScore[]=new int[27];
 		int scores[]=new int[27];
 		Set<String> recommentUserId=new HashSet();
