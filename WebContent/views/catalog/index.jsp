@@ -110,8 +110,7 @@
 						class="filter" data-filter="excite">刺激</a> <a href="#"
 						class="filter" data-filter="interact">互动</a> <a href="#"
 						class="filter" data-filter="happy">欢乐</a>
-						<a href="#" 
-						class="filter" data-filter="recommend">推荐</a>
+						<a href="#" id="recProjects" class="filter" data-filter="recommend">推荐</a>
 						
 				</div>
 
@@ -820,22 +819,24 @@
 	 		});
 	 		return false;
 		}); 
-	 	$("#recommend").click(function(){
-	 		 $.ajax({
-				 url:result+"/RecommedHobby",
-                 traditional: true,
-                 type: "POST",
-                 cache : false,
-                 dataType:'JSON',
-				 success:function(result){
-				    jQuery.each(result,function(key,value){ 
-				    	var id=value[0];
-				    	$("#"+id).addClass("recommend");
-				    	
-	               }) 
-				}
-			 });
-	 	});
+	 	
+	 	$.ajax({
+			 url:result+"/RecommedHobby",
+            traditional: true,
+            type: "POST",
+            cache : false,
+            dataType:'JSON',
+			 success:function(result){
+			    jQuery.each(result,function(key,value){ 
+			    	var id=value[0];
+			    	$("#"+id).addClass("recommend");
+			    	
+              }) 
+			}
+		 });
+	 	/**$("#recProjects").click(function(){
+	 		 
+	 	});**/
 	 	$("#reSetHobby").click(function(){
 			 $.ajax({
 				 url:result+"/ClearHobbyByUserId",
