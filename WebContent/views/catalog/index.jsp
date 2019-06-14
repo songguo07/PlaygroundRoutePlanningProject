@@ -752,6 +752,20 @@
 	    //获取带"/"的项目名，如：/uimcardprj
 	    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
 	    result=localhostPaht+projectName;
+		$.ajax({
+			 url:result+"/RecommedHobby",
+           traditional: true,
+           type: "POST",
+           cache : false,
+           dataType:'JSON',
+			 success:function(result){
+			    jQuery.each(result,function(key,value){ 
+			    	var id=value[0];
+			    	$("#"+id).addClass("recommend");
+			    	
+             }) 
+			}
+		 });
 		$("#startDesign").click(function(){
 			 var i=0;
 			 var hobby=new Array();
@@ -819,44 +833,11 @@
 	 		});
 	 		return false;
 		}); 
-<<<<<<< HEAD
-	 	$("#recommend").click(function(){
-	 		alert(11)
-	 		 $.ajax({
-				 url:result+"/RecommedHobby",
-                 traditional: true,
-                 type: "POST",
-                 cache : false,
-                 dataType:'JSON',
-				 success:function(result){
-				    jQuery.each(result,function(key,value){ 
-				    	var id=value[0];
-				    	$("#"+id).addClass("recommend");
-				    	
-	               }) 
-				}
-			 });
-	 	});
-=======
 	 	
-	 	$.ajax({
-			 url:result+"/RecommedHobby",
-            traditional: true,
-            type: "POST",
-            cache : false,
-            dataType:'JSON',
-			 success:function(result){
-			    jQuery.each(result,function(key,value){ 
-			    	var id=value[0];
-			    	$("#"+id).addClass("recommend");
-			    	
-              }) 
-			}
-		 });
+	 
 	 	/**$("#recProjects").click(function(){
 	 		 
 	 	});**/
->>>>>>> 337d02c929bd0a01ad365aafe8adafeb5adf7a47
 	 	$("#reSetHobby").click(function(){
 			 $.ajax({
 				 url:result+"/ClearHobbyByUserId",

@@ -1,6 +1,7 @@
 package com.sg.forestage.user.action;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -64,6 +65,7 @@ public class RecommedHobby extends HttpServlet {
 				System.out.println("scores1:"+scores[0]);
 				
 				for (int i=0;i<27;i++) {
+					System.out.println(i+"当前用户的27个项目的评分："+scores[i]);
 					newScore[i]=scores[i];
 					down1+=newScore[i]*newScore[i];
 				}
@@ -73,18 +75,23 @@ public class RecommedHobby extends HttpServlet {
 		}
 		
 		for (Map.Entry entry : ms) {
-			System.out.println("用户id2:"+entry.getKey());
-			scores=userScores.get(entry.getKey());
 			if(!nowUserid.equals(entry.getKey())) {
+				System.out.println("用户id2:"+entry.getKey());
+				int otherSocres[]=new int[27];
+				otherSocres=userScores.get(entry.getKey());
 				for(int k=0;k<27;k++) {
-					up+=newScore[k]*scores[k];
+					System.out.println(k+"其他用户的27个项目的评分："+otherSocres[k]);
+					up+=newScore[k]*otherSocres[k];
 					down2+=scores[k]*scores[k];
 				}
+				
 				down2=Math.sqrt(down2);
 				double sim=0;
 				sim=up/(down1*down2);
+				DecimalFormat df = new DecimalFormat("0.0");
+				sim=Double.parseDouble(df.format(sim));
 				System.out.println("余弦相似度："+sim);
-				if(sim>0.8) {
+				if(sim>=0.8) {
 					recommentUserId.add((String)entry.getKey());
 				}
 				for (String rui : recommentUserId) {
